@@ -1,0 +1,54 @@
+[
+    {        
+        "EstudiantesGeneral" : [
+        {
+            "Identificación" : 1,
+            "Nombres" : "Brayan Stiven",
+            "Apellidos" : "Maldonado Ortega",
+            "Dirección" : "Cll 1c 5b-31",
+            "Acudiente" : "Mildred Ortega Ropero",
+            "Celular" : 3103903374,      
+            "Fijo" : 1123124,
+            "Trainer" : "Pedro",
+            "Ruta" : "Ruta NodeJS, Ruta Java, Ruta NetCore",
+            "FechaInicio" : "FechaInicio",
+            "FechaFinal": "FechaFinal",
+            "Rendimiento": "Bajo",
+            "Riesgo" : "Bajo - Medio - Alto",
+            "Estado" : "En proceso de ingreso, Inscrito, Aprobado,Cursando, Graduado, Expulsado, Retirado",
+            "Notas" : {
+                "Nota1": "",
+                "Nota2": "",
+                "Nota3": "",
+                "Nota4": "",
+                "Nota5": ""
+            }
+        },
+        {
+            "Identificación" : 2,
+            "Nombres" : "Maria Guadalupe",
+            "Apellidos" : "Lizarazo",
+            "Dirección" : "Cll 4c 8b-45",
+            "Acudiente" : "Pepita Gomez",
+            "Celular" : 31213412,      
+            "Fijo" : 2984923,
+            "Trainer" : "Pedro",
+            "Ruta" : "Ruta NodeJS, Ruta Java, Ruta NetCore",
+            "FechaInicio" : "FechaInicio",
+            "FechaFinal": "FechaFinal",
+            "Rendimiento": "Bajo",
+            "Riesgo" : "Bajo - Medio - Alto",
+            "Estado" : "En proceso de ingreso, Inscrito, Aprobado,Cursando, Graduado, Expulsado, Retirado",
+            "Notas" : {
+                "Nota1": "",
+                "Nota2": "",
+                "Nota3": "",
+                "Nota4": "",
+                "Nota5": ""
+            }
+        }
+    ]
+}
+
+
+]
