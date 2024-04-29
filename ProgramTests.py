@@ -23,3 +23,4 @@ for i in GeneralData[0]["EstudiantesGeneral"]:
 
 GeneralData = abrirArchivo() #Se guarda la información que se tiene dentro del archivo .json dentro de una variable para depués usarla dentro del programa
 GuardarArchivo(GeneralData) #Guardar los cambios que se hagan al archivo.json
+##brayan-maria
