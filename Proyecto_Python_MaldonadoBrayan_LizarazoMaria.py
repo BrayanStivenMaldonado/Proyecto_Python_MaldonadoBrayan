@@ -22,4 +22,3 @@ print("")
 #El ROL de "Coordinador" Debe tener la opción de registrar la nota de los campers para cambiar el estado de "Aprobado" (Prom_PT_PP>=60 = Aprobado)
 
 
-
