@@ -2,10 +2,10 @@
     {
         "EstudiantesGeneral": [
             {
-                "Identificaci\u00f3n": 1,
+                "Identificacion": 1,
                 "Nombres": "Brayan Stiven",
                 "Apellidos": "Maldonado Ortega",
-                "Direcci\u00f3n": "Cll 1c 5b-31",
+                "Direccion": "Cll 1c 5b-31",
                 "Acudiente": "Mildred Ortega Ropero",
                 "Celular": 3103903374,
                 "Fijo": 1123124,
@@ -25,10 +25,10 @@
                 }
             },
             {
-                "Identificaci\u00f3n": 2,
+                "Identificacion": 2,
                 "Nombres": "Maria Guadalupe",
                 "Apellidos": "Lizarazo Leal",
-                "Direcci\u00f3n": "Cll 4c 8b-45",
+                "Direccion": "Cll 4c 8b-45",
                 "Acudiente": "Sandra Patricia Leal Lopez",
                 "Celular": 31213412,
                 "Fijo": 2984923,
@@ -87,13 +87,13 @@
     {
         "ModulosEntrenamiento": [
             {
-                "Modulo": "Fundamentos de programacio\u0301n (Introduccio\u0301n a la algoritmia, PSeInt y Python)"
+                "Modulo": "Fundamentos de programacion (Introduccion a la algoritmia, PSeInt y Python)"
             },
             {
-                "Modulo": "Programacio\u0301n Web (HTML, CSS y Bootstrap)"
+                "Modulo": "Programacion Web (HTML, CSS y Bootstrap)"
             },
             {
-                "Modulo": "Programacio\u0301n formal (Java, JavaScript, C#)"
+                "Modulo": "Programacion formal (Java, JavaScript, C#)"
             },
             {
                 "Modulo": "Bases de datos (Mysql, MongoDb y Postgresql)"

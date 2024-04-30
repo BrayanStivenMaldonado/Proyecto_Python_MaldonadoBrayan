@@ -14,63 +14,99 @@ def guardarArchivo(miData): #Función que va a servir para guardar los datos que
         json.dump(miData,outfile)
 
 #INICIO DEL PROGRAMA
-sel=0 # le damos valor a nuestra variable sel-eccion para asi poder ejecutarla en nuestro while
-while sel!=4:  # hacemos un while para hacer un bucle a nuestras cuatro opciones
-    system("cls") # colocamos un limpiaar pantalla
-    print("""
-    ------BIENVENIDO AL PROGRAMA PARA EL FILTRO DE PYTHON DE BRAYAN Y MARIA------
-    1. ¿Eres un camper?.                                            
-    2. ¿Eres trainer?.
-    3. Soy el Coordinador :D
-    4. ¿Desea terminar el programa?.
-    ------------------------------------------------------------------------------
-    """) #Creo un menú
-    sel=int(input("Digita el numero de lo primero que deseas hacer:\n")) # Le pedimos al usuario que por favor ingrese el numero de alguna de nuestras opc.
-
-    if sel == 1:
-        
-        
-        input("Para volver al menú principal, presione enter.") # este input nos ayuda con el limpiar pantalla
-
-    if sel == 2:
-        GeneralData = abrirArchivo()
-        contador = 0
-        for i in GeneralData[0]["EstudiantesGeneral"]:
-            contador += 1
-            print("ESTUDIANTE #",contador)
-            print("# de identificación:",i["Identificación"])
-            print ("Nombres:",i["Nombres"])
-            print ("Apellidos:",i["Apellidos"])
-            print ("Dirección:",i["Dirección"])
-            print ("Acudiente:",i["Acudiente"])
-            print ("Celular:",i["Celular"])
-            print ("Fijo:",i["Fijo"])
-            print("Trainer:",i["Trainer"])
-            print("Ruta:",i["Ruta"])
-            print("Fechad de inicio:",i["FechaInicio"])
-            print("Fecha final:",i["FechaFinal"])
-            print("Rendimiento:",i["Rendimiento"])
-            print("Riesgo:",i["Riesgo"])
-            print("Estado:",i["Estado"])
-            print("")        
-    
-        input("Para volver al menú principal, presione enter.") # este input nos ayuda con el limpiar pantalla
-
-    if sel == 3:
-        
-    
-        input("Para volver al menú principal, presione enter.") # este input nos ayuda con el limpiar pantalla
-
-else:
-    print("El programa ha terminado.")    
-    input("Presione enter para finalizar.")
-
-
 #Entrada en la que el usuario va a ingresar el rol que tiene para así saber qué opciones mostrarle
-RolUsuario = str(input("¿Cuál es su rol dentro de CampusLands?\n 1. Camper\n 2. Trainer\n 3. Coordinador\n"))
-print("Hola", RolUsuario)
+boolUsuario = True
+TipoUsuario = ""
+while boolUsuario == True: #Se le va a preguntar el tipo de Rol hasta que ingrese un valor válido
+    RolUsuario = int(input("¿Cuál es su rol dentro de CampusLands?\n 1. Camper\n 2. Trainer\n 3. Coordinador\n"))
+   
+    if RolUsuario == 1: #Dependiendo de la elección numerica, esta va a tomar un valor de texto
+        TipoUsuario = "Camper"
+        boolUsuario = False
+
+    elif RolUsuario == 2: 
+        TipoUsuario = "Trainer"
+        boolUsuario = False
+
+    elif RolUsuario == 3:
+        TipoUsuario = "Coordinador"
+        boolUsuario = False
+
+    else:
+        print("Este no es un número válido")
+        input("Presione ENTER para continuar")
+        system("cls")
+
+print("Hola", TipoUsuario)
 print("")
 #El ROL de "Coordinador" Debe tener la opción de registrar la nota de los campers para cambiar el estado de "Aprobado" (Prom_PT_PP>=60 = Aprobado)
 
+if RolUsuario == 1:
+    print("---CAMPER---")
+    print("")
+    print(""" 
+MENÚ DEL CAMPER
+1. Ver notas
+2. Ver Ruta de Estudio.
+3. Ver Horario y salon de clases.
+4. Ver módulo en el que está registrado
+5. Salir.
+          """)
 
 
+elif RolUsuario == 2:
+    print("---TRAINER---")
+    print("")
+    print(""" 
+MENÚ DEL TRAINER
+1. Ver Ruta de Estudio.
+2. Ver Horario.
+3. Ver salones.
+4. Ver Modulos.
+5.Salir.
+          """)
+
+elif RolUsuario == 3:
+    boolCoordinador = True
+    while boolCoordinador == True:
+        print("---COORDINADOR---")
+        print("")
+        print(""" 
+    MENÚ DEL TRAINER
+    1. Registrar nuevo Camper.
+    2. Registrar nota de los Campers que se han registrado.
+    3. Ver Docentes dentro de Campus.
+    4. Ver Grupos y la Ruta de Estudio que llevan.
+    5. Salir.
+            """)
+        eleccionCoordinador = int(input("¿Qué desea hacer?: "))
+        #if eleccionCoordinador == 1:
+         #   print("---REGISTRAR CAMPER A LA PLATAFORMA---")
+          #  GeneralData = abrirArchivo()
+           # GeneralData[0]["EstudiantesGeneral"].append ({
+            #        "Identificacion": 1,
+             #       "Nombres": str(input("Ingrese los Nombres del Camper: ")),
+              #      "Apellidos": str(input("Ingrese los apellidos del Camper: ")),
+               #     "Direccion": str(input("Ingrese la dirección del Camper: ")),
+                #    "Acudiente": str(input("Ingrese el nomnbre de el/la acudiente del Camper: ")),
+                 #   "Celular": input("Ingrese el número de celular del Camper: "),
+                  #  "Fijo": input("Ingrese el telefono fijo del Camper: "),
+                   # "Trainer": str(input("Ingrese el nombre del Trainer")),
+                    #"Ruta": str(input("Ingrese la ruta de estudio del Camper: ")),
+                    #"FechaInicio": input("Ingrese la fecha de Inicio del Camper: "),
+                    #"FechaFinal": input("Ingrese la fecha de finalización del proceso del Camper: "),
+                    #"Rendimiento": input("Rendimiento: "),
+                    #"Riesgo": input("Riesgo"),
+                    #"Estado": input("Estado: "),
+                    #"Notas": {
+                    #input("Notas")
+                    #}
+            #})
+            #guardarArchivo(GeneralData)
+            #print("Camper Registrado!")
+            #print("")
+            #input("Presione ENTER para continuar")
+            #system("cls")
+            #boolCoordinador = False
+    
+#Desarrollado por Brayan Maldonado Y Maria Lizarazo - Campers
