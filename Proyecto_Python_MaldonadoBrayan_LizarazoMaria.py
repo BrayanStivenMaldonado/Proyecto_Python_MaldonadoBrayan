@@ -74,39 +74,69 @@ elif RolUsuario == 3:
         print(""" 
     MENÚ DEL TRAINER
     1. Registrar nuevo Camper.
-    2. Registrar nota de los Campers que se han registrado.
-    3. Ver Docentes dentro de Campus.
-    4. Ver Grupos y la Ruta de Estudio que llevan.
-    5. Salir.
+    2. Añadir Ruta de Estudio a los Campers.
+    3. Ingresar Nota del Camper.
             """)
         eleccionCoordinador = int(input("¿Qué desea hacer?: "))
-        #if eleccionCoordinador == 1:
-         #   print("---REGISTRAR CAMPER A LA PLATAFORMA---")
-          #  GeneralData = abrirArchivo()
-           # GeneralData[0]["EstudiantesGeneral"].append ({
-            #        "Identificacion": 1,
-             #       "Nombres": str(input("Ingrese los Nombres del Camper: ")),
-              #      "Apellidos": str(input("Ingrese los apellidos del Camper: ")),
-               #     "Direccion": str(input("Ingrese la dirección del Camper: ")),
-                #    "Acudiente": str(input("Ingrese el nomnbre de el/la acudiente del Camper: ")),
-                 #   "Celular": input("Ingrese el número de celular del Camper: "),
-                  #  "Fijo": input("Ingrese el telefono fijo del Camper: "),
-                   # "Trainer": str(input("Ingrese el nombre del Trainer")),
-                    #"Ruta": str(input("Ingrese la ruta de estudio del Camper: ")),
-                    #"FechaInicio": input("Ingrese la fecha de Inicio del Camper: "),
-                    #"FechaFinal": input("Ingrese la fecha de finalización del proceso del Camper: "),
-                    #"Rendimiento": input("Rendimiento: "),
-                    #"Riesgo": input("Riesgo"),
-                    #"Estado": input("Estado: "),
-                    #"Notas": {
-                    #input("Notas")
-                    #}
-            #})
-            #guardarArchivo(GeneralData)
-            #print("Camper Registrado!")
-            #print("")
-            #input("Presione ENTER para continuar")
-            #system("cls")
-            #boolCoordinador = False
+        system("cls")
+
+        #=====Crear Nuevo Camper=====
+        if eleccionCoordinador == 1:
+            print("---REGISTRAR CAMPER A INSCRITOS---")
+            GeneralData = abrirArchivo()
+            GeneralData[2]["Estudiantes"].append ({
+                    "Identificador" : len(GeneralData[2]["Estudiantes"])+1,
+                    "Estado" : "Inscrito",
+                    "Documento": (input("Ingrese su documento: ")),
+                    "Nombres": (input("Ingrese los Nombres del Camper: ")),
+                    "Apellidos": (input("Ingrese los apellidos del Camper: ")),
+                    "Direccion": (input("Ingrese la dirección del Camper: ")),
+                    "Acudiente": (input("Ingrese el nomnbre de el/la acudiente del Camper: ")),
+                    "Celular": input("Ingrese el número de celular del Camper: "),
+                    "Fijo": input("Ingrese el telefono fijo del Camper: "),
+                    "NotaPrueba" : input("Ingrese la nota de la prueba: ")
+                    })
+            guardarArchivo(GeneralData)
+            print("Camper Registrado!")
+            print("")
+            input("Presione ENTER para continuar")
+            system("cls")
+            break
     
+        #===DEFINIR RUTA DEL CAMPER===        
+        if eleccionCoordinador == 2:
+            print("---REGISTRAR RUTA DE ESTUDIO---")
+            GeneralData = abrirArchivo()
+            for i in GeneralData[3]["Estudiantes"]:
+                print("Idetinficador:",i["Identificador"])
+                print("Documento:",i["Documento"])
+                print("Nombres",i["Nombres"])
+                print("Apellidos",i["Apellidos"])
+            
+            CamperParaRuta = int(input("Ingrese el identificador del Camper que desea escoger: "))
+            #Falta hacer que escoja al camper
+            RutaElegida = str(input("Ingrese el nombre de la Ruta que le desea definir: "))
+            GeneralData[3]["Estudiantes"][CamperParaRuta-1]["Ruta"] = RutaElegida
+            guardarArchivo(GeneralData)
+            break
+
+
+        if eleccionCoordinador == 3: 
+           
+            GeneralData = abrirArchivo()
+            print("---INGRESAR LA NOTA DE LA PRUEBA---")
+            for i in GeneralData[2]["Estudiantes"]:
+                print("Idetinficador:",i["Identificador"])
+                print("Documento:",i["Documento"])
+                print("Nombres",i["Nombres"])
+                print("Apellidos",i["Apellidos"])
+            
+            CamperParaNota = int(input("Ingrese el Camper que desea Agregar"))
+            NotaCamper = int(input("Ingrese la nota: "))
+            GeneralData[2]["Estudiantes"][CamperParaNota-1]["NotaPrueba"] = NotaCamper
+            guardarArchivo(GeneralData)
+            break
+
+
+      
 #Desarrollado por Brayan Maldonado Y Maria Lizarazo - Campers

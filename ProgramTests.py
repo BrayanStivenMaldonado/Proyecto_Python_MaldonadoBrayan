@@ -72,4 +72,4 @@ GeneralData[5]["Grupos"].append({
     "Grupo" : NuevoGrupo
 })
 print("Grupo Añadido!")
-guardarArchivo(GeneralData)
+guardarArchivo(GeneralData) 
