@@ -41,7 +41,7 @@
         "Estudiantes": [
             {
                 "Identificador": 1,
-                "Estado": "Cursando",
+                "Estado": "Aprobado",
                 "Ruta": "",
                 "Documento": 12313,
                 "Nombres": "Guillermo Jose",
@@ -73,6 +73,29 @@
                 "Documento": 12313,
                 "Nombres": "Guillermo Jose",
                 "Apellidos": "Perez Gomez"
+            }
+        ]
+    },
+    {
+        "Tipo": "Fechas",
+        "Fechas": [
+            {
+                "FehcaInicio": "00-00-0000",
+                "FehcaFinal": "00-00-0000"
+            }
+        ]
+    },
+    {
+        "Tipo": "Grupos",
+        "Grupos": [
+            {
+                "GrupoT1": []
+            },
+            {
+                "GrupoT2": []
+            },
+            {
+                "GrupoT3": []
             }
         ]
     }
