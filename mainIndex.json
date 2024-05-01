@@ -4,9 +4,23 @@
         "Trainers": [
             {
                 "Nombre": "Pedro Gomez",
-                "Ruta": "Ruta NodeJS, Ruta Java, Ruta NetCore",
-                "Horario": "6-10, 10-2, 2-6, 6-10",
-                "Grupos": "T1"
+                "Ruta": "",
+                "Horario": "",
+                "Grupo": "T1"
+            },
+
+            {
+                "Nombre": "Jholver Garcia",
+                "Ruta" : "",
+                "Horario" : "",
+                "Grupo" : "T2"
+            },
+
+            {
+                "Nombre": "Miguel",
+                "Ruta" : "",
+                "Horario" : "",
+                "Grupo" : "T3"
             }
         ]
     },
@@ -50,17 +64,10 @@
                 "Acudiente": "Patrocla",
                 "Celular": 31213412,
                 "Fijo": 2984923,
-                "Grupo": "T1",
+                "Grupo": "T2",
                 "Salon": "",
                 "Trainer": "",
-                "Horario": "",
-                "Notas": {
-                    "Nota1": "",
-                    "Nota2": "",
-                    "Nota3": "",
-                    "Nota4": "",
-                    "Nota5": ""
-                }
+                "Horario": ""
             }
         ]
     },

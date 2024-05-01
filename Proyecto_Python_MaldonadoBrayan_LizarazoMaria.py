@@ -14,27 +14,6 @@ def guardarArchivo(miData): #Función que va a servir para guardar los datos que
         json.dump(miData,outfile)
 
 #INICIO DEL PROGRAMA
-GeneralData = abrirArchivo()
-GrupoT1 = []
-GrupoT2 = []
-GrupoT3 = []
-#Se guardan los estudiantes en el salon que correspondan
-for i in range (len(GeneralData[3]["Estudiantes"])):
-    if GeneralData[3]["Estudiantes"][i]["Grupo"] == "T1":
-        GrupoT1.append(GeneralData[3]["Estudiantes"])
-
-    elif GeneralData[3]["Estudiantes"][i]["Grupo"] == "T2":
-        GrupoT2.append(GeneralData[3]["Estudiantes"])
-    
-    elif GeneralData[3]["Estudiantes"][i]["Grupo"] == "T3":
-        GrupoT3.append(GeneralData[3]["Estudiantes"])
-
-GeneralData[6]["Grupos"][0]["GrupoT1"]= GrupoT1
-GeneralData[6]["Grupos"][1]["GrupoT2"]= GrupoT2
-GeneralData[6]["Grupos"][2]["GrupoT3"]= GrupoT3
-guardarArchivo(GeneralData)
-
-
 
 #Entrada en la que el usuario va a ingresar el rol que tiene para así saber qué opciones mostrarle
 boolUsuario = True
@@ -61,9 +40,11 @@ while boolUsuario == True: #Se le va a preguntar el tipo de Rol hasta que ingres
 
 print("Hola", TipoUsuario)
 print("")
-#El ROL de "Coordinador" Debe tener la opción de registrar la nota de los campers para cambiar el estado de "Aprobado" (Prom_PT_PP>=60 = Aprobado)
 
+#=================================== MODULO DEL COORDINADOR ===========================================================
+ 
 if RolUsuario == 1:
+    system("cls")
     print("---CAMPER---")
     print("")
     print(""" 
@@ -75,8 +56,9 @@ MENÚ DEL CAMPER
 5. Salir.
           """)
 
-
+#=================================== MODULO DEL TRAINER ===========================================================
 elif RolUsuario == 2:
+    system("cls")
     boolTrainer = True
     while boolTrainer == True: 
         print("---TRAINER---")
@@ -90,18 +72,55 @@ MENÚ DEL TRAINER
         system("cls")
 
         if eleccionTrainer == 1:
-            print ("GRUPOS")
-            GeneralData = abrirArchivo()
-            for i in range (len(GeneralData[6]["Grupos"][0])):
-                print("Nombres:",i["Nombres"])
-                print("Apellidos:",i["Apellidos"]) ####################################
-                print("Grupo:",i["Grupo"])         #################################
-                print("Salon:",i["Salon"])         ###################################
-                print("Trainer:",i["Trainer"])
-                print("Horario:",i["Horario"])
-               
 
+            GeneralData = abrirArchivo()
+            GrupoT1 = {}
+            GrupoT2 = {}
+            GrupoT3 = {}
+            #Se guardan los estudiantes en el salon que correspondan
+            for i in range (len(GeneralData[3]["Estudiantes"])):
+                if GeneralData[3]["Estudiantes"][i]["Grupo"] == "T1":
+                    GrupoT1 = (GeneralData[3]["Estudiantes"])
+
+                elif GeneralData[3]["Estudiantes"][i]["Grupo"] == "T2":
+                    GrupoT2 = (GeneralData[3]["Estudiantes"])
+                
+                elif GeneralData[3]["Estudiantes"][i]["Grupo"] == "T3":
+                    GrupoT3 = (GeneralData[3]["Estudiantes"])
+            GeneralData[6]["Grupos"][0]["GrupoT1"]= GrupoT1
+            GeneralData[6]["Grupos"][1]["GrupoT2"]= GrupoT2
+            GeneralData[6]["Grupos"][2]["GrupoT3"]= GrupoT3
+            guardarArchivo(GeneralData)
+
+            print ("GRUPOS"),print()
+            GeneralData = abrirArchivo() #Mostrar los grupos
+            print("GRUPO T1"),print("")
+            contador = 0
+            for i in GeneralData[6]["Grupos"][0]["GrupoT1"]:
+                contador+=1
+                print("Estudiante #",contador)
+                print("Nombres:",i["Nombres"]),print("Apellidos:",i["Apellidos"]),print("Grupo:",i["Grupo"]),print("Salon:",i["Salon"]),print("Trainer:",i["Trainer"])
+                print("================")
+            
+            print("GRUPO T2"),print("")
+            contador = 0
+            for i in GeneralData[6]["Grupos"][1]["GrupoT2"]:
+                contador+=1
+                print("Estudiante #",contador)
+                print("Nombres:",i["Nombres"]),print("Apellidos:",i["Apellidos"]),print("Grupo:",i["Grupo"]),print("Salon:",i["Salon"]),print("Trainer:",i["Trainer"])
+                print("================")
+
+            print("GRUPO T3"),print("")
+            contador = 0
+            for i in GeneralData[6]["Grupos"][2]["GrupoT3"]:
+                contador+=1
+                print("Estudiante #",contador)
+                print("Nombres:",i["Nombres"]),print("Apellidos:",i["Apellidos"]),print("Grupo:",i["Grupo"]),print("Salon:",i["Salon"]),print("Trainer:",i["Trainer"])
+                print("================")
+               
+#=================================== MODULO DEL COORDINADOR ===========================================================
 elif RolUsuario == 3:
+    system("cls")
     boolCoordinador = True
     while boolCoordinador == True:
         print("---COORDINADOR---")
@@ -109,8 +128,9 @@ elif RolUsuario == 3:
         print(""" 
     MENÚ DEL TRAINER
     1. Registrar nuevo Camper.
-    2. Ingresar Nota del Camper.
+    2. Ingresar Nota de la prueba inicial al Camper.
     3. Añadir Ruta de Estudio a los Campers, asignación de trainer, salon y definicion de horario.
+    4. Salir del módulo de coordinador.
             """)
         eleccionCoordinador = int(input("¿Qué desea hacer?: "))
         system("cls")
@@ -140,33 +160,46 @@ elif RolUsuario == 3:
     
 
         #INGRESAR NOTA DE LA PRUEBA INICIAL
-        if eleccionCoordinador == 2: 
+        elif eleccionCoordinador == 2: 
             GeneralData = abrirArchivo()
-            print("---INGRESAR LA NOTA DE LA PRUEBA---")
+            print("---INGRESAR LA NOTA DE LA PRUEBA INICIAL---")
             for i in GeneralData[2]["Estudiantes"]:
                 print("Idetinficador:",i["Identificador"])
                 print("Documento:",i["Documento"])
                 print("Nombres",i["Nombres"])
                 print("Apellidos",i["Apellidos"]) 
             CamperParaNota = int(input("Ingrese el Camper que desea Agregar: "))
-            NotaCamper = int(input("Ingrese la nota: "))
+            PruebaTeorica = int(input("Ingrese la nota de la prueba teorica"))
+            PruebaPractica = int(input("Ingrese la nota de la prueba practica:")) 
+            NotaCamper = (PruebaPractica+PruebaTeorica)/2 #La nota de la prueba general del camper es el prom de las dos que realizó
             GeneralData[2]["Estudiantes"][CamperParaNota-1]["NotaPrueba"] = NotaCamper
             guardarArchivo(GeneralData)
             print("Nota Agregada!")
             input("Presione ENTER para continuar")
             system("cls")
 
+            ListarAprobados = {}
+            AprobadosInicial = {}
+            ReprobadosInicial = {}
+
             GeneralData = abrirArchivo()
             for i in range (len(GeneralData[2]["Estudiantes"])):
                 if GeneralData[2]["Estudiantes"][i]["NotaPrueba"]>=60:
-                    GeneralData[2]["Estudiantes"][i]["Estado"] = "Aprobado"
+                    ListarAprobados = GeneralData[2]["Estudiantes"]
+                    AprobadosInicial = GeneralData[2]["Estudiantes"] #Dependiendo de la nota que se le dé al camper 
+                    GeneralData[3]["Estudiantes"] = AprobadosInicial #Se va a añadir a la lista de "Cursando"
+                    GeneralData[2]["Estudiantes"][i]["Estado"] = "Aprobado" # o a la de "Expulsados"
 
-                elif GeneralData[2]["Estudiantes"][i]["NotaPrueba"]<=59:
+                elif GeneralData[2]["Estudiantes"][i]["NotaPrueba"]<=59: #Primero se Guardan en un diccionario y posteriormente
+                    ReprobadosInicial = GeneralData[2]["Estudiantes"] #se agregan al json
+                    GeneralData[4]["Estudiantes"] = ReprobadosInicial
                     GeneralData[2]["Estudiantes"][i]["Estado"] = "Reprobado"
-            guardarArchivo(GeneralData)                  
+            guardarArchivo(GeneralData)    
+
+            print(AprobadosInicial)              
 
         #===DEFINIR RUTA DEL CAMPER, ASIGNACION DE TRAINER, SALON Y DEFINICION DE HORARIO===        
-        if eleccionCoordinador == 3:
+        elif eleccionCoordinador == 3:
             print("----REGISTRAR RUTA DE ESTUDIO, ASIGNACION DE TRAINER, SALON Y DEFINICION DE HORARIO----")
             GeneralData = abrirArchivo()
             for i in GeneralData[3]["Estudiantes"]:
@@ -181,7 +214,7 @@ elif RolUsuario == 3:
             GeneralData[3]["Estudiantes"][Camper-1]["Ruta"] = RutaElegida
             guardarArchivo(GeneralData)
             #ASIGNAR TRAINER
-            print("\n Los Trainers disponibles son:\n Pedro Perez \n Jholver Garcia \n Stiven Carvajal")
+            print("\n Los Trainers disponibles son:\n Pedro Perez \n Jholver Garcia \n Miguel")
             TrainerConfirmado = str(input("Ingrese el nombre del Trainer que desea asignar: "))
             GeneralData[3]["Estudiantes"][Camper-1]["Trainer"] = TrainerConfirmado
             guardarArchivo(GeneralData)
@@ -199,6 +232,70 @@ elif RolUsuario == 3:
             print("Cambios Realizados!")
             input("Presione ENTER para continuar")
             system("cls")
+
+        elif eleccionCoordinador == 4: 
+            print("Saliendo del módulo del coordinador")
+            input("Presione ENTER para continuar")
+            system("cls")
+            boolCoordinador = False
+
+
+
+#==================================== MODULO DE REPORTES ==================================================
+boolReportes = True
+while boolReportes == True:
+    print("""Modulo de reportes: 
+    1. Listar los campers que se encuentren en estado de inscrito.
+    2. Listar los campers que aprobaron el examen inicial.
+    3. Listar los entrenadores que se encuentran trabajando con CampusLands.
+    4. Listar los campers que cuentan con bajo rendimiento.
+    5. Listar los Campers y Trainers que se encuentren asociados a una ruta de entrenamiento.
+    6. Mostrar cuantos campers perdieron y aprobaron cada uno de los módulos teniendo en cuenta la ruta de entrenamiento y el entrenador encargado.
+    7. Salir.
+          """)
+    eleccionReportes = int(input("¿Qué desea hacer?: "))
+    system("cls")
+
+    if eleccionReportes == 1:
+        print("Campers en estado inscrito")
+
+    
+    elif eleccionReportes == 2:
+        print("Campers que aprobaron el examen inicial")
+        print(ListarAprobados)
+
+
+    elif eleccionReportes == 3:
+        print("Listar Trainers"),print("")
+        GeneralData = abrirArchivo()
+        contador = 0 
+        for i in (GeneralData[0]["Trainers"]):
+            contador+=1
+            print("Trainer #",contador),print("Nombre:",i["Nombre"]),print("Ruta:",i["Horario"]),print("Horario:",i["Horario"]),print("Grupo:",i["Grupo"])
+            print("=================")
+        
+        input("Presione ENTER Para continuar")
+        system("cls")
+
+
+    elif eleccionReportes == 4:
+        print("Listar Campers con rendimiento Bajo")
+
+
+    elif eleccionReportes == 5:
+        print("Listar Campers y Trainers asociados a una misma ruta de entrenamiento")
+
+    elif eleccionReportes == 6:
+        print("Listar Campers que perdieron y aprobaron cada uno de los modulos dependiendo la ruta de entrenamiento")
+        
+    elif eleccionReportes == 7:
+        print("Saliendo del programa")
+        boolReportes = False
+    else:
+        print("Esta no es una opción válida, intente de nuevo")
+        input("Presione ENTER para continuar")
+        system("cls")
+
 
       
 #Desarrollado por Brayan Maldonado Y Maria Lizarazo - Campers
