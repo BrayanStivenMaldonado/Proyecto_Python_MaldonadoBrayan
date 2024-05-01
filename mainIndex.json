@@ -42,7 +42,7 @@
             {
                 "Identificador": 1,
                 "Estado": "Cursando",
-                "Ruta": "",
+                "Ruta": "Java",
                 "Documento": 12313,
                 "Nombres": "Guillermo Jose",
                 "Apellidos": "Perez Gomez",
@@ -51,9 +51,9 @@
                 "Celular": 31213412,
                 "Fijo": 2984923,
                 "Grupo": "T1",
-                "Salon" : "",
-                "Trainer": "",
-                "Horario": "",
+                "Salon": "Artemis",
+                "Trainer": "Jholver Garcia",
+                "Horario": "10am-2pm",
                 "Notas": {
                     "Nota1": "",
                     "Nota2": "",
