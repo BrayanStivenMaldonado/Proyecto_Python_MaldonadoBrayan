@@ -123,7 +123,7 @@ elif RolUsuario == 3:
                     break
 
 
-        #===DEFINIR RUTA DEL CAMPER===        
+        #===DEFINIR RUTA DEL CAMPER, ASIGNACION DE TRAINER, SALON Y DEFINICION DE HORARIO===        
         if eleccionCoordinador == 3:
             print("----REGISTRAR RUTA DE ESTUDIO, ASIGNACION DE TRAINER, SALON Y DEFINICION DE HORARIO----")
             GeneralData = abrirArchivo()
