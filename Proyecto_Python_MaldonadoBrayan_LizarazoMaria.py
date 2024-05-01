@@ -1,8 +1,10 @@
 #Proyecto para el filtro de Python
 
+#Importación de librerias
 import json
 from os import system
 
+#Definición de funciones
 def abrirArchivo(): #Función que va a servir para abrir el archivo
     miJSON=[]
     with open('mainIndex.json','r',encoding='utf-8') as openfile:
@@ -13,7 +15,7 @@ def guardarArchivo(miData): #Función que va a servir para guardar los datos que
     with open("mainIndex.json","w",encoding='utf-8') as outfile:
         json.dump(miData,outfile)
 
-#INICIO DEL PROGRAMA
+#=============================== INICIO DEL PROGRAMA ======================================
 
 #Entrada en la que el usuario va a ingresar el rol que tiene para así saber qué opciones mostrarle
 boolUsuario = True
@@ -41,7 +43,12 @@ while boolUsuario == True: #Se le va a preguntar el tipo de Rol hasta que ingres
 print("Hola", TipoUsuario)
 print("")
 
-#=================================== MODULO DEL COORDINADOR ===========================================================
+
+
+
+
+
+#=================================== MODULO DEL CAMPER ===========================================================
  
 if RolUsuario == 1:
     system("cls")
@@ -55,6 +62,11 @@ MENÚ DEL CAMPER
 4. Ver módulo en el que está registrado
 5. Salir.
           """)
+    
+
+
+
+
 
 #=================================== MODULO DEL TRAINER ===========================================================
 elif RolUsuario == 2:
@@ -71,6 +83,7 @@ MENÚ DEL TRAINER
         eleccionTrainer = int(input("¿Qué desea hacer: ?"))
         system("cls")
 
+        #=========================== VER GRUPOS Y LOS ESTUDIANTES QUE HAY DENTRO ==================================
         if eleccionTrainer == 1:
 
             GeneralData = abrirArchivo()
@@ -117,6 +130,16 @@ MENÚ DEL TRAINER
                 print("Estudiante #",contador)
                 print("Nombres:",i["Nombres"]),print("Apellidos:",i["Apellidos"]),print("Grupo:",i["Grupo"]),print("Salon:",i["Salon"]),print("Trainer:",i["Trainer"])
                 print("================")
+
+        elif eleccionTrainer == 5:
+            print("Saliendo del módulo del trainer")
+            input("Presione ENTER para continuar")
+            boolTrainer = False
+
+
+
+
+
                
 #=================================== MODULO DEL COORDINADOR ===========================================================
 elif RolUsuario == 3:
@@ -158,7 +181,6 @@ elif RolUsuario == 3:
             system("cls")
             break
     
-
         #INGRESAR NOTA DE LA PRUEBA INICIAL
         elif eleccionCoordinador == 2: 
             GeneralData = abrirArchivo()
@@ -178,7 +200,6 @@ elif RolUsuario == 3:
             input("Presione ENTER para continuar")
             system("cls")
 
-            ListarAprobados = {}
             AprobadosInicial = {}
             ReprobadosInicial = {}
 
@@ -241,6 +262,8 @@ elif RolUsuario == 3:
 
 
 
+
+
 #==================================== MODULO DE REPORTES ==================================================
 boolReportes = True
 while boolReportes == True:
@@ -256,15 +279,43 @@ while boolReportes == True:
     eleccionReportes = int(input("¿Qué desea hacer?: "))
     system("cls")
 
-    if eleccionReportes == 1:
+    #=============================LISTAR CAMPERS EN ESTADO INSCRITO================================================
+    if eleccionReportes == 1: 
+        CampersInscritos = {}
+        GeneralData = abrirArchivo()
+        for i in range (len(GeneralData[2]["Estudiantes"])):
+            if GeneralData[2]["Estudiantes"][i]["NotaPrueba"] == 0:
+                CampersInscritos = GeneralData[2]["Estudiantes"]
+            elif GeneralData[2]["Estudiantes"][i]["NotPrueba"] != 0:
+                continue
         print("Campers en estado inscrito")
+        print("")
+        contador = 0
+        for i in CampersInscritos:
+            contador+=1
+            print("Camper en Estado Inscrito #",contador),print("Nombres:",i["Nombres"]),print("Apellidos:",i["Apellidos"]),print("Nota:",i["NotaPrueba"])
+            print("=================")
 
-    
+        input("Presione ENTER para continuar")
+        system("cls")
+    #===============================LISTAR CAMPERS QUE APROBARON LA PRUEBA INCIAL===================================
     elif eleccionReportes == 2:
+        ListarAprobados = {}
+        GeneralData = abrirArchivo()
+        for i in range (len(GeneralData[2]["Estudiantes"])):
+            if GeneralData[2]["Estudiantes"][i]["NotaPrueba"]>=60:
+                ListarAprobados = GeneralData[2]["Estudiantes"]
         print("Campers que aprobaron el examen inicial")
-        print(ListarAprobados)
+        tamañolistaaprobados = len(ListarAprobados)
+        if len(ListarAprobados)>=1:
+            for i in ListarAprobados:
+                print(i["Nombres"]),print("Apellidos:",i["Apellidos"]),print("Nota:",i["NotaPrueba"])
+        else:
+            print("Todavía no se ha ingresado notas de la prueba inicial a ningun Camper")
+        input("Presione ENTER para continuar")
+        system("cls")
 
-
+    #============================== LISTAR TRAINERS DENTRO DE CAMPUSLANDS===========================================
     elif eleccionReportes == 3:
         print("Listar Trainers"),print("")
         GeneralData = abrirArchivo()

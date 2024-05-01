@@ -8,19 +8,17 @@
                 "Horario": "",
                 "Grupo": "T1"
             },
-
             {
                 "Nombre": "Jholver Garcia",
-                "Ruta" : "",
-                "Horario" : "",
-                "Grupo" : "T2"
+                "Ruta": "",
+                "Horario": "",
+                "Grupo": "T2"
             },
-
             {
                 "Nombre": "Miguel",
-                "Ruta" : "",
-                "Horario" : "",
-                "Grupo" : "T3"
+                "Ruta": "",
+                "Horario": "",
+                "Grupo": "T3"
             }
         ]
     },
@@ -56,7 +54,6 @@
             {
                 "Identificador": 1,
                 "Estado": "Aprobado",
-                "Ruta": "",
                 "Documento": 12313,
                 "Nombres": "Guillermo Jose",
                 "Apellidos": "Perez Gomez",
@@ -64,10 +61,7 @@
                 "Acudiente": "Patrocla",
                 "Celular": 31213412,
                 "Fijo": 2984923,
-                "Grupo": "T2",
-                "Salon": "",
-                "Trainer": "",
-                "Horario": ""
+                "NotaPrueba": 80.0
             }
         ]
     },
