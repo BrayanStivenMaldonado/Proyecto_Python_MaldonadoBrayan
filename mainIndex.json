@@ -4,19 +4,19 @@
         "Trainers": [
             {
                 "Nombre": "Pedro Gomez",
-                "Ruta": "",
+                "Ruta": "NoteJS",
                 "Horario": "",
                 "Grupo": "T1"
             },
             {
                 "Nombre": "Jholver Garcia",
-                "Ruta": "",
+                "Ruta": "NoteCore",
                 "Horario": "",
                 "Grupo": "T2"
             },
             {
-                "Nombre": "Miguel",
-                "Ruta": "",
+                "Nombre": "Miguel Sanchez",
+                "Ruta": "Java",
                 "Horario": "",
                 "Grupo": "T3"
             }
@@ -44,7 +44,7 @@
                 "Acudiente": "Patrocla",
                 "Celular": 31213412,
                 "Fijo": 2984923,
-                "NotaPrueba": 0
+                "NotaPrueba": 70
             }
         ]
     },
@@ -69,11 +69,7 @@
         "Tipo": "Expulsados",
         "Estudiantes": [
             {
-                "Identificador": 1,
-                "Estado": "Expulsado",
-                "Documento": 12313,
-                "Nombres": "Guillermo Jose",
-                "Apellidos": "Perez Gomez"
+                
             }
         ]
     },

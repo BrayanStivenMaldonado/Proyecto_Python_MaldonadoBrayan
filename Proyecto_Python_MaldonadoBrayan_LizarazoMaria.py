@@ -228,22 +228,35 @@ elif RolUsuario == 3:
                 print("Documento:",i["Documento"])
                 print("Nombres",i["Nombres"])
                 print("Apellidos",i["Apellidos"])
-            #DEFINIR RUTA DE ESTUDIO
+
             Camper = int(input("\nIngrese el identificador del Camper que desea escoger: "))
             print("\nPara la ruta de estudio elige entre:\n NoteCore \n Java \n NoteJS") 
-            RutaElegida = str(input("Ingrese el nombre de la Ruta que le desea definir: "))
-            GeneralData[3]["Estudiantes"][Camper-1]["Ruta"] = RutaElegida
-            guardarArchivo(GeneralData)
-            #ASIGNAR TRAINER
-            print("\n Los Trainers disponibles son:\n Pedro Perez \n Jholver Garcia \n Miguel")
-            TrainerConfirmado = str(input("Ingrese el nombre del Trainer que desea asignar: "))
-            GeneralData[3]["Estudiantes"][Camper-1]["Trainer"] = TrainerConfirmado
-            guardarArchivo(GeneralData)
-            #ASIGNAR SALON
-            print("\nLos salones a usar son:\n Sputnik\n Apolo\n Artemis")
-            SalonAsignado = str(input("Ingrese el nombre del salon que le desea asignar: "))
-            GeneralData[3]["Estudiantes"][Camper-1]["Salon"] = SalonAsignado
-            guardarArchivo(GeneralData)
+            RutaElegida = str(input("\nIngrese el nombre de la Ruta que le desea definir: "))
+
+            if RutaElegida == "NoteCore":
+                GeneralData[3]["Estudiantes"][Camper-1]["Ruta"] = RutaElegida
+                GeneralData[3]["Estudiantes"][Camper-1]["Trainer"] = "Jholver Garcia"
+                GeneralData[3]["Estudiantes"][Camper-1]["Salon"] = "Apolo"
+                GeneralData[3]["Estudiantes"][Camper-1]["FechaInicio"] = "00-00-00"
+                GeneralData[3]["Estudiantes"][Camper-1]["FechaFinalizacion"] = "00-00-00"
+
+
+            elif RutaElegida == "Java":
+                GeneralData[3]["Estudiantes"][Camper-1]["Ruta"] = RutaElegida
+                GeneralData[3]["Estudiantes"][Camper-1]["Trainer"] = "Miguel Sanchez"
+                GeneralData[3]["Estudiantes"][Camper-1]["Salon"] = "Sputnik"
+                GeneralData[3]["Estudiantes"][Camper-1]["FechaInicio"] = "00-00-00"
+                GeneralData[3]["Estudiantes"][Camper-1]["FechaFinalizacion"] = "00-00-00"
+
+
+            elif RutaElegida == "NoteJS":
+                GeneralData[3]["Estudiantes"][Camper-1]["Ruta"] = RutaElegida
+                GeneralData[3]["Estudiantes"][Camper-1]["Trainer"] = "Pedro Gomez"
+                GeneralData[3]["Estudiantes"][Camper-1]["Salon"] = "Artemis"
+                GeneralData[3]["Estudiantes"][Camper-1]["FechaInicio"] = "00-00-00"
+                GeneralData[3]["Estudiantes"][Camper-1]["FechaFinalizacion"] = "00-00-00"
+
+
             #ASIGNAR HORARIO
             print("\nLos horarios son:\n 6am-10am\n 10am-2pm\n 2pm-6pm\n 6pm-10pm")
             HorarioAsignado = str(input("Ingrese el horario a asignar: "))
@@ -286,15 +299,19 @@ while boolReportes == True:
         for i in range (len(GeneralData[2]["Estudiantes"])):
             if GeneralData[2]["Estudiantes"][i]["NotaPrueba"] == 0:
                 CampersInscritos = GeneralData[2]["Estudiantes"]
-            elif GeneralData[2]["Estudiantes"][i]["NotPrueba"] != 0:
+            elif GeneralData[2]["Estudiantes"][i]["NotaPrueba"] != 0:
                 continue
         print("Campers en estado inscrito")
         print("")
-        contador = 0
-        for i in CampersInscritos:
-            contador+=1
-            print("Camper en Estado Inscrito #",contador),print("Nombres:",i["Nombres"]),print("Apellidos:",i["Apellidos"]),print("Nota:",i["NotaPrueba"])
-            print("=================")
+        
+        if len(CampersInscritos)>=1:
+            contador = 0
+            for i in CampersInscritos:
+                contador+=1
+                print("Camper en Estado Inscrito #",contador),print("Nombres:",i["Nombres"]),print("Apellidos:",i["Apellidos"]),print("Nota:",i["NotaPrueba"])
+                print("=================")
+        else:
+            print("No hay campers inscritos")
 
         input("Presione ENTER para continuar")
         system("cls")
@@ -322,7 +339,7 @@ while boolReportes == True:
         contador = 0 
         for i in (GeneralData[0]["Trainers"]):
             contador+=1
-            print("Trainer #",contador),print("Nombre:",i["Nombre"]),print("Ruta:",i["Horario"]),print("Horario:",i["Horario"]),print("Grupo:",i["Grupo"])
+            print("Trainer #",contador),print("Nombre:",i["Nombre"]),print("Ruta:",i["Ruta"]),print("Horario:",i["Horario"]),print("Grupo:",i["Grupo"])
             print("=================")
         
         input("Presione ENTER Para continuar")
