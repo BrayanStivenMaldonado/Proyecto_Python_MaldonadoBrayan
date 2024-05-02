@@ -185,9 +185,11 @@ elif RolUsuario == 3:
         elif eleccionCoordinador == 2: 
             GeneralData = abrirArchivo()
             print("---INGRESAR LA NOTA DE LA PRUEBA INICIAL---")
+            contador = 0 
             for i in GeneralData[2]["Estudiantes"]:
+                contador+=1
                 print("==========================")
-                print("Idetinficador:",i["Identificador"])
+                print("Idetinficador:",contador)
                 print("Documento:",i["Documento"])
                 print("Nombres",i["Nombres"])
                 print("Apellidos",i["Apellidos"]) 
