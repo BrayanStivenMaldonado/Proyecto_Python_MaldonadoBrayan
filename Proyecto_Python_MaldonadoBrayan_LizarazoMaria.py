@@ -352,18 +352,18 @@ elif RolUsuario == 3:
         #===DEFINIR RUTA DEL CAMPER, ASIGNACION DE TRAINER, SALON Y DEFINICION DE HORARIO===        
         elif eleccionCoordinador == 3:
             print("----REGISTRAR RUTA DE ESTUDIO, ASIGNACION DE TRAINER, SALON Y DEFINICION DE HORARIO----")
-            GeneralData = abrirArchivo()
-            contador = 0
-            for i in GeneralData[3]["Estudiantes"]:
-                contador+=1
-                print("Idetinficador:",contador)
-                print("Documento:",i["Documento"])
-                print("Nombres",i["Nombres"])
-                print("Apellidos",i["Apellidos"])
-
+            
             boolTryCatch = True
             while boolTryCatch == True: 
                 try:
+                    GeneralData = abrirArchivo()
+                    contador = 0
+                    for i in GeneralData[3]["Estudiantes"]:
+                        contador+=1
+                        print("Idetinficador:",contador)
+                        print("Documento:",i["Documento"])
+                        print("Nombres",i["Nombres"])
+                        print("Apellidos",i["Apellidos"])
                     Camper = int(input("\nIngrese el identificador del Camper que desea escoger: "))                    
                     break
                 except:
