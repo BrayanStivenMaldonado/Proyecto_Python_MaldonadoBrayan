@@ -186,13 +186,15 @@ elif RolUsuario == 3:
             GeneralData = abrirArchivo()
             print("---INGRESAR LA NOTA DE LA PRUEBA INICIAL---")
             for i in GeneralData[2]["Estudiantes"]:
+                print("==========================")
                 print("Idetinficador:",i["Identificador"])
                 print("Documento:",i["Documento"])
                 print("Nombres",i["Nombres"])
                 print("Apellidos",i["Apellidos"]) 
-            CamperParaNota = int(input("Ingrese el Camper que desea Agregar: "))
-            PruebaTeorica = int(input("Ingrese la nota de la prueba teorica"))
-            PruebaPractica = int(input("Ingrese la nota de la prueba practica:")) 
+            print("==========================")
+            CamperParaNota = int(input("Ingrese el identificador del Camper: "))
+            PruebaTeorica = int(input("Ingrese la nota de la prueba teorica: "))
+            PruebaPractica = int(input("Ingrese la nota de la prueba practica: ")) 
             NotaCamper = (PruebaPractica+PruebaTeorica)/2 #La nota de la prueba general del camper es el prom de las dos que realizó
             GeneralData[2]["Estudiantes"][CamperParaNota-1]["NotaPrueba"] = NotaCamper
             guardarArchivo(GeneralData)
@@ -202,22 +204,42 @@ elif RolUsuario == 3:
 
             AprobadosInicial = {}
             ReprobadosInicial = {}
+            SigueEnInscrito = {}
 
             GeneralData = abrirArchivo()
-            for i in range (len(GeneralData[2]["Estudiantes"])):
+            for i in range (len(GeneralData[2]["Estudiantes"])-1):
+                
+                GeneralData = abrirArchivo()
                 if GeneralData[2]["Estudiantes"][i]["NotaPrueba"]>=60:
                     ListarAprobados = GeneralData[2]["Estudiantes"]
-                    AprobadosInicial = GeneralData[2]["Estudiantes"] #Dependiendo de la nota que se le dé al camper 
+                    AprobadosInicial = GeneralData[2]["Estudiantes"][i] #Dependiendo de la nota que se le dé al camper 
                     GeneralData[3]["Estudiantes"] = AprobadosInicial #Se va a añadir a la lista de "Cursando"
                     GeneralData[2]["Estudiantes"][i]["Estado"] = "Aprobado" # o a la de "Expulsados"
+                    del GeneralData[2]["Estudiantes"][i]
+                    guardarArchivo(GeneralData)
 
-                elif GeneralData[2]["Estudiantes"][i]["NotaPrueba"]<=59: #Primero se Guardan en un diccionario y posteriormente
-                    ReprobadosInicial = GeneralData[2]["Estudiantes"] #se agregan al json
+                    GeneralData = abrirArchivo()
+                elif GeneralData[2]["Estudiantes"][i]["NotaPrueba"]<=59 and GeneralData[2]["Estudiantes"][i]["NotaPrueba"]!=0: #Primero se Guardan en un diccionario y posteriormente
+                    ReprobadosInicial = GeneralData[2]["Estudiantes"][i] #se agregan al json
                     GeneralData[4]["Estudiantes"] = ReprobadosInicial
                     GeneralData[2]["Estudiantes"][i]["Estado"] = "Reprobado"
-            guardarArchivo(GeneralData)    
+                    del GeneralData[2]["Estudiantes"][i]
+                    guardarArchivo(GeneralData)
+                
+                    GeneralData = abrirArchivo()
+                elif GeneralData[2]["Estudiantes"][i]["NotaPrueba"] == 0: 
+                    SigueEnInscrito = GeneralData[2]["Estudiantes"] 
+                    GeneralData[2]["Estudiantes"] = SigueEnInscrito
+                    GeneralData[2]["Estudiantes"][i]["Estado"] = "Inscrito"
+                    guardarArchivo(GeneralData)
 
-            print(AprobadosInicial)              
+                else:
+                    print("")
+
+            guardarArchivo(GeneralData)    
+            print(AprobadosInicial)  
+            print(ReprobadosInicial)     
+            print(SigueEnInscrito)       
 
         #===DEFINIR RUTA DEL CAMPER, ASIGNACION DE TRAINER, SALON Y DEFINICION DE HORARIO===        
         elif eleccionCoordinador == 3:

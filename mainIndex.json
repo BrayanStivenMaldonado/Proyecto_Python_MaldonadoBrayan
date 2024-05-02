@@ -38,40 +38,35 @@
                 "Identificador": 1,
                 "Estado": "Inscrito",
                 "Documento": 12313,
+                "Nombres": "Brayan Stiven",
+                "Apellidos": "Maldonado Ortega",
+                "Direccion": "nose",
+                "Acudiente": "Josefa",
+                "Celular": 345342323,
+                "Fijo": 67545353,
+                "NotaPrueba": 0
+            },
+            {
+                "Identificador": 2,
+                "Estado": "Inscrito",
+                "Documento": 12313,
                 "Nombres": "Guillermo Jose",
                 "Apellidos": "Perez Gomez",
-                "Direccion": "",
+                "Direccion": "jum",
                 "Acudiente": "Patrocla",
                 "Celular": 31213412,
                 "Fijo": 2984923,
-                "NotaPrueba": 70
+                "NotaPrueba": 0
             }
         ]
     },
     {
         "Tipo": "Cursando",
-        "Estudiantes": [
-            {
-                "Identificador": 1,
-                "Estado": "Aprobado",
-                "Documento": 12313,
-                "Nombres": "Guillermo Jose",
-                "Apellidos": "Perez Gomez",
-                "Direccion": "",
-                "Acudiente": "Patrocla",
-                "Celular": 31213412,
-                "Fijo": 2984923,
-                "NotaPrueba": 80.0
-            }
-        ]
+        "Estudiantes": []
     },
     {
         "Tipo": "Expulsados",
-        "Estudiantes": [
-            {
-                
-            }
-        ]
+        "Estudiantes": []
     },
     {
         "Tipo": "Fechas",
