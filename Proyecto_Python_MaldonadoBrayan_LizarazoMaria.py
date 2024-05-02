@@ -277,19 +277,44 @@ elif RolUsuario == 3:
         #INGRESAR NOTA DE LA PRUEBA INICIAL
         elif eleccionCoordinador == 2: 
             print("---INGRESAR LA NOTA DE LA PRUEBA INICIAL---")
-            contador = 0 
-            GeneralData = abrirArchivo()
-            for i in GeneralData[2]["Estudiantes"]:
-                contador+=1
-                print("==========================")
-                print("Idetinficador:",contador)
-                print("Documento:",i["Documento"])
-                print("Nombres",i["Nombres"])
-                print("Apellidos",i["Apellidos"]) 
-            print("==========================")
-            CamperParaNota = int(input("Ingrese el identificador del Camper: "))
-            PruebaTeorica = int(input("Ingrese la nota de la prueba teorica: "))
-            PruebaPractica = int(input("Ingrese la nota de la prueba practica: ")) 
+            
+            boolTryCatch = True
+            while boolTryCatch == True: 
+                try:
+                    contador = 0 
+                    GeneralData = abrirArchivo()
+                    for i in GeneralData[2]["Estudiantes"]:
+                        contador+=1
+                        print("==========================")
+                        print("Idetinficador:",contador)
+                        print("Documento:",i["Documento"])
+                        print("Nombres",i["Nombres"])
+                        print("Apellidos",i["Apellidos"]) 
+                        print("==========================")
+                    CamperParaNota = int(input("Ingrese el identificador del Camper: "))
+                    break
+                except:
+                    input("En este dato, debe ingresar números, presione ENTER para continuar")
+                    system("cls")
+
+            boolTryCatch = True
+            while boolTryCatch == True: 
+                try:
+                    PruebaTeorica = int(input("Ingrese la nota de la prueba teorica: "))                    
+                    break
+                except:
+                    input("En este dato, debe ingresar números, presione ENTER para continuar")
+                    system("cls")
+
+            boolTryCatch = True
+            while boolTryCatch == True: 
+                try:
+                    PruebaPractica = int(input("Ingrese la nota de la prueba practica: "))                    
+                    break
+                except:
+                    input("En este dato, debe ingresar números, presione ENTER para continuar")
+                    system("cls")
+
             NotaCamper = (PruebaPractica+PruebaTeorica)/2 #La nota de la prueba general del camper es el prom de las dos que realizó
             GeneralData[2]["Estudiantes"][CamperParaNota-1]["NotaPrueba"] = NotaCamper
             guardarArchivo(GeneralData)
@@ -336,9 +361,26 @@ elif RolUsuario == 3:
                 print("Nombres",i["Nombres"])
                 print("Apellidos",i["Apellidos"])
 
-            Camper = int(input("\nIngrese el identificador del Camper que desea escoger: "))
+            boolTryCatch = True
+            while boolTryCatch == True: 
+                try:
+                    Camper = int(input("\nIngrese el identificador del Camper que desea escoger: "))                    
+                    break
+                except:
+                    input("En este dato, debe ingresar números, presione ENTER para continuar")
+                    system("cls")
+
             print("\nPara la ruta de estudio elige entre:\n NetCore \n Java \n NoteJS") 
-            RutaElegida = str(input("\nIngrese el nombre de la Ruta que le desea definir: "))
+
+            boolTryCatch = True
+            while boolTryCatch == True: 
+                try:
+                    RutaElegida = str(input("\nIngrese el nombre de la Ruta que le desea definir: "))                    
+                    break
+                except:
+                    input("En este dato, debe ingresar letras, presione ENTER para continuar")
+                    system("cls")
+            
 
             if RutaElegida == "NetCore":
                 GeneralData[3]["Estudiantes"][Camper-1]["Ruta"] = "Netcore"
@@ -418,7 +460,10 @@ elif RolUsuario == 3:
 #==================================== MODULO DE REPORTES ==================================================
 boolReportes = True
 while boolReportes == True:
-    print("""Modulo de reportes: 
+    boolTryCatch = True
+    while boolTryCatch == True: 
+        try:
+            print("""Modulo de reportes: 
     1. Listar los campers que se encuentren en estado de inscrito.
     2. Listar los campers que aprobaron el examen inicial.
     3. Listar los entrenadores que se encuentran trabajando con CampusLands.
@@ -427,7 +472,12 @@ while boolReportes == True:
     6. Mostrar cuantos campers perdieron y aprobaron cada uno de los módulos teniendo en cuenta la ruta de entrenamiento y el entrenador encargado.
     7. Salir.
           """)
-    eleccionReportes = int(input("¿Qué desea hacer?: "))
+            eleccionReportes = int(input("¿Qué desea hacer?: "))                    
+            break
+        except:
+            input("En este dato, debe ingresar un número, presione ENTER para continuar")
+            system("cls")
+    
     system("cls")
 
     #=============================LISTAR CAMPERS EN ESTADO INSCRITO================================================
