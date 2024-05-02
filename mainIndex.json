@@ -57,6 +57,42 @@
                 "Celular": 31213412,
                 "Fijo": 2984923,
                 "NotaPrueba": 0
+            },
+            {
+                "Identificador": 3,
+                "Estado": "Inscrito",
+                "Documento": 12313,
+                "Nombres": "Juancho",
+                "Apellidos": "Figueroa",
+                "Direccion": "jum",
+                "Acudiente": "Pepita",
+                "Celular": 2131232,
+                "Fijo": 245343,
+                "NotaPrueba": 0
+            },
+            {
+                "Identificador": 4,
+                "Estado": "Inscrito",
+                "Documento": 12313,
+                "Nombres": "Jose",
+                "Apellidos": "Gomez",
+                "Direccion": "jum",
+                "Acudiente": "Guillermina",
+                "Celular": 43543542,
+                "Fijo": 25465423,
+                "NotaPrueba": 0
+            },
+            {
+                "Identificador": 5,
+                "Estado": "Inscrito",
+                "Documento": "1234",
+                "Nombres": "Jose Jose",
+                "Apellidos": "Perez",
+                "Direccion": "cll 1c 8v - 54",
+                "Acudiente": "Josefina",
+                "Celular": "1334234",
+                "Fijo": "4353423",
+                "NotaPrueba": 0
             }
         ]
     },
@@ -81,13 +117,13 @@
         "Tipo": "Grupos",
         "Grupos": [
             {
-                "GrupoT1": []
+                "GrupoT1": {}
             },
             {
-                "GrupoT2": []
+                "GrupoT2": {}
             },
             {
-                "GrupoT3": []
+                "GrupoT3": {}
             }
         ]
     }
