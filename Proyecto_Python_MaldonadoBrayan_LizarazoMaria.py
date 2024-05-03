@@ -105,7 +105,6 @@ MENÚ DEL TRAINER
 
         #=========================== VER GRUPOS Y LOS Estudiantes QUE HAY DENTRO ==================================
         if eleccionTrainer == 1:
-
             GeneralData = abrirArchivo()
             GrupoT1 = {}
             GrupoT2 = {}
@@ -453,7 +452,6 @@ elif RolUsuario == 3:
                     guardarArchivo(GeneralData)
                     break
                 
-
             print(AgregarGrupoT1)
             print(AgregarGrupoT2)
             print(AgregarGrupoT3)
@@ -464,10 +462,6 @@ elif RolUsuario == 3:
             input("Presione ENTER para continuar")
             system("cls")
             boolCoordinador = False
-
-
-
-
 
 #==================================== MODULO DE REPORTES ==================================================
 boolReportes = True
@@ -548,9 +542,9 @@ while boolReportes == True:
 
     elif eleccionReportes == 4:
         print("Listar Campers con rendimiento Bajo")
-
+        
+    #============================ LISTAR TRAINERS Y CAMPERS CON LA MISMA RUTA DE ENTRENAMIENTO ================================================================
     elif eleccionReportes == 5:
-
         TrainerRutaNoteJS = []
         CampersRutaNoteJS = []
         TrainerRutaNetCore = []
@@ -600,14 +594,15 @@ while boolReportes == True:
 
             if eleccionReportesRutas == 1:
                 print("Trainer de la ruta de aprendizaje NetCore:")
+               
+                for i in TrainerRutaNetCore:
+                    print ("Nomrbre",i["Nombre"])
+                    print("Grupo:",i["Grupo"])
+                print("==============="),print("Campers: ")
                 if len(CampersRutaNetCore)==0:
                     print("")
                     print("En esta ruta de Entrenamiento no hay ningún Camper")
                 else:
-                    for i in TrainerRutaNetCore:
-                        print ("Nomrbre",i["Nombre"])
-                        print("Grupo:",i["Grupo"])
-                    print("==============="),print("Campers: ")
                     contador = 0
                     for i in CampersRutaNetCore:
                         contador +=1
@@ -616,8 +611,8 @@ while boolReportes == True:
                         print("Apellidos:",i["Apellidos"])
                         print("Grupo:",i["Grupo"])
                         print("===============")
-                input("Presione ENTER para continuar")
-                system("cls")
+                    input("Presione ENTER para continuar")
+                    system("cls")
 
             elif eleccionReportesRutas == 2:
                 print("Trainer de la ruta de aprendizaje Java:")
@@ -625,16 +620,20 @@ while boolReportes == True:
                     print ("Nombre:",i["Nombre"])
                     print("Grupo:",i["Grupo"])
                     print("==============="),print("Campers: ")
-                contador = 0
-                for i in CampersRutaJava:
-                    contador +=1
-                    print("Camper #",contador)
-                    print("Nombres:",i["Nombres"])
-                    print("Apellidos:",i["Apellidos"])
-                    print("Grupo:",i["Grupo"])
-                    print("===============")
-                input("Presione ENTER para continuar")
-                system("cls")
+                if len(CampersRutaJava) == 0:
+                    print("")
+                    print("Enesta ruta de Entrenamiento no hay ningún Camper")
+                else:
+                    contador = 0
+                    for i in CampersRutaJava:
+                        contador +=1
+                        print("Camper #",contador)
+                        print("Nombres:",i["Nombres"])
+                        print("Apellidos:",i["Apellidos"])
+                        print("Grupo:",i["Grupo"])
+                        print("===============")
+                    input("Presione ENTER para continuar")
+                    system("cls")
 
             elif eleccionReportesRutas == 3:
                 print("Trainer de la ruta de aprendizaje NoteJS:")
@@ -642,16 +641,20 @@ while boolReportes == True:
                     print ("Nombre:",i["Nombre"])
                     print("Grupo:",i["Grupo"])
                 print("==============="),print("Campers: ")
-                contador = 0
-                for i in CampersRutaNoteJS:
-                    contador +=1
-                    print("Camper #",contador)
-                    print("Nombres:",i["Nombres"])
-                    print("Apellidos:",i["Apellidos"])
-                    print("Grupo:",i["Grupo"])
-                    print("===============")
-                input("Presione ENTER para continuar")
-                system("cls")
+                if len(CampersRutaNoteJS) == 0:
+                    print("")
+                    print("En esta ruta de entrenamiento no hay ningún Camper")
+                else:
+                    contador = 0
+                    for i in CampersRutaNoteJS:
+                        contador +=1
+                        print("Camper #",contador)
+                        print("Nombres:",i["Nombres"])
+                        print("Apellidos:",i["Apellidos"])
+                        print("Grupo:",i["Grupo"])
+                        print("===============")
+                    input("Presione ENTER para continuar")
+                    system("cls")
 
             elif eleccionReportesRutas == 4:
                 boolReportesRutas = False
@@ -669,6 +672,7 @@ while boolReportes == True:
     elif eleccionReportes == 7:
         print("Saliendo del programa")
         boolReportes = False
+        
     else:
         print("Esta no es una opción válida, intente de nuevo")
         input("Presione ENTER para continuar")
