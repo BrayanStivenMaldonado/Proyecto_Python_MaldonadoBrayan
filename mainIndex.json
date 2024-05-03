@@ -16,7 +16,7 @@
             },
             {
                 "Nombre": "Pedro Gomez",
-                "Ruta": "NoteJS",
+                "Ruta": "NodeJS",
                 "Horario": "",
                 "Grupo": "T3"
             }
@@ -53,8 +53,8 @@
                 "Estado": "Aprobado",
                 "Ruta": "",
                 "Documento": 12313,
-                "Nombres": "Guillermo Jose",
-                "Apellidos": "Perez Gomez",
+                "Nombres": "Maria Guadalupe",
+                "Apellidos": "Lizarazo Leal",
                 "Direccion": "jum",
                 "Acudiente": "Patrocla",
                 "Celular": 31213412,
@@ -130,6 +130,71 @@
             },
             {
                 "GrupoT3": []
+            }
+        ]
+    },
+    {
+        "Tipo": "Rutas",
+        "Rutas": [
+            {
+                "Java": [
+                    {
+                        "FundamentosProgramación":["Pseint","Python", "Introducción a la algoritmía"]
+                    },
+                    {
+                        "ProgramacionWeb":["HTML", "CSS", "BootStrap"]
+                    },
+                    {
+                      "ProgramacionFormal":[]  
+                    },
+                    {
+                        "BaseDatos":[]
+                    },
+                    {
+                        "Backend": []
+                    }
+
+                ]
+            },
+            {
+                "NetCore": [
+                    {
+                        "FundamentosProgramación":["Pseint","Python", "Introducción a la algoritmía"]
+                    },
+                    {
+                        "ProgramacionWeb":["HTML", "CSS", "BootStrap"]
+                    },
+                    {
+                      "ProgramacionFormal":[]  
+                    },
+                    {
+                        "BaseDatos":[]
+                    },
+                    {
+                        "Backend": []
+                    }
+
+                ]
+            },
+            {
+                "NodeJS": [
+                    {
+                        "FundamentosProgramación":["Pseint","Python", "Introducción a la algoritmía"]
+                    },
+                    {
+                        "ProgramacionWeb":["HTML", "CSS", "BootStrap"]
+                    },
+                    {
+                      "ProgramacionFormal":[]  
+                    },
+                    {
+                        "BaseDatos":[]
+                    },
+                    {
+                        "Backend": []
+                    }
+
+                ]
             }
         ]
     }
