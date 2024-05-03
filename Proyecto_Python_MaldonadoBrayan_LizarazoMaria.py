@@ -258,6 +258,7 @@ elif RolUsuario == 3:
             GeneralData[2]["Estudiantes"].append ({
                     "Identificador" : len(GeneralData[2]["Estudiantes"])+1,
                     "Estado" : "Inscrito",
+                    "Ruta" : "",
                     "Documento": DocumentoNuevo,
                     "Nombres": NombreNuevo,
                     "Apellidos": ApellidoNuevo,
@@ -333,17 +334,19 @@ elif RolUsuario == 3:
                     GeneralData[2]["Estudiantes"][i]["Estado"] = "Aprobado" # o a la de "Expulsados"
                     del GeneralData[2]["Estudiantes"][i]
                     guardarArchivo(GeneralData)
+                    break
 
-                GeneralData = abrirArchivo()
-                for i in range (0,(len(GeneralData[2]["Estudiantes"]))):
-                    if GeneralData[2]["Estudiantes"][i]["NotaPrueba"]<=59 and GeneralData[2]["Estudiantes"][i]["NotaPrueba"]>0: #Primero se Guardan en un diccionario y posteriormente
-                        ReprobadosInicial = GeneralData[2]["Estudiantes"][i] #se agregan al json
-                        GeneralData[4]["Estudiantes"].append(ReprobadosInicial)
-                        GeneralData[2]["Estudiantes"][i]["Estado"] = "Reprobado"
-                        del GeneralData[2]["Estudiantes"][i]
-                        guardarArchivo(GeneralData)
-                else:
-                    print("")
+            GeneralData = abrirArchivo()
+            for i in range (0,(len(GeneralData[2]["Estudiantes"]))):
+                if GeneralData[2]["Estudiantes"][i]["NotaPrueba"]<=59 and GeneralData[2]["Estudiantes"][i]["NotaPrueba"]>0: #Primero se Guardan en un diccionario y posteriormente
+                    ReprobadosInicial = GeneralData[2]["Estudiantes"][i] #se agregan al json
+                    GeneralData[4]["Estudiantes"].append(ReprobadosInicial)
+                    GeneralData[2]["Estudiantes"][i]["Estado"] = "Reprobado"
+                    del GeneralData[2]["Estudiantes"][i]
+                    guardarArchivo(GeneralData)
+                    break
+            else:
+                print("")
 
             guardarArchivo(GeneralData)    
             print(AprobadosInicial)  
@@ -383,7 +386,7 @@ elif RolUsuario == 3:
             
 
             if RutaElegida == "NetCore":
-                GeneralData[3]["Estudiantes"][Camper-1]["Ruta"] = "Netcore"
+                GeneralData[3]["Estudiantes"][Camper-1]["Ruta"] = "NetCore"
                 GeneralData[3]["Estudiantes"][Camper-1]["Trainer"] = "Jholver Garcia"
                 GeneralData[3]["Estudiantes"][Camper-1]["Grupo"] = "T1"
                 GeneralData[3]["Estudiantes"][Camper-1]["Salon"] = "Apolo"
@@ -423,24 +426,31 @@ elif RolUsuario == 3:
 
             GeneralData = abrirArchivo()
             for i in range (0,(len(GeneralData[3]["Estudiantes"]))):
-                if GeneralData[3]["Estudiantes"][i]["Ruta"] == "Netcore":
+                if GeneralData[3]["Estudiantes"][i]["Ruta"] == "NetCore":
                     AgregarGrupoT1 = GeneralData[3]["Estudiantes"][i]
                     GeneralData[6]["Grupos"][0]["GrupoT1"].append(AgregarGrupoT1)
+                    del GeneralData[3]["Estudiantes"][i]
                     guardarArchivo(GeneralData)
+                    break
 
             GeneralData = abrirArchivo()
             for i in range (0,(len(GeneralData[3]["Estudiantes"]))):
                 if GeneralData[3]["Estudiantes"][i]["Ruta"] == "Java":
                     AgregarGrupoT2 = GeneralData[3]["Estudiantes"][i]
                     GeneralData[6]["Grupos"][1]["GrupoT2"].append(AgregarGrupoT2)
+                    del GeneralData[3]["Estudiantes"][i]
                     guardarArchivo(GeneralData)
-
+                    break
+               
             GeneralData = abrirArchivo()
             for i in range (0,(len(GeneralData[3]["Estudiantes"]))):
                 if GeneralData[3]["Estudiantes"][i]["Ruta"] == "NoteJS":
                     AgregarGrupoT3 = GeneralData[3]["Estudiantes"][i]
                     GeneralData[6]["Grupos"][2]["GrupoT3"].append(AgregarGrupoT3)
+                    del GeneralData[3]["Estudiantes"][i]
                     guardarArchivo(GeneralData)
+                    break
+                
 
             print(AgregarGrupoT1)
             print(AgregarGrupoT2)

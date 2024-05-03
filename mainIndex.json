@@ -1,1 +1,135 @@
-[{"Tipo": "Trainers", "Trainers": [{"Nombre": "Pedro Gomez", "Ruta": "NoteJS", "Horario": "", "Grupo": "T1"}, {"Nombre": "Jholver Garcia", "Ruta": "NoteCore", "Horario": "", "Grupo": "T2"}, {"Nombre": "Miguel Sanchez", "Ruta": "Java", "Horario": "", "Grupo": "T3"}]}, {"Tipo": "Coordinadores", "Coordinadores": [{"Nombre": "Brayam Stiven Carvajal Cucaita", "Password": "Campus123"}]}, {"Tipo": "Inscritos", "Estudiantes": [{"Identificador": 1, "Estado": "Inscrito", "Documento": 12313, "Nombres": "Brayan Stiven", "Apellidos": "Maldonado Ortega", "Direccion": "nose", "Acudiente": "Josefa", "Celular": 345342323, "Fijo": 67545353, "NotaPrueba": 0}, {"Identificador": 2, "Estado": "Inscrito", "Documento": 12313, "Nombres": "Guillermo Jose", "Apellidos": "Perez Gomez", "Direccion": "jum", "Acudiente": "Patrocla", "Celular": 31213412, "Fijo": 2984923, "NotaPrueba": 0}, {"Identificador": 3, "Estado": "Inscrito", "Documento": 12313, "Nombres": "Juancho", "Apellidos": "Figueroa", "Direccion": "jum", "Acudiente": "Pepita", "Celular": 2131232, "Fijo": 245343, "NotaPrueba": 0}, {"Identificador": 4, "Estado": "Inscrito", "Documento": 12313, "Nombres": "Jose", "Apellidos": "Gomez", "Direccion": "jum", "Acudiente": "Guillermina", "Celular": 43543542, "Fijo": 25465423, "NotaPrueba": 0}, {"Identificador": 5, "Estado": "Inscrito", "Documento": "1234", "Nombres": "Jose Jose", "Apellidos": "Perez", "Direccion": "cll 1c 8v - 54", "Acudiente": "Josefina", "Celular": "1334234", "Fijo": "4353423", "NotaPrueba": 0}]}, {"Tipo": "Cursando", "Estudiantes": [{"Identificador": 6, "Estado": "Aprobado", "Documento": 5641561, "Nombres": "juan", "Apellidos": "lopez", "Direccion": "gdab", "Acudiente": "sdsdbsd", "Celular": 12545525, "Fijo": 15165, "NotaPrueba": 62.5}]}, {"Tipo": "Expulsados", "Estudiantes": []}, {"Tipo": "Fechas", "Fechas": [{"FehcaInicio": "00-00-0000", "FehcaFinal": "00-00-0000"}]}, {"Tipo": "Grupos", "Grupos": [{"GrupoT1": {}}, {"GrupoT2": {}}, {"GrupoT3": {}}]}]
+[
+    {
+        "Tipo": "Trainers",
+        "Trainers": [
+            {
+                "Nombre": "Pedro Gomez",
+                "Ruta": "NoteJS",
+                "Horario": "",
+                "Grupo": "T1"
+            },
+            {
+                "Nombre": "Jholver Garcia",
+                "Ruta": "NoteCore",
+                "Horario": "",
+                "Grupo": "T2"
+            },
+            {
+                "Nombre": "Miguel Sanchez",
+                "Ruta": "Java",
+                "Horario": "",
+                "Grupo": "T3"
+            }
+        ]
+    },
+    {
+        "Tipo": "Coordinadores",
+        "Coordinadores": [
+            {
+                "Nombre": "Brayam Stiven Carvajal Cucaita",
+                "Password": "Campus123"
+            }
+        ]
+    },
+    {
+        "Tipo": "Inscritos",
+        "Estudiantes": [
+            {
+                "Identificador": 1,
+                "Estado": "Reprobado",
+                "Ruta" : "",
+                "Documento": 12313,
+                "Nombres": "Brayan Stiven",
+                "Apellidos": "Maldonado Ortega",
+                "Direccion": "nose",
+                "Acudiente": "Josefa",
+                "Celular": 345342323,
+                "Fijo": 67545353,
+                "NotaPrueba": 0
+            },
+            {
+                "Identificador": 2,
+                "Estado": "Aprobado",
+                "Ruta" : "",
+                "Documento": 12313,
+                "Nombres": "Guillermo Jose",
+                "Apellidos": "Perez Gomez",
+                "Direccion": "jum",
+                "Acudiente": "Patrocla",
+                "Celular": 31213412,
+                "Fijo": 2984923,
+                "NotaPrueba": 0
+            },
+            {
+                "Identificador": 3,
+                "Estado": "Aprobado",
+                "Ruta" : "",
+                "Documento": 12313,
+                "Nombres": "Juancho",
+                "Apellidos": "Figueroa",
+                "Direccion": "jum",
+                "Acudiente": "Pepita",
+                "Celular": 2131232,
+                "Fijo": 245343,
+                "NotaPrueba": 0
+            },
+            {
+                "Identificador": 4,
+                "Estado": "Inscrito",
+                "Ruta" : "",
+                "Documento": 12313,
+                "Nombres": "Jose",
+                "Apellidos": "Gomez",
+                "Direccion": "jum",
+                "Acudiente": "Guillermina",
+                "Celular": 43543542,
+                "Fijo": 25465423,
+                "NotaPrueba": 0
+            },
+            {
+                "Identificador": 5,
+                "Estado": "Aprobado",
+                "Ruta" : "",
+                "Documento": "1234",
+                "Nombres": "Jose Jose",
+                "Apellidos": "Perez",
+                "Direccion": "cll 1c 8v - 54",
+                "Acudiente": "Josefina",
+                "Celular": "1334234",
+                "Fijo": "4353423",
+                "NotaPrueba": 0
+            }
+        ]
+    },
+    {
+        "Tipo": "Cursando",
+        "Estudiantes": []
+    },
+    {
+        "Tipo": "Expulsados",
+        "Estudiantes": []
+    },
+    {
+        "Tipo": "Fechas",
+        "Fechas": [
+            {
+                "FehcaInicio": "00-00-0000",
+                "FehcaFinal": "00-00-0000"
+            }
+        ]
+    },
+    {
+        "Tipo": "Grupos",
+        "Grupos": [
+            {
+                "GrupoT1": []
+            },
+            {
+                "GrupoT2": []
+            },
+            {
+                "GrupoT3": []
+            }
+        ]
+    }
+]
