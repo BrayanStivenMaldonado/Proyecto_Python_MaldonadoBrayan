@@ -553,6 +553,9 @@ while boolReportes == True:
 
     elif eleccionReportes == 6:
         print("Listar Campers que perdieron y aprobaron cada uno de los modulos dependiendo la ruta de entrenamiento")
+        RutaNoteJS = {}
+        RutaNetCore = {}
+        RutaJava = {}
         
     elif eleccionReportes == 7:
         print("Saliendo del programa")
