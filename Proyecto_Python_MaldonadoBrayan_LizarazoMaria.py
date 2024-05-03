@@ -289,9 +289,9 @@ elif RolUsuario == 3:
                         print("==========================")
                         print("Idetinficador:",contador)
                         print("Documento:",i["Documento"])
-                        print("Nombres",i["Nombres"])
-                        print("Apellidos",i["Apellidos"]) 
-                        print("==========================")
+                        print("Nombres:",i["Nombres"])
+                        print("Apellidos:",i["Apellidos"]) 
+                    print("==========================")
                     CamperParaNota = int(input("Ingrese el identificador del Camper: "))
                     break
                 except:
@@ -363,10 +363,12 @@ elif RolUsuario == 3:
                     contador = 0
                     for i in GeneralData[3]["Estudiantes"]:
                         contador+=1
+                        print("=================")
                         print("Idetinficador:",contador)
                         print("Documento:",i["Documento"])
                         print("Nombres",i["Nombres"])
                         print("Apellidos",i["Apellidos"])
+                    print("=================")
                     Camper = int(input("\nIngrese el identificador del Camper que desea escoger: "))                    
                     break
                 except:
@@ -547,16 +549,123 @@ while boolReportes == True:
     elif eleccionReportes == 4:
         print("Listar Campers con rendimiento Bajo")
 
-
     elif eleccionReportes == 5:
-        print("Listar Campers y Trainers asociados a una misma ruta de entrenamiento")
+
+        TrainerRutaNoteJS = []
+        CampersRutaNoteJS = []
+        TrainerRutaNetCore = []
+        CampersRutaNetCore = []
+        TrainerRutaJava = []
+        CampersRutaJava = []
+
+        GeneralData = abrirArchivo()
+        for i in range (0,(len(GeneralData[0]["Trainers"]))):
+            if GeneralData[0]["Trainers"][i]["Ruta"] == "NetCore":
+                TrainerRutaNetCore.append(GeneralData[0]["Trainers"][i])
+        if len(GeneralData[6]["Grupos"][0]["GrupoT1"])>=1:
+            for i in range (0,len(GeneralData[6]["Grupos"][0]["GrupoT1"])):
+                if GeneralData[6]["Grupos"][0]["GrupoT1"][i]["Ruta"] == "NetCore":
+                    CampersRutaNetCore.append(GeneralData[6]["Grupos"][0]["GrupoT1"][i])
+
+        GeneralData = abrirArchivo()
+        for i in range (0,(len(GeneralData[0]["Trainers"]))):
+            if GeneralData[0]["Trainers"][i]["Ruta"] == "Java":
+                TrainerRutaJava.append(GeneralData[0]["Trainers"][i])
+        if len(GeneralData[6]["Grupos"][1]["GrupoT2"])>=1:
+            for i in range (0,len(GeneralData[6]["Grupos"][1]["GrupoT2"])):
+                if GeneralData[6]["Grupos"][1]["GrupoT2"][i]["Ruta"] == "Java":
+                    CampersRutaJava.append(GeneralData[6]["Grupos"][1]["GrupoT2"][i])
+
+        GeneralData = abrirArchivo()
+        for i in range (0,(len(GeneralData[0]["Trainers"]))):
+            if GeneralData[0]["Trainers"][i]["Ruta"] == "NoteJS":
+                TrainerRutaNoteJS.append(GeneralData[0]["Trainers"][i])
+        if len(GeneralData[6]["Grupos"][2]["GrupoT3"])>=1:
+            for i in range (0,len(GeneralData[6]["Grupos"][2]["GrupoT3"])):
+                if GeneralData[6]["Grupos"][2]["GrupoT3"][i]["Ruta"] == "NoteJS":
+                    CampersRutaNoteJS.append(GeneralData[6]["Grupos"][2]["GrupoT3"][i])
+
+        boolReportesRutas = True
+        while boolReportesRutas == True:
+            print("Listar Campers y Trainers asociados a una misma ruta de entrenamiento")
+            boolTryCatch = True
+            while boolTryCatch == True:
+                try:
+                    eleccionReportesRutas = int(input("\nRutas: \n1. NetCore \n2. Java \n3. NoteJS \n4. Salir del modulo \n¿Qué desea hacer?: "))
+                    break
+                except ValueError:
+                    input("Debe ingresar un númerom, presione ENTER para continuar")
+                    system("cls")
+            system("cls")
+
+            if eleccionReportesRutas == 1:
+                print("Trainer de la ruta de aprendizaje NetCore:")
+                if len(CampersRutaNetCore)==0:
+                    print("")
+                    print("En esta ruta de Entrenamiento no hay ningún Camper")
+                else:
+                    for i in TrainerRutaNetCore:
+                        print ("Nomrbre",i["Nombre"])
+                        print("Grupo:",i["Grupo"])
+                    print("==============="),print("Campers: ")
+                    contador = 0
+                    for i in CampersRutaNetCore:
+                        contador +=1
+                        print("Camper #",contador)
+                        print("Nombres:",i["Nombres"])
+                        print("Apellidos:",i["Apellidos"])
+                        print("Grupo:",i["Grupo"])
+                        print("===============")
+                input("Presione ENTER para continuar")
+                system("cls")
+
+            elif eleccionReportesRutas == 2:
+                print("Trainer de la ruta de aprendizaje Java:")
+                for i in TrainerRutaJava:
+                    print ("Nombre:",i["Nombre"])
+                    print("Grupo:",i["Grupo"])
+                    print("==============="),print("Campers: ")
+                contador = 0
+                for i in CampersRutaJava:
+                    contador +=1
+                    print("Camper #",contador)
+                    print("Nombres:",i["Nombres"])
+                    print("Apellidos:",i["Apellidos"])
+                    print("Grupo:",i["Grupo"])
+                    print("===============")
+                input("Presione ENTER para continuar")
+                system("cls")
+
+            elif eleccionReportesRutas == 3:
+                print("Trainer de la ruta de aprendizaje NoteJS:")
+                for i in TrainerRutaNoteJS:
+                    print ("Nombre:",i["Nombre"])
+                    print("Grupo:",i["Grupo"])
+                print("==============="),print("Campers: ")
+                contador = 0
+                for i in CampersRutaNoteJS:
+                    contador +=1
+                    print("Camper #",contador)
+                    print("Nombres:",i["Nombres"])
+                    print("Apellidos:",i["Apellidos"])
+                    print("Grupo:",i["Grupo"])
+                    print("===============")
+                input("Presione ENTER para continuar")
+                system("cls")
+
+            elif eleccionReportesRutas == 4:
+                boolReportesRutas = False
+                input("Saliendo, presione ENTER para continuar")
+                system("cls")
+
+            else:
+                input("Esta no es una opción válida, presione ENTER para intentar de nuevo")
+                system("cls")
+
 
     elif eleccionReportes == 6:
         print("Listar Campers que perdieron y aprobaron cada uno de los modulos dependiendo la ruta de entrenamiento")
-        RutaNoteJS = {}
-        RutaNetCore = {}
-        RutaJava = {}
-        
+
     elif eleccionReportes == 7:
         print("Saliendo del programa")
         boolReportes = False
@@ -564,7 +673,5 @@ while boolReportes == True:
         print("Esta no es una opción válida, intente de nuevo")
         input("Presione ENTER para continuar")
         system("cls")
-
-
       
 #Desarrollado por Brayan Maldonado Y Maria Lizarazo - Campers

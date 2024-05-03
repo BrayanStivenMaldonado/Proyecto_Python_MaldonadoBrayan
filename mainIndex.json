@@ -3,20 +3,20 @@
         "Tipo": "Trainers",
         "Trainers": [
             {
-                "Nombre": "Pedro Gomez",
-                "Ruta": "NoteJS",
+                "Nombre": "Jholver Garcia",
+                "Ruta": "NetCore",
                 "Horario": "",
                 "Grupo": "T1"
             },
             {
-                "Nombre": "Jholver Garcia",
-                "Ruta": "NoteCore",
+                "Nombre": "Miguel Sanchez",
+                "Ruta": "Java",
                 "Horario": "",
                 "Grupo": "T2"
             },
             {
-                "Nombre": "Miguel Sanchez",
-                "Ruta": "Java",
+                "Nombre": "Pedro Gomez",
+                "Ruta": "NoteJS",
                 "Horario": "",
                 "Grupo": "T3"
             }
@@ -34,10 +34,11 @@
     {
         "Tipo": "Inscritos",
         "Estudiantes": [
+            
             {
                 "Identificador": 1,
-                "Estado": "Reprobado",
-                "Ruta" : "",
+                "Estado": "Aprobado",
+                "Ruta": "",
                 "Documento": 12313,
                 "Nombres": "Brayan Stiven",
                 "Apellidos": "Maldonado Ortega",
@@ -46,11 +47,11 @@
                 "Celular": 345342323,
                 "Fijo": 67545353,
                 "NotaPrueba": 0
-            },
+            },        
             {
                 "Identificador": 2,
                 "Estado": "Aprobado",
-                "Ruta" : "",
+                "Ruta": "",
                 "Documento": 12313,
                 "Nombres": "Guillermo Jose",
                 "Apellidos": "Perez Gomez",
@@ -63,7 +64,7 @@
             {
                 "Identificador": 3,
                 "Estado": "Aprobado",
-                "Ruta" : "",
+                "Ruta": "",
                 "Documento": 12313,
                 "Nombres": "Juancho",
                 "Apellidos": "Figueroa",
@@ -76,7 +77,7 @@
             {
                 "Identificador": 4,
                 "Estado": "Inscrito",
-                "Ruta" : "",
+                "Ruta": "",
                 "Documento": 12313,
                 "Nombres": "Jose",
                 "Apellidos": "Gomez",
@@ -89,7 +90,7 @@
             {
                 "Identificador": 5,
                 "Estado": "Aprobado",
-                "Ruta" : "",
+                "Ruta": "",
                 "Documento": "1234",
                 "Nombres": "Jose Jose",
                 "Apellidos": "Perez",
