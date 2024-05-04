@@ -213,5 +213,13 @@
     {
         "Tipo" : "NombresRutas",
         "NombresRutas" : ["Java","NetCore","NoteJS"]
+    },
+    {
+        "Tipo" : "EstudiantesAprobaronPruebaInicial",
+        "EstudiantesAprobaronPruebaInicial" : []
+    },
+    {
+        "Tipo" : "RiesgoAlto",
+        "RendimientoBajo" : []
     }
 ]
