@@ -53,13 +53,7 @@ while boolUsuario == True: #Se le va a preguntar el tipo de Rol hasta que ingres
 print("Hola", TipoUsuario)
 print("")
 
-
-
-
-
-
 #=================================== MODULO DEL CAMPER ===========================================================
- 
 if RolUsuario == 1:
     system("cls")
     print("---CAMPER---")
@@ -72,12 +66,6 @@ MENÚ DEL CAMPER
 4. Ver módulo en el que está registrado
 5. Salir.
           """)
-    
-
-
-
-
-
 #=================================== MODULO DEL TRAINER ===========================================================
 elif RolUsuario == 2:
     system("cls")
@@ -155,11 +143,6 @@ MENÚ DEL TRAINER
             input("Presione ENTER para continuar")
             boolTrainer = False
 
-
-
-
-
-               
 #=================================== MODULO DEL COORDINADOR ===========================================================
 elif RolUsuario == 3:
     system("cls")
@@ -353,120 +336,336 @@ elif RolUsuario == 3:
             print(AprobadosInicial)  
             print(ReprobadosInicial)          
 
-
         #===CREAR RUTA===        
         elif eleccionCoordinador == 3:
             print("----CREAR RUTA----")
 
+            GeneralData = abrirArchivo()
+            if len(GeneralData[8]["NombresRutas"])>= 8:
+                print(""),print("LO SIENTO, YA SE HA ALCANZADO EL MAXIMO DE RUTAS")
+            else:
 
+                NombreRutaNueva = str(input("Ingrese el nombre de la Ruta que va a Crear: "))
+                boolTryCatch = True
+                while boolTryCatch == True:
+                    try:
+                        boolParaPFNueva = True
+                        while boolParaPFNueva == True:
+                            ProgramacionFormalNueva = int(input("\n1. Java\n2. JavaScript\n3. C#\n ¿Que materia desea agregar al módulo programación formal?: "))
+                            if ProgramacionFormalNueva == 1:
+                                ProgramacionFormalNueva = "Java"
+                                boolParaPFNueva = False
+                            elif ProgramacionFormalNueva == 2:
+                                ProgramacionFormalNueva = "JavaScript"
+                                boolParaPFNueva = False
+                            elif ProgramacionFormalNueva == 3:
+                                ProgramacionFormalNueva = "C#"
+                                boolParaPFNueva = False
+                            else:
+                                print("Esta no es una opción válida")
+                        break
+                    except ValueError:
+                        input("Debe ingresar un valor númerico, presione ENTER para continuar")
+                        system("cls")
+                
+                boolTryCatch = True
+                while boolTryCatch == True:
+                    try:
+                        boolParaBDNueva = True
+                        while boolParaBDNueva == True:
+                            BaseDatosNuevaPrincipal = int(input("\n1.Mysql \n2. MongoDb \n3. Progresql\n ¿Qué materia desea agregar como principal al módulo Base de Datos?: "))
+                            if BaseDatosNuevaPrincipal == 1:
+                                BaseDatosNuevaPrincipal = "Mysql"
+                                boolParaBDNueva = False
+                            elif BaseDatosNuevaPrincipal == 2:
+                                BaseDatosNuevaPrincipal = "MongoDb"
+                                boolParaBDNueva = False
+                            elif BaseDatosNuevaPrincipal == 3:
+                                BaseDatosNuevaPrincipal = "Progresql"
+                                boolParaBDNueva = False
+                            else:
+                                print("Esta no es una opción válida")
+                        break
+                    except ValueError:
+                        input("Debe ingresar un valor numérico, presione ENTER para continuar")
+                        system("cls")
+                    
+                boolTryCatch = True
+                while boolTryCatch == True:
+                    try:
+                        boolParaBDNueva = True
+                        while boolParaBDNueva == True:
+                            BaseDatosNuevaAlternativa = int(input("\n1.Mysql \n2. MongoDb \n3. Progresql \n ¿Qué materia desea agregar como Secundaria al módulo Base de Datos?: "))
+                            if BaseDatosNuevaAlternativa == 1:
+                                BaseDatosNuevaAlternativa = "Mysql"
+                                boolParaBDNueva = False
+                            elif BaseDatosNuevaAlternativa == 2:
+                                BaseDatosNuevaAlternativa = "MongoDb"
+                                boolParaBDNueva = False
+                            elif BaseDatosNuevaAlternativa == 3:
+                                BaseDatosNuevaAlternativa = "Progresql"
+                                boolParaBDNueva = False
+                            else:
+                                print("Esta no es una opción válida")
+                        break
+                    except ValueError:
+                        input("Debe ingresar un valor numérico, presione ENTER para continuar")
+                        system("cls")
 
+                boolTryCatch = True
+                while boolTryCatch == True:
+                    try:
+                        boolParaBackEndNueva = True
+                        while boolParaBackEndNueva == True:
+                            BackendNuevo = int(input("\n1.NetCore \n2. SpringBoot \n3. Node \n4. Express \n ¿Qué materia desea agregar al módulo BackEnd?: "))
+                            if BackendNuevo == 1:
+                                BackendNuevo = "NetCore"
+                                boolParaBackEndNueva = False
+                            elif BackendNuevo == 2:
+                                BackendNuevo = "SpringBoot"
+                                boolParaBackEndNueva = False
+                            elif BackendNuevo == 3:
+                                BackendNuevo = "Node"
+                                boolParaBackEndNueva = False
+                            elif BackendNuevo == 4:
+                                BackendNuevo = "Express"
+                                boolParaBackEndNueva = False
+                            else:
+                                print("Esta no es una opción válida")
+                        break
+                    except ValueError:
+                        input("Debe ingresar un valor numérico, presione ENTER para continuar")
+                        system("cls")
+
+                NuevaRuta = {
+                    NombreRutaNueva : [
+                        {
+                            "FundamentosProgramacion" : ["Pseint","Python", "Introduccion a la algoritmia"]
+                        },
+                        {
+                            "ProgramacionWeb" : ["HTML", "CSS", "BootStrap"]
+                        },
+                        {
+                            "ProgramacionFormal" : [ProgramacionFormalNueva]
+                        },
+                        {
+                            "BaseDatos" : [BaseDatosNuevaPrincipal,BaseDatosNuevaAlternativa]
+                        },
+                        {
+                            "Backend" : [BackendNuevo]
+                        }
+                    ]
+                }
+
+            GeneralData = abrirArchivo()
+            GeneralData[7]["Rutas"].append(NuevaRuta)
+            GeneralData[8]["NombresRutas"].append(NombreRutaNueva) 
+            guardarArchivo(GeneralData) 
+
+            GeneralData = abrirArchivo()
+            if len(GeneralData[8]["NombresRutas"]) == 4:
+                GeneralData[0]["Trainers"][0]["Ruta"].append(NombreRutaNueva)
+            if len(GeneralData[8]["NombresRutas"] ) == 5:
+                GeneralData[0]["Trainers"][1]["Ruta"].append(NombreRutaNueva)
+            if len(GeneralData[8]["NombresRutas"] )== 6:
+                GeneralData[0]["Trainers"][2]["Ruta"].append(NombreRutaNueva)
+            if len(GeneralData[8]["NombresRutas"]) == 7:
+                GeneralData[0]["Trainers"][0]["Ruta"].append(NombreRutaNueva)
+            guardarArchivo(GeneralData)
 
         #===DEFINIR RUTA DEL CAMPER, ASIGNACION DE TRAINER, SALON Y DEFINICION DE HORARIO===        
         elif eleccionCoordinador == 4:
             print("----REGISTRAR RUTA DE ESTUDIO, ASIGNACION DE TRAINER, SALON Y DEFINICION DE HORARIO----")
-            
-            boolTryCatch = True
-            while boolTryCatch == True: 
-                try:
-                    GeneralData = abrirArchivo()
-                    contador = 0
-                    for i in GeneralData[3]["Estudiantes"]:
-                        contador+=1
+            GeneralData = abrirArchivo()
+            if len(GeneralData[3]["Estudiantes"]) == 0:
+                print("")
+                print("No hay ningun estudiante disponible para registrarle Ruta de Estudio")
+                input("Presione ENTER para continuar")
+                system("cls")
+            else:
+                boolTryCatch = True
+                while boolTryCatch == True: 
+                    try:
+                        GeneralData = abrirArchivo()
+                        contador = 0
+                        for i in GeneralData[3]["Estudiantes"]:
+                            contador+=1
+                            print("=================")
+                            print("Idetinficador:",contador)
+                            print("Documento:",i["Documento"])
+                            print("Nombres",i["Nombres"])
+                            print("Apellidos",i["Apellidos"])
                         print("=================")
-                        print("Idetinficador:",contador)
-                        print("Documento:",i["Documento"])
-                        print("Nombres",i["Nombres"])
-                        print("Apellidos",i["Apellidos"])
-                    print("=================")
-                    Camper = int(input("\nIngrese el identificador del Camper que desea escoger: "))                    
-                    break
-                except:
-                    input("En este dato, debe ingresar números, presione ENTER para continuar")
-                    system("cls")
+                        Camper = int(input("\nIngrese el identificador del Camper que desea escoger: "))                    
+                        break
+                    except:
+                        input("En este dato, debe ingresar números, presione ENTER para continuar")
+                        system("cls")
 
-            print("\nPara la ruta de estudio elige entre:\n NetCore \n Java \n NodeJS") 
+                boolTryCatch = True
+                while boolTryCatch == True:
+                    try:
+                        GeneralData = abrirArchivo()
+                        contador = 0
+                        for i in GeneralData[8]["NombresRutas"]:
+                            contador += 1
+                            print("Ruta #",contador)
+                            print(i)
+                            print("====")
+                        eleccionRuta = int(input("¿A qué ruta desea agregar al Camper?: "))
+                        break
+                    except ValueError:
+                        input("Debe ingresar un valor númerico, presione ENTER para volver a intentar")
+                        system("cls")     
 
-            boolTryCatch = True
-            while boolTryCatch == True: 
-                try:
-                    RutaElegida = str(input("\nIngrese el nombre de la Ruta que le desea definir: "))                    
-                    break
-                except:
-                    input("En este dato, debe ingresar letras, presione ENTER para continuar")
-                    system("cls")
-            
+                NombreRutaAgregada1 = ""
+                if len (GeneralData[8]["NombresRutas"])==4:
+                    GeneralData = abrirArchivo()
+                    NombreRutaAgregada1 = GeneralData[8]["NombresRutas"][3]
+                NombreRutaAgregada2 = ""
+                if len(GeneralData[8]["NombresRutas"])==5:
+                    GeneralData = abrirArchivo()
+                    NombreRutaAgregada2 = GeneralData[8]["NombresRutas"][4]
+                NombreRutaAgregada3 = ""
+                if len(GeneralData[8]["NombresRutas"])==6:
+                    GeneralData = abrirArchivo()
+                    NombreRutaAgregada3 = GeneralData[8]["NombresRutas"][5]
+                NombreRutaAgregada4 = ""
+                if len(GeneralData[8]["NombresRutas"])==7:
+                    GeneralData = abrirArchivo()
+                    NombreRutaAgregada4 = GeneralData[8]["NombresRutas"][6]
 
-            if RutaElegida == "NetCore":
-                GeneralData[3]["Estudiantes"][Camper-1]["Ruta"] = "NetCore"
-                GeneralData[3]["Estudiantes"][Camper-1]["Trainer"] = "Jholver Garcia"
-                GeneralData[3]["Estudiantes"][Camper-1]["Grupo"] = "T1"
-                GeneralData[3]["Estudiantes"][Camper-1]["Salon"] = "Apolo"
-                GeneralData[3]["Estudiantes"][Camper-1]["FechaInicio"] = "00-00-00"
-                GeneralData[3]["Estudiantes"][Camper-1]["FechaFinalizacion"] = "00-00-00"
-                GeneralData[3]["Estudiantes"][Camper-1]["Horario"] = "06am-10am"
-                guardarArchivo(GeneralData)
+                if eleccionRuta == 1:
+                    eleccionRutaStr = "Java"
+                elif eleccionRuta == 2:
+                    eleccionRutaStr = "NetCore"
+                elif eleccionRuta == 3:
+                    eleccionRutaStr = "NodeJS"  
+                elif eleccionRuta == 4:
+                    eleccionRutaStr = NombreRutaAgregada1
+                elif eleccionRuta == 5:
+                    eleccionRutaStr = NombreRutaAgregada2
+                elif eleccionRuta == 6:
+                    eleccionRutaStr = NombreRutaAgregada3
+                elif eleccionRuta == 7:
+                    eleccionRutaStr = NombreRutaAgregada4
+
+                GeneralData = abrirArchivo()
+                for i in range (0,len(GeneralData[8]["NombresRutas"])):
+                    if eleccionRutaStr == "Java":
+                        GeneralData[3]["Estudiantes"][Camper-1]["Ruta"] = "Java"
+                        GeneralData[3]["Estudiantes"][Camper-1]["Trainer"] = "Miguel Sanchez"
+                        GeneralData[3]["Estudiantes"][Camper-1]["Grupo"] = "T1"
+                        GeneralData[3]["Estudiantes"][Camper-1]["Salon"] = "Sputnik"
+                        GeneralData[3]["Estudiantes"][Camper-1]["FechaInicio"] = "00-00-00"
+                        GeneralData[3]["Estudiantes"][Camper-1]["FechaFinalizacion"] = "00-00-00"
+                        GeneralData[3]["Estudiantes"][Camper-1]["Horario"] = "6am-10am"
+                        guardarArchivo(GeneralData)
+
+                    elif eleccionRutaStr == "NetCore":
+                        GeneralData[3]["Estudiantes"][Camper-1]["Ruta"] = "NetCore"
+                        GeneralData[3]["Estudiantes"][Camper-1]["Trainer"] = "Jholver Garcia"
+                        GeneralData[3]["Estudiantes"][Camper-1]["Grupo"] = "T2"
+                        GeneralData[3]["Estudiantes"][Camper-1]["Salon"] = "Apolo"
+                        GeneralData[3]["Estudiantes"][Camper-1]["FechaInicio"] = "00-00-00"
+                        GeneralData[3]["Estudiantes"][Camper-1]["FechaFinalizacion"] = "00-00-00"
+                        GeneralData[3]["Estudiantes"][Camper-1]["Horario"] = "6am-10am"
+                        guardarArchivo(GeneralData)
+                    
+                    elif eleccionRutaStr == "NodeJS":
+                        GeneralData[3]["Estudiantes"][Camper-1]["Ruta"] = "NodeJS"
+                        GeneralData[3]["Estudiantes"][Camper-1]["Grupo"] = "T3"
+                        GeneralData[3]["Estudiantes"][Camper-1]["Trainer"] = "Pedro Gomez"
+                        GeneralData[3]["Estudiantes"][Camper-1]["Salon"] = "Artemis"
+                        GeneralData[3]["Estudiantes"][Camper-1]["FechaInicio"] = "00-00-00"
+                        GeneralData[3]["Estudiantes"][Camper-1]["FechaFinalizacion"] = "00-00-00"
+                        GeneralData[3]["Estudiantes"][Camper-1]["Horario"] = "6am-10am"
+                        guardarArchivo(GeneralData)
+
+                    elif eleccionRutaStr == GeneralData[8]["NombresRutas"][3]:
+                        GeneralData[3]["Estudiantes"][Camper-1]["Ruta"] = GeneralData[8]["NombresRutas"][3]
+                        GeneralData[3]["Estudiantes"][Camper-1]["Grupo"] = "T4"
+                        GeneralData[3]["Estudiantes"][Camper-1]["Trainer"] = "Miguel Sanchez"
+                        GeneralData[3]["Estudiantes"][Camper-1]["Salon"] = "Sputnik"
+                        GeneralData[3]["Estudiantes"][Camper-1]["FechaInicio"] = "00-00-00"
+                        GeneralData[3]["Estudiantes"][Camper-1]["FechaFinalizacion"] = "00-00-00"
+                        GeneralData[3]["Estudiantes"][Camper-1]["Horario"] = "2pm-6pm"
+                        guardarArchivo(GeneralData)
+
+                    elif eleccionRutaStr == GeneralData[8]["NombresRutas"][4]:
+                        GeneralData[3]["Estudiantes"][Camper-1]["Ruta"] = GeneralData[8]["NombresRutas"][4]
+                        GeneralData[3]["Estudiantes"][Camper-1]["Grupo"] = "T5"
+                        GeneralData[3]["Estudiantes"][Camper-1]["Trainer"] = "Jholver Garcia"
+                        GeneralData[3]["Estudiantes"][Camper-1]["Salon"] = "Apolo"
+                        GeneralData[3]["Estudiantes"][Camper-1]["FechaInicio"] = "00-00-00"
+                        GeneralData[3]["Estudiantes"][Camper-1]["FechaFinalizacion"] = "00-00-00"
+                        GeneralData[3]["Estudiantes"][Camper-1]["Horario"] = "2pm-6pm"
+                        guardarArchivo(GeneralData)
+
+                    elif eleccionRutaStr == GeneralData[8]["NombresRutas"][5]:
+                        GeneralData[3]["Estudiantes"][Camper-1]["Ruta"] = GeneralData[8]["NombresRutas"][5]
+                        GeneralData[3]["Estudiantes"][Camper-1]["Grupo"] = "T6"
+                        GeneralData[3]["Estudiantes"][Camper-1]["Trainer"] = "Pedro Gomez"
+                        GeneralData[3]["Estudiantes"][Camper-1]["Salon"] = "Artemis"
+                        GeneralData[3]["Estudiantes"][Camper-1]["FechaInicio"] = "00-00-00"
+                        GeneralData[3]["Estudiantes"][Camper-1]["FechaFinalizacion"] = "00-00-00"
+                        GeneralData[3]["Estudiantes"][Camper-1]["Horario"] = "2pm-6pm"
+                        guardarArchivo(GeneralData)
+
+                    elif eleccionRutaStr == GeneralData[8]["NombresRutas"][6]:
+                        GeneralData[3]["Estudiantes"][Camper-1]["Ruta"] = GeneralData[8]["NombresRutas"][6]
+                        GeneralData[3]["Estudiantes"][Camper-1]["Grupo"] = "T7"
+                        GeneralData[3]["Estudiantes"][Camper-1]["Trainer"] = "Miguel Sanchez"
+                        GeneralData[3]["Estudiantes"][Camper-1]["Salon"] = "Artemis"
+                        GeneralData[3]["Estudiantes"][Camper-1]["FechaInicio"] = "00-00-00"
+                        GeneralData[3]["Estudiantes"][Camper-1]["FechaFinalizacion"] = "00-00-00"
+                        GeneralData[3]["Estudiantes"][Camper-1]["Horario"] = "6pm-10pm"
+                        guardarArchivo(GeneralData)
 
 
-            elif RutaElegida == "Java":
-                GeneralData[3]["Estudiantes"][Camper-1]["Ruta"] = "Java"
-                GeneralData[3]["Estudiantes"][Camper-1]["Trainer"] = "Miguel Sanchez"
-                GeneralData[3]["Estudiantes"][Camper-1]["Grupo"] = "T2"
-                GeneralData[3]["Estudiantes"][Camper-1]["Salon"] = "Apolo"
-                GeneralData[3]["Estudiantes"][Camper-1]["FechaInicio"] = "00-00-00"
-                GeneralData[3]["Estudiantes"][Camper-1]["FechaFinalizacion"] = "00-00-00"
-                GeneralData[3]["Estudiantes"][Camper-1]["Horario"] = "10am-2pm"
-                guardarArchivo(GeneralData)
+                AgregarGrupoT1 = {}
+                AgregarGrupoT2 = {}
+                AgregarGrupoT3 = {}
+                AgregarGrupoT4 = {}
+                AgregarGrupoT5 = {}
+                AgregarGrupoT6 = {}
+                AgregarGrupoT7 = {}
 
+                GeneralData = abrirArchivo()
+                for i in range (0,(len(GeneralData[3]["Estudiantes"]))):
+                    if GeneralData[3]["Estudiantes"][i]["Ruta"] == "Java":
+                        AgregarGrupoT1 = GeneralData[3]["Estudiantes"][i]
+                        GeneralData[6]["Grupos"][0]["GrupoT1"].append(AgregarGrupoT1)
+                        del GeneralData[3]["Estudiantes"][i]
+                        guardarArchivo(GeneralData)
+                        break
 
-            elif RutaElegida == "NodeJS":
-                GeneralData[3]["Estudiantes"][Camper-1]["Ruta"] = "NodeJS"
-                GeneralData[3]["Estudiantes"][Camper-1]["Grupo"] = "T3"
-                GeneralData[3]["Estudiantes"][Camper-1]["Trainer"] = "Pedro Gomez"
-                GeneralData[3]["Estudiantes"][Camper-1]["Salon"] = "Apolo"
-                GeneralData[3]["Estudiantes"][Camper-1]["FechaInicio"] = "00-00-00"
-                GeneralData[3]["Estudiantes"][Camper-1]["FechaFinalizacion"] = "00-00-00"
-                GeneralData[3]["Estudiantes"][Camper-1]["Horario"] = "2pm-6pm"
-                guardarArchivo(GeneralData)
-
-            print("Cambios Realizados!")
-            input("Presione ENTER para continuar")
-            system("cls")
-
-            AgregarGrupoT1 = {}
-            AgregarGrupoT2 = {}
-            AgregarGrupoT3 = {}
-
-            GeneralData = abrirArchivo()
-            for i in range (0,(len(GeneralData[3]["Estudiantes"]))):
-                if GeneralData[3]["Estudiantes"][i]["Ruta"] == "NetCore":
-                    AgregarGrupoT1 = GeneralData[3]["Estudiantes"][i]
-                    GeneralData[6]["Grupos"][0]["GrupoT1"].append(AgregarGrupoT1)
-                    del GeneralData[3]["Estudiantes"][i]
-                    guardarArchivo(GeneralData)
-                    break
-
-            GeneralData = abrirArchivo()
-            for i in range (0,(len(GeneralData[3]["Estudiantes"]))):
-                if GeneralData[3]["Estudiantes"][i]["Ruta"] == "Java":
-                    AgregarGrupoT2 = GeneralData[3]["Estudiantes"][i]
-                    GeneralData[6]["Grupos"][1]["GrupoT2"].append(AgregarGrupoT2)
-                    del GeneralData[3]["Estudiantes"][i]
-                    guardarArchivo(GeneralData)
-                    break
-               
-            GeneralData = abrirArchivo()
-            for i in range (0,(len(GeneralData[3]["Estudiantes"]))):
-                if GeneralData[3]["Estudiantes"][i]["Ruta"] == "NodeJS":
-                    AgregarGrupoT3 = GeneralData[3]["Estudiantes"][i]
-                    GeneralData[6]["Grupos"][2]["GrupoT3"].append(AgregarGrupoT3)
-                    del GeneralData[3]["Estudiantes"][i]
-                    guardarArchivo(GeneralData)
-                    break
+                GeneralData = abrirArchivo()
+                for i in range (0,(len(GeneralData[3]["Estudiantes"]))):
+                    if GeneralData[3]["Estudiantes"][i]["Ruta"] == "NetCore":
+                        AgregarGrupoT2 = GeneralData[3]["Estudiantes"][i]
+                        GeneralData[6]["Grupos"][1]["GrupoT2"].append(AgregarGrupoT2)
+                        del GeneralData[3]["Estudiantes"][i]
+                        guardarArchivo(GeneralData)
+                        break
                 
-            print(AgregarGrupoT1)
-            print(AgregarGrupoT2)
-            print(AgregarGrupoT3)
+                GeneralData = abrirArchivo()
+                for i in range (0,(len(GeneralData[3]["Estudiantes"]))):
+                    if GeneralData[3]["Estudiantes"][i]["Ruta"] == "NodeJS":
+                        AgregarGrupoT3 = GeneralData[3]["Estudiantes"][i]
+                        GeneralData[6]["Grupos"][2]["GrupoT3"].append(AgregarGrupoT3)
+                        del GeneralData[3]["Estudiantes"][i]
+                        guardarArchivo(GeneralData)
+                        break
 
+                GeneralData = abrirArchivo()
+                for i in range (0,(len(GeneralData[3]["Estudiantes"]))):
+                    if GeneralData[3]["Estudiantes"][i]["Ruta"] == GeneralData[8]["NombresRutas"][3]:
+                        AgregarGrupoT4 = GeneralData[3]["Estudiantes"][i]
+                        GeneralData[6]["Grupos"][3]["GrupoT4"].append(AgregarGrupoT4)
+                        del GeneralData[3]["Estudiantes"][i]
+                        guardarArchivo(GeneralData)
+                        break
 
         #===AÑADIR NOTA DE MODULOS===        
         elif eleccionCoordinador == 5:
@@ -477,7 +676,7 @@ elif RolUsuario == 3:
                 boolTryCatch = True
                 while boolTryCatch == True:
                     try:
-                        EleccionNotaModulo= int(input("\n1. T1\n2. T2\n3. T3\n4. Salir\n Seleccione el grupo que desea editar: "))
+                        EleccionNotaModulo= int(input("\n1. T1\n2. T2\n3. T3\n4. T4\n5. T5\n6. T6\n7. T7\n8. Salir\n\nSeleccione el grupo que desea editar: "))
                         break
                     except ValueError:
                         input("En este dato, debe ingresar un número, presione ENTER para continuar")
@@ -505,11 +704,26 @@ elif RolUsuario == 3:
                                 input("Debe ingresar un número, presione ENTER para continuar.")
                                 system("cls")
                         
-                        #GeneralData=abrirArchivo()
-                        #GeneralData[6]["Grupos"][0]["GrupoT1"][EscogerEstudianteT1-1][]
+                        GeneralData=abrirArchivo()
+                        NotaPruebaTeorica = int(input("Ingrese la nota de la prueba teórica: "))
+                        NotaPruebaPractica = int(input("Ingrese la nota de la prueba practica: "))
+                        CantidadQuizes = int(input("¿Cuántos quizes hizo el trainer?: "))
+                        contador = 0
+                        NotaQuizes = 0
+                        for i in range (0,CantidadQuizes):
+                            contador += 1
+                            print("Quiz #",contador)
+                            NotaQuizes += int(input("Nota: "))                        
+                        NotaQuizesFinal = NotaQuizes/CantidadQuizes
+                        NotaFinalModulo = (NotaPruebaTeorica*0.30)+(NotaPruebaPractica*0.60)+(NotaQuizesFinal*0.10)
+                        GeneralData[6]["Grupos"][0]["GrupoT1"][EscogerEstudianteT1-1]["NotaModulo"] = NotaFinalModulo
+
+                        #if NotaFinalModulo>=60:
+                        #    GeneralData[6]["Grupos"][0]["GrupoT1"][EscogerEstudianteT1-1]["Estado"] 
+                        #guardarArchivo(GeneralData)
 
 
-                if EleccionNotaModulo == 2:
+                elif EleccionNotaModulo == 2:
                     print("T2")
                     contador=0
                     GeneralData=abrirArchivo()
@@ -531,7 +745,7 @@ elif RolUsuario == 3:
                                 input("Debe ingresar un número, presione ENTER para continuar.")
                                 system("cls")
 
-                if EleccionNotaModulo == 3:
+                elif EleccionNotaModulo == 3:
                     print("T3")
                     contador=0
                     GeneralData=abrirArchivo()
@@ -552,23 +766,113 @@ elif RolUsuario == 3:
                             except ValueError:
                                 input("Debe ingresar un número, presione ENTER para continuar.")
                                 system("cls")
+                
+                elif EleccionNotaModulo == 4:
+                    print ("T4")
+                    contador = 0
+                    GeneralData = abrirArchivo()
+                    if len(GeneralData[6]["Grupos"][3]["GrupoT4"])==0:
+                        input("No hay ningun Camper dentro de éste grupo, presione ENTER para continuar")
+                        system("cls")
+                    else:
+                        for i in GeneralData[6]["Grupos"][3]["GrupoT4"]:
+                            contador+=1
+                            print("Identificador #",contador)
+                            print("Nombres:",i["Nombres"])
+                            print("Apellidos:",i["Apellidos"])
+                        boolTryCatch = True
+                        while boolTryCatch == True:
+                            try:
+                                EscogerEstudianteModulo=int(input("Ingrese el identificador del estudiante al que le desea agregar notas: "))
+                                break
+                            except ValueError:
+                                input("Debe ingresar un número, presione ENTER para continuar.")
+                                system("cls")
+                
+                elif EleccionNotaModulo == 5:
+                    print ("T5")
+                    contador = 0
+                    GeneralData = abrirArchivo()
+                    if len(GeneralData[6]["Grupos"][4]["GrupoT5"])==0:
+                        input("No hay ningun Camper dentro de éste grupo, presione ENTER para continuar")
+                        system("cls")
+                    else:
+                        for i in GeneralData[6]["Grupos"][4]["GrupoT5"]:
+                            contador+=1
+                            print("Identificador #",contador)
+                            print("Nombres:",i["Nombres"])
+                            print("Apellidos:",i["Apellidos"])
+                        boolTryCatch = True
+                        while boolTryCatch == True:
+                            try:
+                                EscogerEstudianteModulo=int(input("Ingrese el identificador del estudiante al que le desea agregar notas: "))
+                                break
+                            except ValueError:
+                                input("Debe ingresar un número, presione ENTER para continuar.")
+                                system("cls")
+                
+                elif EleccionNotaModulo == 6:
+                    print ("T6")
+                    contador = 0
+                    GeneralData = abrirArchivo()
+                    if len(GeneralData[6]["Grupos"][5]["GrupoT6"])==0:
+                        input("No hay ningun Camper dentro de éste grupo, presione ENTER para continuar")
+                        system("cls")
+                    else:
+                        for i in GeneralData[6]["Grupos"][5]["GrupoT6"]:
+                            contador+=1
+                            print("Identificador #",contador)
+                            print("Nombres:",i["Nombres"])
+                            print("Apellidos:",i["Apellidos"])
+                        boolTryCatch = True
+                        while boolTryCatch == True:
+                            try:
+                                EscogerEstudianteModulo=int(input("Ingrese el identificador del estudiante al que le desea agregar notas: "))
+                                break
+                            except ValueError:
+                                input("Debe ingresar un número, presione ENTER para continuar.")
+                                system("cls")
+                
+                elif EleccionNotaModulo == 7:
+                    print ("T7")
+                    contador = 0
+                    GeneralData = abrirArchivo()
+                    if len(GeneralData[6]["Grupos"][6]["GrupoT7"])==0:
+                        input("No hay ningun Camper dentro de éste grupo, presione ENTER para continuar")
+                        system("cls")
+                    else:
+                        for i in GeneralData[6]["Grupos"][6]["GrupoT7"]:
+                            contador+=1
+                            print("Identificador #",contador)
+                            print("Nombres:",i["Nombres"])
+                            print("Apellidos:",i["Apellidos"])
+                        boolTryCatch = True
+                        while boolTryCatch == True:
+                            try:
+                                EscogerEstudianteModulo=int(input("Ingrese el identificador del estudiante al que le desea agregar notas: "))
+                                break
+                            except ValueError:
+                                input("Debe ingresar un número, presione ENTER para continuar.")
+                                system("cls")
 
-                if EleccionNotaModulo == 4:
-                    print("Salir")
+                elif EleccionNotaModulo == 8:
                     input("Presione ENTER para continuar")
                     system("cls")
-                    boolAñadirNotas=False
+                    boolAñadirNotas = False
                     break
-                
-            else:
-                input("Esta no es una opción válida, presione ENTER para continuar")
-                system("cls")
 
-        elif eleccionCoordinador == 6: 
+                else:
+                    input("Esta no es una opción válida, presione ENTER para continuar")
+                    system("cls")
+        
+        elif eleccionCoordinador == 6:
             print("Saliendo del módulo del coordinador")
             input("Presione ENTER para continuar")
             system("cls")
             boolCoordinador = False
+
+        else:
+            input("Esta no es una opción válida, presione ENTER para continuar")
 
 #==================================== MODULO DE REPORTES ==================================================
 boolReportes = True

@@ -3,22 +3,22 @@
         "Tipo": "Trainers",
         "Trainers": [
             {
-                "Nombre": "Jholver Garcia",
-                "Ruta": "NetCore",
-                "Horario": "",
-                "Grupo": "T1"
+                "Nombre": "Miguel Sanchez",
+                "Ruta": ["Java"],
+                "Salon" : "Sputnik,",
+                "Grupos": "T1 - T4 - T7"
             },
             {
-                "Nombre": "Miguel Sanchez",
-                "Ruta": "Java",
-                "Horario": "",
-                "Grupo": "T2"
+                "Nombre": "Jholver Garcia",
+                "Ruta": ["NetCore"],
+                "Salon" : "Apolo",
+                "Grupo": "T2 - T5"
             },
             {
                 "Nombre": "Pedro Gomez",
-                "Ruta": "NodeJS",
-                "Horario": "",
-                "Grupo": "T3"
+                "Ruta": ["NodeJS"],
+                "Salon" : "Artemis",
+                "Grupo": "T3 - T6"
             }
         ]
     },
@@ -37,7 +37,7 @@
             
             {
                 "Identificador": 1,
-                "Estado": "Aprobado",
+                "Estado": "Inscrito",
                 "Ruta": "",
                 "Documento": 12313,
                 "Nombres": "Brayan Stiven",
@@ -50,7 +50,7 @@
             },        
             {
                 "Identificador": 2,
-                "Estado": "Aprobado",
+                "Estado": "Inscrito",
                 "Ruta": "",
                 "Documento": 12313,
                 "Nombres": "Maria Guadalupe",
@@ -63,7 +63,7 @@
             },
             {
                 "Identificador": 3,
-                "Estado": "Aprobado",
+                "Estado": "Inscrito",
                 "Ruta": "",
                 "Documento": 12313,
                 "Nombres": "Juancho",
@@ -89,7 +89,7 @@
             },
             {
                 "Identificador": 5,
-                "Estado": "Aprobado",
+                "Estado": "Inscrito",
                 "Ruta": "",
                 "Documento": "1234",
                 "Nombres": "Jose Jose",
@@ -130,6 +130,18 @@
             },
             {
                 "GrupoT3": []
+            },
+            {
+                "GrupoT4" : []
+            },
+            {
+                "GrupoT5" : []
+            },
+            {
+                "GrupoT6" : []
+            },
+            {
+                "GrupoT7" : []
             }
         ]
     },
@@ -139,7 +151,7 @@
             {
                 "Java": [
                     {
-                        "FundamentosProgramación":["Pseint","Python", "Introducción a la algoritmía"]
+                        "FundamentosProgramacion":["Pseint","Python", "Introduccion a la algoritmia"]
                     },
                     {
                         "ProgramacionWeb":["HTML", "CSS", "BootStrap"]
@@ -159,7 +171,7 @@
             {
                 "NetCore": [
                     {
-                        "FundamentosProgramación":["Pseint","Python", "Introducción a la algoritmía"]
+                        "FundamentosProgramacion":["Pseint","Python", "Introduccion a la algoritmia"]
                     },
                     {
                         "ProgramacionWeb":["HTML", "CSS", "BootStrap"]
@@ -179,7 +191,7 @@
             {
                 "NodeJS": [
                     {
-                        "FundamentosProgramación":["Pseint","Python", "Introducción a la algoritmía"]
+                        "FundamentosProgramacion":["Pseint","Python", "Introduccion a la algoritmia"]
                     },
                     {
                         "ProgramacionWeb":["HTML", "CSS", "BootStrap"]
@@ -197,5 +209,9 @@
                 ]
             }
         ]
+    },
+    {
+        "Tipo" : "NombresRutas",
+        "NombresRutas" : ["Java","NetCore","NoteJS"]
     }
 ]
