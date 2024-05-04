@@ -718,9 +718,17 @@ elif RolUsuario == 3:
                         NotaFinalModulo = (NotaPruebaTeorica*0.30)+(NotaPruebaPractica*0.60)+(NotaQuizesFinal*0.10)
                         GeneralData[6]["Grupos"][0]["GrupoT1"][EscogerEstudianteT1-1]["NotaModulo"] = NotaFinalModulo
 
-                        #if NotaFinalModulo>=60:
-                        #    GeneralData[6]["Grupos"][0]["GrupoT1"][EscogerEstudianteT1-1]["Estado"] 
-                        #guardarArchivo(GeneralData)
+                        if NotaFinalModulo>=60:
+                            GeneralData[6]["Grupos"][0]["GrupoT1"][EscogerEstudianteT1-1]["Estado"] = "Aprobado"
+                            print("Aprobado")
+                            input("Presione ENTER para continuar")
+                            system("cls")
+                        else:
+                            GeneralData[6]["Grupos"][0]["GrupoT1"][EscogerEstudianteT1-1]["Estado"] = "Reprobado"
+                            print("Reprobado")
+                            input("Presione ENTER para continuar")
+                            system("cls")
+                        guardarArchivo(GeneralData)
 
 
                 elif EleccionNotaModulo == 2:
@@ -739,11 +747,37 @@ elif RolUsuario == 3:
                         boolTryCatch = True
                         while boolTryCatch == True:
                             try:
-                                EscogerEstudianteModulo=int(input("Ingrese el identificador del estudiante al que le desea agregar notas: "))
+                                EscogerEstudianteT2=int(input("Ingrese el identificador del estudiante al que le desea agregar notas: "))
                                 break
                             except ValueError:
                                 input("Debe ingresar un número, presione ENTER para continuar.")
                                 system("cls")
+
+                        GeneralData=abrirArchivo()
+                        NotaPruebaTeorica = int(input("Ingrese la nota de la prueba teórica: "))
+                        NotaPruebaPractica = int(input("Ingrese la nota de la prueba practica: "))
+                        CantidadQuizes = int(input("¿Cuántos quizes hizo el trainer?: "))
+                        contador = 0
+                        NotaQuizes = 0
+                        for i in range (0,CantidadQuizes):
+                            contador += 1
+                            print("Quiz #",contador)
+                            NotaQuizes += int(input("Nota: "))                        
+                        NotaQuizesFinal = NotaQuizes/CantidadQuizes
+                        NotaFinalModulo = (NotaPruebaTeorica*0.30)+(NotaPruebaPractica*0.60)+(NotaQuizesFinal*0.10)
+                        GeneralData[6]["Grupos"][1]["GrupoT2"][EscogerEstudianteT2-1]["NotaModulo"] = NotaFinalModulo
+
+                        if NotaFinalModulo>=60:
+                            GeneralData[6]["Grupos"][1]["GrupoT2"][EscogerEstudianteT2-1]["Estado"] = "Aprobado"
+                            print("Aprobado")
+                            input("Presione ENTER para continuar")
+                            system("cls")
+                        else:
+                            GeneralData[6]["Grupos"][1]["GrupoT2"][EscogerEstudianteT2-1]["Estado"] = "Reprobado"
+                            print("Reprobado")
+                            input("Presione ENTER para continuar")
+                            system("cls")
+                        guardarArchivo(GeneralData)
 
                 elif EleccionNotaModulo == 3:
                     print("T3")
@@ -761,11 +795,37 @@ elif RolUsuario == 3:
                         boolTryCatch = True
                         while boolTryCatch == True:
                             try:
-                                EscogerEstudianteModulo=int(input("Ingrese el identificador del estudiante al que le desea agregar notas: "))
+                                EscogerEstudianteT3=int(input("Ingrese el identificador del estudiante al que le desea agregar notas: "))
                                 break
                             except ValueError:
                                 input("Debe ingresar un número, presione ENTER para continuar.")
                                 system("cls")
+                        
+                        GeneralData=abrirArchivo()
+                        NotaPruebaTeorica = int(input("Ingrese la nota de la prueba teórica: "))
+                        NotaPruebaPractica = int(input("Ingrese la nota de la prueba practica: "))
+                        CantidadQuizes = int(input("¿Cuántos quizes hizo el trainer?: "))
+                        contador = 0
+                        NotaQuizes = 0
+                        for i in range (0,CantidadQuizes):
+                            contador += 1
+                            print("Quiz #",contador)
+                            NotaQuizes += int(input("Nota: "))                        
+                        NotaQuizesFinal = NotaQuizes/CantidadQuizes
+                        NotaFinalModulo = (NotaPruebaTeorica*0.30)+(NotaPruebaPractica*0.60)+(NotaQuizesFinal*0.10)
+                        GeneralData[6]["Grupos"][2]["GrupoT3"][EscogerEstudianteT3-1]["NotaModulo"] = NotaFinalModulo
+
+                        if NotaFinalModulo>=60:
+                            GeneralData[6]["Grupos"][2]["GrupoT3"][EscogerEstudianteT3-1]["Estado"] = "Aprobado"
+                            print("Aprobado")
+                            input("Presione ENTER para continuar")
+                            system("cls")
+                        else:
+                            GeneralData[6]["Grupos"][2]["GrupoT3"][EscogerEstudianteT3-1]["Estado"] = "Reprobado"
+                            print("Reprobado")
+                            input("Presione ENTER para continuar")
+                            system("cls")
+                        guardarArchivo(GeneralData)
                 
                 elif EleccionNotaModulo == 4:
                     print ("T4")
@@ -783,12 +843,39 @@ elif RolUsuario == 3:
                         boolTryCatch = True
                         while boolTryCatch == True:
                             try:
-                                EscogerEstudianteModulo=int(input("Ingrese el identificador del estudiante al que le desea agregar notas: "))
+                                EscogerEstudianteT4=int(input("Ingrese el identificador del estudiante al que le desea agregar notas: "))
                                 break
                             except ValueError:
                                 input("Debe ingresar un número, presione ENTER para continuar.")
                                 system("cls")
                 
+                        GeneralData=abrirArchivo()
+                        NotaPruebaTeorica = int(input("Ingrese la nota de la prueba teórica: "))
+                        NotaPruebaPractica = int(input("Ingrese la nota de la prueba practica: "))
+                        CantidadQuizes = int(input("¿Cuántos quizes hizo el trainer?: "))
+                        contador = 0
+                        NotaQuizes = 0
+                        for i in range (0,CantidadQuizes):
+                            contador += 1
+                            print("Quiz #",contador)
+                            NotaQuizes += int(input("Nota: "))                        
+                        NotaQuizesFinal = NotaQuizes/CantidadQuizes
+                        NotaFinalModulo = (NotaPruebaTeorica*0.30)+(NotaPruebaPractica*0.60)+(NotaQuizesFinal*0.10)
+                        GeneralData[6]["Grupos"][3]["GrupoT4"][EscogerEstudianteT4-1]["NotaModulo"] = NotaFinalModulo
+
+                        if NotaFinalModulo>=60:
+                            GeneralData[6]["Grupos"][3]["GrupoT4"][EscogerEstudianteT4-1]["Estado"] = "Aprobado"
+                            print("Aprobado")
+                            input("Presione ENTER para continuar")
+                            system("cls")
+                        else:
+                            GeneralData[6]["Grupos"][3]["GrupoT4"][EscogerEstudianteT4-1]["Estado"] = "Reprobado"
+                            print("Reprobado")
+                            input("Presione ENTER para continuar")
+                            system("cls")
+                        guardarArchivo(GeneralData)
+
+
                 elif EleccionNotaModulo == 5:
                     print ("T5")
                     contador = 0
@@ -805,11 +892,37 @@ elif RolUsuario == 3:
                         boolTryCatch = True
                         while boolTryCatch == True:
                             try:
-                                EscogerEstudianteModulo=int(input("Ingrese el identificador del estudiante al que le desea agregar notas: "))
+                                EscogerEstudianteT5=int(input("Ingrese el identificador del estudiante al que le desea agregar notas: "))
                                 break
                             except ValueError:
                                 input("Debe ingresar un número, presione ENTER para continuar.")
                                 system("cls")
+
+                        GeneralData=abrirArchivo()
+                        NotaPruebaTeorica = int(input("Ingrese la nota de la prueba teórica: "))
+                        NotaPruebaPractica = int(input("Ingrese la nota de la prueba practica: "))
+                        CantidadQuizes = int(input("¿Cuántos quizes hizo el trainer?: "))
+                        contador = 0
+                        NotaQuizes = 0
+                        for i in range (0,CantidadQuizes):
+                            contador += 1
+                            print("Quiz #",contador)
+                            NotaQuizes += int(input("Nota: "))                        
+                        NotaQuizesFinal = NotaQuizes/CantidadQuizes
+                        NotaFinalModulo = (NotaPruebaTeorica*0.30)+(NotaPruebaPractica*0.60)+(NotaQuizesFinal*0.10)
+                        GeneralData[6]["Grupos"][4]["GrupoT5"][EscogerEstudianteT5-1]["NotaModulo"] = NotaFinalModulo
+
+                        if NotaFinalModulo>=60:
+                            GeneralData[6]["Grupos"][4]["GrupoT5"][EscogerEstudianteT5-1]["Estado"] = "Aprobado"
+                            print("Aprobado")
+                            input("Presione ENTER para continuar")
+                            system("cls")
+                        else:
+                            GeneralData[6]["Grupos"][4]["GrupoT5"][EscogerEstudianteT5-1]["Estado"] = "Reprobado"
+                            print("Reprobado")
+                            input("Presione ENTER para continuar")
+                            system("cls")
+                        guardarArchivo(GeneralData)
                 
                 elif EleccionNotaModulo == 6:
                     print ("T6")
@@ -827,11 +940,34 @@ elif RolUsuario == 3:
                         boolTryCatch = True
                         while boolTryCatch == True:
                             try:
-                                EscogerEstudianteModulo=int(input("Ingrese el identificador del estudiante al que le desea agregar notas: "))
+                                EscogerEstudianteT6=int(input("Ingrese el identificador del estudiante al que le desea agregar notas: "))
                                 break
                             except ValueError:
                                 input("Debe ingresar un número, presione ENTER para continuar.")
                                 system("cls")
+
+                        GeneralData=abrirArchivo()
+                        NotaPruebaTeorica = int(input("Ingrese la nota de la prueba teórica: "))
+                        NotaPruebaPractica = int(input("Ingrese la nota de la prueba practica: "))
+                        CantidadQuizes = int(input("¿Cuántos quizes hizo el trainer?: "))
+                        contador = 0
+                        NotaQuizes = 0
+                        for i in range (0,CantidadQuizes):
+                            contador += 1
+                            print("Quiz #",contador)
+                            NotaQuizes += int(input("Nota: "))                        
+                        NotaQuizesFinal = NotaQuizes/CantidadQuizes
+                        NotaFinalModulo = (NotaPruebaTeorica*0.30)+(NotaPruebaPractica*0.60)+(NotaQuizesFinal*0.10)
+                        GeneralData[6]["Grupos"][5]["GrupoT6"][EscogerEstudianteT6-1]["NotaModulo"] = NotaFinalModulo
+
+                        if NotaFinalModulo>=60:
+                            GeneralData[6]["Grupos"][5]["GrupoT6"][EscogerEstudianteT6-1]["Estado"] = "Aprobado"
+                            print("Aprobado")
+                            input("Presione ENTER para continuar")
+                            system("cls")
+                        else:
+                            GeneralData[6]["Grupos"][5]["GrupoT6"][EscogerEstudianteT6-1]["Estado"] = "Reprobado"
+                        guardarArchivo(GeneralData)
                 
                 elif EleccionNotaModulo == 7:
                     print ("T7")
@@ -849,11 +985,37 @@ elif RolUsuario == 3:
                         boolTryCatch = True
                         while boolTryCatch == True:
                             try:
-                                EscogerEstudianteModulo=int(input("Ingrese el identificador del estudiante al que le desea agregar notas: "))
+                                EscogerEstudianteT7=int(input("Ingrese el identificador del estudiante al que le desea agregar notas: "))
                                 break
                             except ValueError:
                                 input("Debe ingresar un número, presione ENTER para continuar.")
                                 system("cls")
+
+                        GeneralData=abrirArchivo()
+                        NotaPruebaTeorica = int(input("Ingrese la nota de la prueba teórica: "))
+                        NotaPruebaPractica = int(input("Ingrese la nota de la prueba practica: "))
+                        CantidadQuizes = int(input("¿Cuántos quizes hizo el trainer?: "))
+                        contador = 0
+                        NotaQuizes = 0
+                        for i in range (0,CantidadQuizes):
+                            contador += 1
+                            print("Quiz #",contador)
+                            NotaQuizes += int(input("Nota: "))                        
+                        NotaQuizesFinal = NotaQuizes/CantidadQuizes
+                        NotaFinalModulo = (NotaPruebaTeorica*0.30)+(NotaPruebaPractica*0.60)+(NotaQuizesFinal*0.10)
+                        GeneralData[6]["Grupos"][6]["GrupoT7"][EscogerEstudianteT7-1]["NotaModulo"] = NotaFinalModulo
+
+                        if NotaFinalModulo>=60:
+                            GeneralData[6]["Grupos"][6]["GrupoT7"][EscogerEstudianteT7-1]["Estado"] = "Aprobado"
+                            print("Aprobado")
+                            input("Presione ENTER para continuar")
+                            system("cls")
+                        else:
+                            GeneralData[6]["Grupos"][6]["GrupoT7"][EscogerEstudianteT7-1]["Estado"] = "Reprobado"
+                            print("Reprobado")
+                            input("Presione ENTER para continuar")
+                            system("cls")
+                        guardarArchivo(GeneralData)
 
                 elif EleccionNotaModulo == 8:
                     input("Presione ENTER para continuar")
