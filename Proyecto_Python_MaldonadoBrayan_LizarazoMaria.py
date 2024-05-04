@@ -473,6 +473,9 @@ elif RolUsuario == 3:
                 GeneralData[0]["Trainers"][0]["Ruta"].append(NombreRutaNueva)
             guardarArchivo(GeneralData)
 
+            input("Cambios guardados!, presione ENTER para continuar")
+            system("cls")
+
         #===DEFINIR RUTA DEL CAMPER, ASIGNACION DE TRAINER, SALON Y DEFINICION DE HORARIO===        
         elif eleccionCoordinador == 4:
             print("----REGISTRAR RUTA DE ESTUDIO, ASIGNACION DE TRAINER, SALON Y DEFINICION DE HORARIO----")
@@ -666,6 +669,8 @@ elif RolUsuario == 3:
                         del GeneralData[3]["Estudiantes"][i]
                         guardarArchivo(GeneralData)
                         break
+            input("Cambios guardados!, presione ENTER para continuar")
+            system("cls")
 
         #===AÑADIR NOTA DE MODULOS===        
         elif eleccionCoordinador == 5:
@@ -1085,19 +1090,6 @@ while boolReportes == True:
     #===============================LISTAR CAMPERS QUE APROBARON LA PRUEBA INCIAL===================================
     elif eleccionReportes == 2:
         ListarAprobados = {}
-        GeneralData = abrirArchivo()
-        for i in range (len(GeneralData[2]["Estudiantes"])):
-            if GeneralData[6]["Estudiantes"][i]["NotaPrueba"]>=60:
-                ListarAprobados = GeneralData[2]["Estudiantes"]
-        print("Campers que aprobaron el examen inicial")
-        tamañolistaaprobados = len(ListarAprobados)
-        if len(ListarAprobados)>=1:
-            for i in ListarAprobados:
-                print(i["Nombres"]),print("Apellidos:",i["Apellidos"]),print("Nota:",i["NotaPrueba"])
-        else:
-            print("Todavía no se ha ingresado notas de la prueba inicial a ningun Camper")
-        input("Presione ENTER para continuar")
-        system("cls")
 
     #============================== LISTAR TRAINERS DENTRO DE CAMPUSLANDS===========================================
     elif eleccionReportes == 3:
