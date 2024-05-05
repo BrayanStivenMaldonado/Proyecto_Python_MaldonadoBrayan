@@ -221,5 +221,9 @@
     {
         "Tipo" : "RiesgoAlto",
         "RendimientoBajo" : []
+    },
+    {
+        "Tipo": "Notas",
+        "Notas": []
     }
 ]

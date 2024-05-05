@@ -48,40 +48,168 @@ while boolUsuario == True:
         system("cls")
 #=================================== MODULO DEL CAMPER ===========================================================
 if RolUsuario == 1:
-    system("cls")
-    print("---CAMPER---")
-    print("")
-    print(""" 
-MENÚ DEL CAMPER
-1. Ver notas
-2. Ver Ruta de Estudio.
-3. Ver Horario y salon de clases.
-4. Ver módulo en el que está registrado
-5. Salir.
-          """)
-#=================================== MODULO DEL TRAINER ===========================================================
-elif RolUsuario == 2:
-    system("cls")
-    boolTrainer = True
-    while boolTrainer == True: 
-
+    boolCamper = True
+    while boolCamper == True:
         boolTryCatch = True
         while boolTryCatch == True:
             try: 
-                print("---TRAINER---")
+                print("---CAMPER---")
                 print("")
                 print(""" 
-MENÚ DEL TRAINER
-1. Ver Grupos.
-5.Salir.
-            """)
-                eleccionTrainer = int(input("¿Qué desea hacer: ?"))
-                boolTryCatch = False
+            MENÚ DEL CAMPER
+            1. Ver ruta de estudio, notas, horario y salón de clases.
+            2. Salir.
+                    """)
+                eleccionCamper = int(input("¿Qué desea hacer?: "))
+                break
             except ValueError:
-                input("Debe ingresar un valor entero, presione ENTER para continuar")
+                input("Debe ingresar un valor entero, presione ENTER.")
                 system("cls")
+        system("cls")
 
-        
+        if eleccionCamper == 1:
+            print("----VER NOTAS----")
+            system("cls")
+            
+            IdentificadorCamper=str(input("Ingrese su Nombre para ver las notas.\n"))       
+
+            GeneralData=abrirArchivo()
+            for i in GeneralData[6]["Grupos"][0]["GrupoT1"]:
+                if i ["Nombres"] == IdentificadorCamper:
+                    print(i ["Nombres"])
+                    print(i ["Apellidos"])
+                    print(i ["Ruta"])
+                    print(i ["Notas"])
+                    print(i ["Horario"])
+                    print(i ["Salon"])
+                    input("Para averiguar a otro camper, presione ENTER.")
+                    system("cls")
+
+            GeneralData=abrirArchivo()
+            for i in GeneralData[6]["Grupos"][1]["GrupoT2"]:
+                if i ["Nombres"] == IdentificadorCamper:
+                    print(i ["Nombres"])
+                    print(i ["Apellidos"])
+                    print(i ["Ruta"])
+                    print(i ["Notas"])
+                    print(i ["Horario"])
+                    print(i ["Salon"])
+                    input("Para averiguar a otro camper, presione ENTER.")
+                    system("cls")
+
+            GeneralData=abrirArchivo()
+            for i in GeneralData[6]["Grupos"][2]["GrupoT3"]:
+                if i ["Nombres"] == IdentificadorCamper:
+                    print(i ["Nombres"])
+                    print(i ["Apellidos"])
+                    print(i ["Ruta"])
+                    print(i ["Notas"])
+                    print(i ["Horario"])
+                    print(i ["Salon"])
+                    input("Para averiguar a otro camper, presione ENTER.")
+                    system("cls")
+
+            GeneralData=abrirArchivo()
+            for i in GeneralData[6]["Grupos"][3]["GrupoT4"]:
+                if i ["Nombres"] == IdentificadorCamper:
+                    print(i ["Nombres"])
+                    print(i ["Apellidos"])
+                    print(i ["Ruta"])
+                    print(i ["Notas"])
+                    print(i ["Horario"])
+                    print(i ["Salon"])
+                    input("Para averiguar a otro camper, presione ENTER.")
+                    system("cls")
+
+            GeneralData=abrirArchivo()
+            for i in GeneralData[6]["Grupos"][4]["GrupoT5"]:
+                if i ["Nombres"] == IdentificadorCamper:
+                    print(i ["Nombres"])
+                    print(i ["Apellidos"])
+                    print(i ["Ruta"])
+                    print(i ["Notas"])
+                    print(i ["Horario"])
+                    print(i ["Salon"])
+                    input("Para averiguar a otro camper, presione ENTER.")
+                    system("cls")
+
+            GeneralData=abrirArchivo()
+            for i in GeneralData[6]["Grupos"][5]["GrupoT6"]:
+                if i ["Nombres"] == IdentificadorCamper:
+                    print(i ["Nombres"])
+                    print(i ["Apellidos"])
+                    print(i ["Ruta"])
+                    print(i ["Notas"])
+                    print(i ["Horario"])
+                    print(i ["Salon"])
+                    input("Para averiguar a otro camper, presione ENTER.")
+                    system("cls")
+
+            GeneralData=abrirArchivo()
+            for i in GeneralData[6]["Grupos"][6]["GrupoT7"]:
+                if i ["Nombres"] == IdentificadorCamper:
+                    print(i ["Nombres"])
+                    print(i ["Apellidos"])
+                    print(i ["Ruta"])
+                    print(i ["Notas"])
+                    print(i ["Horario"])
+                    print(i ["Salon"])
+                    input("Para averiguar a otro camper, presione ENTER.")
+                    system("cls")
+
+        elif eleccionCamper == 2:
+            print("Saliendo del módulo Camper")
+            input("Presione ENTER para continuar")
+            boolCamper = False
+
+        else:
+            input("Esta no es una opción válida, presione ENTER para continuar")
+            system("cls")
+                
+
+
+#=================================== MODULO DEL TRAINER ===========================================================
+elif RolUsuario == 2:
+        boollIngresar = True
+        while boollIngresar == True:
+            print("Acceder al módulo Trainer")
+            print("")
+            TrainerUser = str(input("Ingrese su nombre de usuario: "))
+            if TrainerUser == "TrainerCampusTibu":
+                print("Usuario Correcto.")
+                CoordinadorPassWord = str(input("Ingrese su contraseña: "))
+                if CoordinadorPassWord == "TrainerCampus123":
+                    print("Bienvenido Trainer")
+                    boolTrainer = True
+                    boollIngresar = False
+                else:
+                    input("Contraseña incorrecta, Presione ENTER para volver a intentarlo")
+                    system("cls")
+                    boolTrainer = False
+            elif TrainerUser != "CampusTibu":
+                input("¡¿Seguro que eres Trainer?!, Presiona ENTER para volver a intentarlo")
+                system("cls")
+                boolTrainer = False
+        system("cls")
+
+        boolTrainer = True
+        while boolTrainer == True: 
+
+            boolTryCatch = True
+            while boolTryCatch == True:
+                try: 
+                    print("---TRAINER---")
+                    print("")
+                    print(""" 
+                    MENÚ DEL TRAINER
+                    1. Ver Grupos.
+                    2.Salir.
+                    """)
+                    eleccionTrainer = int(input("¿Qué desea hacer: ?"))
+                    boolTryCatch = False
+                except ValueError:
+                    input("Debe ingresar un valor entero, presione ENTER para continuar")
+                    system("cls")
         system("cls")
 
         #=========================== VER GRUPOS Y LOS Estudiantes QUE HAY DENTRO ==================================
@@ -131,10 +259,11 @@ MENÚ DEL TRAINER
                 print("Nombres:",i["Nombres"]),print("Apellidos:",i["Apellidos"]),print("Grupo:",i["Grupo"]),print("Salon:",i["Salon"]),print("Trainer:",i["Trainer"])
                 print("================")
 
-        elif eleccionTrainer == 5:
+        elif eleccionTrainer == 2:
             print("Saliendo del módulo del trainer")
             input("Presione ENTER para continuar")
             boolTrainer = False
+
 #=================================== MODULO DEL COORDINADOR ===========================================================
 elif RolUsuario == 3:
     boolIngresar = True
@@ -190,7 +319,7 @@ elif RolUsuario == 3:
                 try:
                     DocumentoNuevo = int(input("Ingrese su documento: "))
                     break
-                except:
+                except ValueError:
                     input("En este dato, debe ingresar números, presione ENTER para continuar")
                     system("cls")
             
@@ -199,7 +328,7 @@ elif RolUsuario == 3:
                 try:
                     NombreNuevo = str(input("Ingrese los Nombres del Camper: "))
                     break
-                except:
+                except ValueError:
                     input("En este dato, debe ingresar letras, presione ENTER para continuar")
                     system("cls")
             
@@ -208,7 +337,7 @@ elif RolUsuario == 3:
                 try:
                     ApellidoNuevo = str(input("Ingrese los apellidos del Camper: "))
                     break
-                except:
+                except ValueError:
                     input("En este dato, debe ingresar letras, presione ENTER para continuar")
                     system("cls")
                 
@@ -217,7 +346,7 @@ elif RolUsuario == 3:
                 try:
                     DireccionNueva = str(input("Ingrese la dirección del Camper: "))
                     break
-                except:
+                except ValueError:
                     input("En este dato, debe ingresar letras, presione ENTER para continuar")
                     system("cls")
 
@@ -226,7 +355,7 @@ elif RolUsuario == 3:
                 try:
                     AcudienteNuevo = str(input("Ingrese el nomnbre de el/la acudiente del Camper: "))
                     break
-                except:
+                except ValueError:
                     input("En este dato, debe ingresar letras, presione ENTER para continuar")
                     system("cls")
 
@@ -235,7 +364,7 @@ elif RolUsuario == 3:
                 try:
                     CelularNuevo = int(input("Ingrese el número de celular del Camper: "))
                     break
-                except:
+                except ValueError:
                     input("En este dato, debe ingresar números, presione ENTER para continuar")
                     system("cls")
 
@@ -244,7 +373,7 @@ elif RolUsuario == 3:
                 try:
                     FijoNuevo = int(input("Ingrese el telefono fijo del Camper: "))
                     break
-                except:
+                except ValueError:
                     input("En este dato, debe ingresar números, presione ENTER para continuar")
                     system("cls")
          
@@ -267,6 +396,7 @@ elif RolUsuario == 3:
             print("")
             input("Presione ENTER para continuar")
             system("cls")
+
         #INGRESAR NOTA DE LA PRUEBA INICIAL
         elif eleccionCoordinador == 2: 
             print("---INGRESAR LA NOTA DE LA PRUEBA INICIAL---")
@@ -286,7 +416,7 @@ elif RolUsuario == 3:
                     print("==========================")
                     CamperParaNota = int(input("Ingrese el identificador del Camper: "))
                     break
-                except:
+                except ValueError:
                     input("En este dato, debe ingresar un número, presione ENTER para continuar")
                     system("cls")
 
@@ -295,7 +425,7 @@ elif RolUsuario == 3:
                 try:
                     PruebaTeorica = int(input("Ingrese la nota de la prueba teorica: "))                    
                     break
-                except:
+                except ValueError:
                     input("En este dato, debe ingresar un número, presione ENTER para continuar")
                     system("cls")
 
@@ -304,7 +434,7 @@ elif RolUsuario == 3:
                 try:
                     PruebaPractica = int(input("Ingrese la nota de la prueba practica: "))                    
                     break
-                except:
+                except ValueError:
                     input("En este dato, debe ingresar números, presione ENTER para continuar")
                     system("cls")
 
@@ -773,6 +903,11 @@ elif RolUsuario == 3:
                         if NotaFinalModulo>=60:
                             GeneralData[6]["Grupos"][0]["GrupoT1"][EscogerEstudianteT1-1]["Estado"] = "Aprobado"
                             GeneralData[6]["Grupos"][0]["GrupoT1"][EscogerEstudianteT1-1]["Riesgo"] = "Bajo"
+                            GeneralData[6]["Grupos"][0]["GrupoT1"][EscogerEstudianteT1-1]["Notas"] = {
+                            "Nota Teórica" : NotaPruebaTeorica, 
+                            "Nota Práctica" : NotaPruebaPractica,
+                            "Nota Quizes": NotaQuizesFinal
+                            }
                             print("Aprobado")
                             input("Presione ENTER para continuar")
                             system("cls")
@@ -825,6 +960,11 @@ elif RolUsuario == 3:
                         if NotaFinalModulo>=60:
                             GeneralData[6]["Grupos"][1]["GrupoT2"][EscogerEstudianteT2-1]["Estado"] = "Aprobado"
                             GeneralData[6]["Grupos"][1]["GrupoT2"][EscogerEstudianteT2-1]["Riesgo"] = "Bajo"
+                            GeneralData[6]["Grupos"][1]["GrupoT2"][EscogerEstudianteT2-1]["Notas"] = {
+                            "Nota Teórica" : NotaPruebaTeorica, 
+                            "Nota Práctica" : NotaPruebaPractica,
+                            "Nota Quizes": NotaQuizesFinal
+                            }
                             print("Aprobado")
                             input("Presione ENTER para continuar")
                             system("cls")
@@ -876,6 +1016,11 @@ elif RolUsuario == 3:
                         if NotaFinalModulo>=60:
                             GeneralData[6]["Grupos"][2]["GrupoT3"][EscogerEstudianteT3-1]["Estado"] = "Aprobado"
                             GeneralData[6]["Grupos"][2]["GrupoT3"][EscogerEstudianteT3-1]["Riesgo"] = "Bajo"
+                            GeneralData[6]["Grupos"][2]["GrupoT3"][EscogerEstudianteT3-1]["Notas"] = {
+                            "Nota Teórica" : NotaPruebaTeorica, 
+                            "Nota Práctica" : NotaPruebaPractica,
+                            "Nota Quizes": NotaQuizesFinal
+                            }
                             print("Aprobado")
                             input("Presione ENTER para continuar")
                             system("cls")
@@ -927,6 +1072,11 @@ elif RolUsuario == 3:
                         if NotaFinalModulo>=60:
                             GeneralData[6]["Grupos"][3]["GrupoT4"][EscogerEstudianteT4-1]["Estado"] = "Aprobado"
                             GeneralData[6]["Grupos"][3]["GrupoT4"][EscogerEstudianteT4-1]["Riesgo"] = "Bajo"
+                            GeneralData[6]["Grupos"][3]["GrupoT4"][EscogerEstudianteT4-1]["Notas"] = {
+                            "Nota Teórica" : NotaPruebaTeorica, 
+                            "Nota Práctica" : NotaPruebaPractica,
+                            "Nota Quizes": NotaQuizesFinal
+                            }
                             print("Aprobado")
                             input("Presione ENTER para continuar")
                             system("cls")
@@ -979,6 +1129,11 @@ elif RolUsuario == 3:
                         if NotaFinalModulo>=60:
                             GeneralData[6]["Grupos"][4]["GrupoT5"][EscogerEstudianteT5-1]["Estado"] = "Aprobado"
                             GeneralData[6]["Grupos"][4]["GrupoT5"][EscogerEstudianteT5-1]["Riesgo"] = "Bajo"
+                            GeneralData[6]["Grupos"][4]["GrupoT5"][EscogerEstudianteT5-1]["Notas"] = {
+                            "Nota Teórica" : NotaPruebaTeorica, 
+                            "Nota Práctica" : NotaPruebaPractica,
+                            "Nota Quizes": NotaQuizesFinal
+                            }
                             print("Aprobado")
                             input("Presione ENTER para continuar")
                             system("cls")
@@ -1030,6 +1185,11 @@ elif RolUsuario == 3:
                         if NotaFinalModulo>=60:
                             GeneralData[6]["Grupos"][5]["GrupoT6"][EscogerEstudianteT6-1]["Estado"] = "Aprobado"
                             GeneralData[6]["Grupos"][5]["GrupoT6"][EscogerEstudianteT6-1]["Riesgo"] = "Bajo"
+                            GeneralData[6]["Grupos"][5]["GrupoT6"][EscogerEstudianteT6-1]["Notas"] = {
+                            "Nota Teórica" : NotaPruebaTeorica, 
+                            "Nota Práctica" : NotaPruebaPractica,
+                            "Nota Quizes": NotaQuizesFinal
+                            }
                             print("Aprobado")
                             input("Presione ENTER para continuar")
                             system("cls")
@@ -1078,6 +1238,11 @@ elif RolUsuario == 3:
                         if NotaFinalModulo>=60:
                             GeneralData[6]["Grupos"][6]["GrupoT7"][EscogerEstudianteT7-1]["Estado"] = "Aprobado"
                             GeneralData[6]["Grupos"][6]["GrupoT7"][EscogerEstudianteT7-1]["Riesgo"] = "Bajo"
+                            GeneralData[6]["Grupos"][6]["GrupoT7"][EscogerEstudianteT7-1]["Notas"] = {
+                            "Nota Teórica" : NotaPruebaTeorica, 
+                            "Nota Práctica" : NotaPruebaPractica,
+                            "Nota Quizes": NotaQuizesFinal
+                            }
                             print("Aprobado")
                             input("Presione ENTER para continuar")
                             system("cls")
@@ -1098,16 +1263,19 @@ elif RolUsuario == 3:
 
                 else:
                     input("Esta no es una opción válida, presione ENTER para continuar")
-                    system("cls") 
+                    system("cls")
+
         #====SALIR DEL MODULO DEL COORDINADOR====
         elif eleccionCoordinador == 6:
             print("Saliendo del módulo del coordinador")
             input("Presione ENTER para continuar")
             system("cls")
             boolCoordinador = False
+
         #====EN CASO DE INGRESAR UNA OPCION NO VALIDA====
         else:
             input("Esta no es una opción válida, presione ENTER para continuar")
+
 #==================================== MODULO DE REPORTES ==================================================
 if RolUsuario == 2:
     boolReportes = True
