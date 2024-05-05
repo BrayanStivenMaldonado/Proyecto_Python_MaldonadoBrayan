@@ -1,36 +1,35 @@
 #Proyecto para el filtro de Python
 
-#Importación de librerias
+#Importacion de librerias
 import json
 from os import system
 
-#Definición de funciones
-def abrirArchivo(): #Función que va a servir para abrir el archivo
+#Definicion de funciones
+def abrirArchivo(): #Funcion que va a servir para abrir el archivo
     miJSON=[]
     with open('mainIndex.json','r',encoding='utf-8') as openfile:
         miJSON = json.load(openfile)
     return miJSON
-def guardarArchivo(miData): #Función que va a servir para guardar los datos que se realicen al archivo
+def guardarArchivo(miData): #Funcion que va a servir para guardar los datos que se realicen al archivo
     with open("mainIndex.json","w",encoding='utf-8') as outfile:
         json.dump(miData,outfile)
 #=================================== INICIO DEL PROGRAMA ===========================================================
-#Entrada en la que el usuario va a ingresar el rol que tiene para así saber qué opciones mostrarle
+#================================ELECCION DEL TIPO DE USUARIO=======================================================
 boolUsuario = True
 TipoUsuario = ""
-#===========================ELECCION DEL TIPO DE USUARIO============================================================
 while boolUsuario == True:
 
     boolTryCatch = True
     while boolTryCatch == True: 
         try: 
-            RolUsuario = int(input("¿Cuál es su rol dentro de CampusLands?\n 1. Camper\n 2. Trainer\n 3. Coordinador\n"))
+            RolUsuario = int(input("¿Cual es su rol dentro de CampusLands?\n 1. Camper\n 2. Trainer\n 3. Coordinador\n"))
             break
         except ValueError:
             input("Debe ingresar un número entero")
             system("cls")
     
    
-    if RolUsuario == 1: #Dependiendo de la elección numerica, esta va a tomar un valor de texto
+    if RolUsuario == 1: #Dependiendo de la eleccion numerica, esta va a tomar un valor de texto
         TipoUsuario = "Camper"
         boolUsuario = False
 
@@ -43,9 +42,11 @@ while boolUsuario == True:
         boolUsuario = False
 
     else:
-        print("Este no es un número válido")
+        print("Este no es un número valido")
         input("Presione ENTER para continuar")
         system("cls")
+    system("cls")
+
 #=================================== MODULO DEL CAMPER ===========================================================
 if RolUsuario == 1:
     boolCamper = True
@@ -57,7 +58,7 @@ if RolUsuario == 1:
                 print("")
                 print(""" 
             MENÚ DEL CAMPER
-            1. Ver ruta de estudio, notas, horario y salón de clases.
+            1. Ver ruta de estudio, notas, horario y salon de clases.
             2. Salir.
                     """)
                 eleccionCamper = int(input("¿Qué desea hacer?: "))
@@ -70,12 +71,14 @@ if RolUsuario == 1:
         if eleccionCamper == 1:
             print("----VER NOTAS----")
             system("cls")
-            
-            IdentificadorCamper=str(input("Ingrese su Nombre para ver las notas.\n"))       
+            boolmostrar = False
+            IdentificadorCamper=str(input("Ingrese sus nombres para el estado en el que se encuentra.\n"))  
+            system("cls")     
 
             GeneralData=abrirArchivo()
             for i in GeneralData[6]["Grupos"][0]["GrupoT1"]:
                 if i ["Nombres"] == IdentificadorCamper:
+                    boolmostrar = True
                     print(i ["Nombres"])
                     print(i ["Apellidos"])
                     print(i ["Ruta"])
@@ -88,6 +91,7 @@ if RolUsuario == 1:
             GeneralData=abrirArchivo()
             for i in GeneralData[6]["Grupos"][1]["GrupoT2"]:
                 if i ["Nombres"] == IdentificadorCamper:
+                    boolmostrar = True
                     print(i ["Nombres"])
                     print(i ["Apellidos"])
                     print(i ["Ruta"])
@@ -100,6 +104,7 @@ if RolUsuario == 1:
             GeneralData=abrirArchivo()
             for i in GeneralData[6]["Grupos"][2]["GrupoT3"]:
                 if i ["Nombres"] == IdentificadorCamper:
+                    boolmostrar = True
                     print(i ["Nombres"])
                     print(i ["Apellidos"])
                     print(i ["Ruta"])
@@ -112,6 +117,7 @@ if RolUsuario == 1:
             GeneralData=abrirArchivo()
             for i in GeneralData[6]["Grupos"][3]["GrupoT4"]:
                 if i ["Nombres"] == IdentificadorCamper:
+                    boolmostrar = True
                     print(i ["Nombres"])
                     print(i ["Apellidos"])
                     print(i ["Ruta"])
@@ -120,10 +126,11 @@ if RolUsuario == 1:
                     print(i ["Salon"])
                     input("Para averiguar a otro camper, presione ENTER.")
                     system("cls")
-
+                                        
             GeneralData=abrirArchivo()
             for i in GeneralData[6]["Grupos"][4]["GrupoT5"]:
                 if i ["Nombres"] == IdentificadorCamper:
+                    boolmostrar = True
                     print(i ["Nombres"])
                     print(i ["Apellidos"])
                     print(i ["Ruta"])
@@ -132,10 +139,11 @@ if RolUsuario == 1:
                     print(i ["Salon"])
                     input("Para averiguar a otro camper, presione ENTER.")
                     system("cls")
-
+                                            
             GeneralData=abrirArchivo()
             for i in GeneralData[6]["Grupos"][5]["GrupoT6"]:
                 if i ["Nombres"] == IdentificadorCamper:
+                    boolmostrar = True
                     print(i ["Nombres"])
                     print(i ["Apellidos"])
                     print(i ["Ruta"])
@@ -144,131 +152,211 @@ if RolUsuario == 1:
                     print(i ["Salon"])
                     input("Para averiguar a otro camper, presione ENTER.")
                     system("cls")
-
+                                                       
             GeneralData=abrirArchivo()
             for i in GeneralData[6]["Grupos"][6]["GrupoT7"]:
                 if i ["Nombres"] == IdentificadorCamper:
-                    print(i ["Nombres"])
-                    print(i ["Apellidos"])
-                    print(i ["Ruta"])
-                    print(i ["Notas"])
-                    print(i ["Horario"])
-                    print(i ["Salon"])
+                    boolmostrar = True
+                    print(i["Nombres"])
+                    print(i["Apellidos"])
+                    print(i["Ruta"])
+                    print(i["Notas"])
+                    print(i["Horario"])
+                    print(i["Salon"])
                     input("Para averiguar a otro camper, presione ENTER.")
                     system("cls")
 
+            GeneralData = abrirArchivo()                                        
+            for i in GeneralData[2]["Estudiantes"]:
+                if i["Nombres"] == IdentificadorCamper:
+                    boolmostrar = True
+                    print(i["Nombres"])
+                    print(i["Apellidos"])
+                    print(i["Estado"])
+                    input("Para averiguar a otro camper, presione ENTER.")
+                    system("cls")
+            
+            GeneralData = abrirArchivo()
+            if len(GeneralData[3]["Estudiantes"])==0:
+                continue
+            else:
+                for i in GeneralData[3]["Estudiantes"]:
+                    if GeneralData[3]["Estudiantes"]["Nombres"] == IdentificadorCamper:
+                        boolmostrar = True
+                        print(i["Nombres"])
+                        print(i["Apellidos"])
+                        print(i["Estado"])
+                        input("Para averiguar a otro camper, presione ENTER")
+            
+            GeneralData = abrirArchivo()
+            if len(GeneralData[4]["Estudiantes"])==0:
+                continue
+            else:
+                for i in GeneralData[3]["Estudiantes"]:
+                    boolmostrar = True
+                    if GeneralData[3]["Estudiantes"]["Nombres"] == IdentificadorCamper:
+                        print(i["Nombres"])
+                        print(i["Apellidos"])
+                        print(i["Estado"])
+                        input("Para averiguar a otro camper, presione ENTER")
+        
+            if boolmostrar == False:
+                print("Este Camper no se encuentra dentro del sistema")
+                input("\nPresione ENTER para continuar")
+                system("cls")
+
         elif eleccionCamper == 2:
-            print("Saliendo del módulo Camper")
+            print("Saliendo del modulo Camper")
             input("Presione ENTER para continuar")
             boolCamper = False
 
         else:
-            input("Esta no es una opción válida, presione ENTER para continuar")
+            input("Esta no es una opcion valida, presione ENTER para continuar")
             system("cls")
-                
-
-
 #=================================== MODULO DEL TRAINER ===========================================================
 elif RolUsuario == 2:
-        boollIngresar = True
-        while boollIngresar == True:
-            print("Acceder al módulo Trainer")
-            print("")
-            TrainerUser = str(input("Ingrese su nombre de usuario: "))
-            if TrainerUser == "TrainerCampusTibu":
-                print("Usuario Correcto.")
-                CoordinadorPassWord = str(input("Ingrese su contraseña: "))
-                if CoordinadorPassWord == "TrainerCampus123":
-                    print("Bienvenido Trainer")
-                    boolTrainer = True
-                    boollIngresar = False
-                else:
-                    input("Contraseña incorrecta, Presione ENTER para volver a intentarlo")
-                    system("cls")
-                    boolTrainer = False
-            elif TrainerUser != "CampusTibu":
-                input("¡¿Seguro que eres Trainer?!, Presiona ENTER para volver a intentarlo")
+    boollIngresar = True
+    while boollIngresar == True:
+        print("Acceder al modulo Trainer")
+        print("")
+        TrainerUser = str(input("Ingrese su nombre de usuario: "))
+        if TrainerUser == "TrainerCampus":
+            print("Usuario Correcto.")
+            CoordinadorPassWord = str(input("Ingrese su contraseña: "))
+            if CoordinadorPassWord == "Trainer123":
+                print("Bienvenido Trainer")
+                boolTrainer = True
+                boollIngresar = False
+            else:
+                input("Contraseña incorrecta, Presione ENTER para volver a intentarlo")
                 system("cls")
                 boolTrainer = False
-        system("cls")
+        elif TrainerUser != "CampusTibu":
+            input("¡¿Seguro que eres Trainer?!, Presiona ENTER para volver a intentarlo")
+            system("cls")
+            boolTrainer = False
+    system("cls")
 
-        boolTrainer = True
-        while boolTrainer == True: 
-
-            boolTryCatch = True
-            while boolTryCatch == True:
-                try: 
-                    print("---TRAINER---")
-                    print("")
-                    print(""" 
-                    MENÚ DEL TRAINER
-                    1. Ver Grupos.
-                    2.Salir.
-                    """)
-                    eleccionTrainer = int(input("¿Qué desea hacer: ?"))
-                    boolTryCatch = False
-                except ValueError:
-                    input("Debe ingresar un valor entero, presione ENTER para continuar")
-                    system("cls")
-        system("cls")
-
-        #=========================== VER GRUPOS Y LOS Estudiantes QUE HAY DENTRO ==================================
+    boolTrainer = True
+    while boolTrainer == True: 
+        boolTryCatch = True
+        while boolTryCatch == True:
+            try: 
+                print("---TRAINER---")
+                print("")
+                print(""" 
+                MENÚ DEL TRAINER
+                1. Ver Grupos.
+                2. Salir.
+                """)
+                eleccionTrainer = int(input("¿Qué desea hacer? :"))
+                boolTryCatch = False
+                system("cls")   
+            except ValueError:
+                input("Debe ingresar un valor entero, presione ENTER para continuar")
+                system("cls")   
+        #=========================== VER GRUPOS Y LOS ESTUDIANTES QUE HAY DENTRO ==================================
         if eleccionTrainer == 1:
-            GeneralData = abrirArchivo()
-            GrupoT1 = {}
-            GrupoT2 = {}
-            GrupoT3 = {}
-            #Se guardan los Estudiantes en el salon que correspondan
-            for i in range (len(GeneralData[3]["Estudiantes"])):
-                if GeneralData[3]["Estudiantes"][i]["Grupo"] == "T1":
-                    GrupoT1 = (GeneralData[3]["Estudiantes"])
 
-                elif GeneralData[3]["Estudiantes"][i]["Grupo"] == "T2":
-                    GrupoT2 = (GeneralData[3]["Estudiantes"])
-                
-                elif GeneralData[3]["Estudiantes"][i]["Grupo"] == "T3":
-                    GrupoT3 = (GeneralData[3]["Estudiantes"])
-            GeneralData[6]["Grupos"][0]["GrupoT1"]= GrupoT1
-            GeneralData[6]["Grupos"][1]["GrupoT2"]= GrupoT2
-            GeneralData[6]["Grupos"][2]["GrupoT3"]= GrupoT3
-            guardarArchivo(GeneralData)
-
-            print ("GRUPOS"),print()
-            GeneralData = abrirArchivo() #Mostrar los grupos
-            print("GRUPO T1"),print("")
+            GeneralData = abrirArchivo() 
+            print ("GRUPOS"),print("")
+            print("GRUPO T1")
             contador = 0
-            for i in GeneralData[6]["Grupos"][0]["GrupoT1"]:
-                contador+=1
-                print("Estudiante #",contador)
-                print("Nombres:",i["Nombres"]),print("Apellidos:",i["Apellidos"]),print("Grupo:",i["Grupo"]),print("Salon:",i["Salon"]),print("Trainer:",i["Trainer"])
-                print("================")
+            if len(GeneralData[6]["Grupos"][0]["GrupoT1"]) == 0:
+                print("Este salon se encuentra vacío")
+                print("")
+            else:
+                for i in GeneralData[6]["Grupos"][0]["GrupoT1"]:
+                    contador+=1
+                    print("Estudiante #",contador)
+                    print("Nombres:",i["Nombres"]),print("Apellidos:",i["Apellidos"]),print("Grupo:",i["Grupo"]),print("Salon:",i["Salon"]),print("Trainer:",i["Trainer"])
+                    print("================")
             
-            print("GRUPO T2"),print("")
+            print("GRUPO T2")
             contador = 0
-            for i in GeneralData[6]["Grupos"][1]["GrupoT2"]:
+            if len(GeneralData[6]["Grupos"][1]["GrupoT2"]) == 0:
+                print("Este salon se encuentra vacío")
+                print("")
+            else:
+                for i in GeneralData[6]["Grupos"][1]["GrupoT2"]:
+                    contador+=1
+                    print("Estudiante #",contador)
+                    print("Nombres:",i["Nombres"]),print("Apellidos:",i["Apellidos"]),print("Grupo:",i["Grupo"]),print("Salon:",i["Salon"]),print("Trainer:",i["Trainer"])
+                    print("================")
+
+            print("GRUPO T3")
+            contador = 0
+            if len(GeneralData[6]["Grupos"][2]["GrupoT3"]) == 0:
+                print("Este salon se encuentra vacío")
+                print("")
+            else:
+                for i in GeneralData[6]["Grupos"][2]["GrupoT3"]:
+                    contador+=1
+                    print("Estudiante #",contador)
+                    print("Nombres:",i["Nombres"]),print("Apellidos:",i["Apellidos"]),print("Grupo:",i["Grupo"]),print("Salon:",i["Salon"]),print("Trainer:",i["Trainer"])
+                    print("================")
+
+            print("GRUPO T4")
+            contador = 0
+            if len(GeneralData[6]["Grupos"][3]["GrupoT4"]) == 0:
+                print("Este salon se encuentra vacío")
+                print("")
+            else:
+                for i in GeneralData[6]["Grupos"][3]["GrupoT4"]:
+                    contador+=1
+                    print("Estudiante #",contador)
+                    print("Nombres:",i["Nombres"]),print("Apellidos:",i["Apellidos"]),print("Grupo:",i["Grupo"]),print("Salon:",i["Salon"]),print("Trainer:",i["Trainer"])
+                    print("================")
+
+            print("GRUPO T5")
+            contador = 0
+            if len(GeneralData[6]["Grupos"][4]["GrupoT5"]) == 0:
+                print("Este salon se encuentra vacío")
+                print("")
+            for i in GeneralData[6]["Grupos"][4]["GrupoT5"]:
                 contador+=1
                 print("Estudiante #",contador)
                 print("Nombres:",i["Nombres"]),print("Apellidos:",i["Apellidos"]),print("Grupo:",i["Grupo"]),print("Salon:",i["Salon"]),print("Trainer:",i["Trainer"])
                 print("================")
 
-            print("GRUPO T3"),print("")
+            print("GRUPO T6")
             contador = 0
-            for i in GeneralData[6]["Grupos"][2]["GrupoT3"]:
-                contador+=1
-                print("Estudiante #",contador)
-                print("Nombres:",i["Nombres"]),print("Apellidos:",i["Apellidos"]),print("Grupo:",i["Grupo"]),print("Salon:",i["Salon"]),print("Trainer:",i["Trainer"])
-                print("================")
+            if len(GeneralData[6]["Grupos"][5]["GrupoT6"]) == 0:
+                print("Este salon se encuentra vacío")
+                print("")
+            else:
+                for i in GeneralData[6]["Grupos"][5]["GrupoT6"]:
+                    contador+=1
+                    print("Estudiante #",contador)
+                    print("Nombres:",i["Nombres"]),print("Apellidos:",i["Apellidos"]),print("Grupo:",i["Grupo"]),print("Salon:",i["Salon"]),print("Trainer:",i["Trainer"])
+                    print("================")
+
+            print("GRUPO T7")
+            contador = 0
+            if len(GeneralData[6]["Grupos"][6]["GrupoT7"]) == 0:
+                print("Este salon se encuentra vacío")
+                print("")
+            else:
+                for i in GeneralData[6]["Grupos"][6]["GrupoT7"]:
+                    contador+=1
+                    print("Estudiante #",contador)
+                    print("Nombres:",i["Nombres"]),print("Apellidos:",i["Apellidos"]),print("Grupo:",i["Grupo"]),print("Salon:",i["Salon"]),print("Trainer:",i["Trainer"])
+                    print("================")
+            input("\nPresione ENTER para continuar")
+            system("cls")
 
         elif eleccionTrainer == 2:
-            print("Saliendo del módulo del trainer")
+            print("Saliendo del modulo del trainer")
             input("Presione ENTER para continuar")
             boolTrainer = False
-
+        
+        else:
+            input("Esta no es una opcion valida, presione ENTER para continuar")
 #=================================== MODULO DEL COORDINADOR ===========================================================
 elif RolUsuario == 3:
     boolIngresar = True
     while boolIngresar == True:
-        print("Acceder al módulo Coordinador")
+        print("Acceder al modulo Coordinador")
         print("")
         CoordinadorUser = str(input("Ingrese su nombre de usuario: "))
         if CoordinadorUser == "CampusTibu":
@@ -299,9 +387,9 @@ elif RolUsuario == 3:
 1. Registrar nuevo Camper.
 2. Ingresar Nota de la prueba inicial al Camper.
 3. Crear Ruta.
-4. Añadir Ruta de Estudio a los Campers, asignación de trainer, salon y definicion de horario.
-5. Añadir Notas del Módulo a los Campers.
-6. Salir del módulo de coordinador.
+4. Añadir Ruta de Estudio a los Campers, asignacion de trainer, salon y definicion de horario.
+5. Añadir Notas del Modulo a los Campers.
+6. Salir del modulo de coordinador.
             """)
                 eleccionCoordinador = int(input("¿Qué desea hacer?: "))
                 break
@@ -344,7 +432,7 @@ elif RolUsuario == 3:
             boolTryCatch = True
             while boolTryCatch == True: 
                 try:
-                    DireccionNueva = str(input("Ingrese la dirección del Camper: "))
+                    DireccionNueva = str(input("Ingrese la direccion del Camper: "))
                     break
                 except ValueError:
                     input("En este dato, debe ingresar letras, presione ENTER para continuar")
@@ -389,14 +477,18 @@ elif RolUsuario == 3:
                     "Acudiente": AcudienteNuevo,
                     "Celular": CelularNuevo,
                     "Fijo": FijoNuevo,
-                    "NotaPrueba" : 0
+                    "NotaPrueba" : 0,
+                    "EstadoFundamentos" : "",
+                    "EstadoProWeb" : "",
+                    "EstadoProFormal" : "",
+                    "EstadoBasesDatos" : "",
+                    "EstadoBackend" : ""
                     })
             guardarArchivo(GeneralData)
             print("Camper Registrado!")
             print("")
             input("Presione ENTER para continuar")
             system("cls")
-
         #INGRESAR NOTA DE LA PRUEBA INICIAL
         elif eleccionCoordinador == 2: 
             print("---INGRESAR LA NOTA DE LA PRUEBA INICIAL---")
@@ -438,7 +530,7 @@ elif RolUsuario == 3:
                     input("En este dato, debe ingresar números, presione ENTER para continuar")
                     system("cls")
 
-            NotaCamper = (PruebaPractica+PruebaTeorica)/2 #La nota de la prueba general del camper es el prom de las dos que realizó
+            NotaCamper = (PruebaPractica+PruebaTeorica)/2 #La nota de la prueba general del camper es el prom de las dos que realizo
             GeneralData[2]["Estudiantes"][CamperParaNota-1]["NotaPrueba"] = NotaCamper
             guardarArchivo(GeneralData)
             print("Nota Agregada!")
@@ -489,7 +581,7 @@ elif RolUsuario == 3:
                     try:
                         boolParaPFNueva = True
                         while boolParaPFNueva == True:
-                            ProgramacionFormalNueva = int(input("\n1. Java\n2. JavaScript\n3. C#\n ¿Que materia desea agregar al módulo programación formal?: "))
+                            ProgramacionFormalNueva = int(input("\n1. Java\n2. JavaScript\n3. C#\n ¿Que materia desea agregar al modulo programacion formal?: "))
                             if ProgramacionFormalNueva == 1:
                                 ProgramacionFormalNueva = "Java"
                                 boolParaPFNueva = False
@@ -500,7 +592,7 @@ elif RolUsuario == 3:
                                 ProgramacionFormalNueva = "C#"
                                 boolParaPFNueva = False
                             else:
-                                print("Esta no es una opción válida")
+                                print("Esta no es una opcion valida")
                         break
                     except ValueError:
                         input("Debe ingresar un valor númerico, presione ENTER para continuar")
@@ -511,7 +603,7 @@ elif RolUsuario == 3:
                     try:
                         boolParaBDNueva = True
                         while boolParaBDNueva == True:
-                            BaseDatosNuevaPrincipal = int(input("\n1.Mysql \n2. MongoDb \n3. Progresql\n ¿Qué materia desea agregar como principal al módulo Base de Datos?: "))
+                            BaseDatosNuevaPrincipal = int(input("\n1.Mysql \n2. MongoDb \n3. Progresql\n ¿Qué materia desea agregar como principal al modulo Base de Datos?: "))
                             if BaseDatosNuevaPrincipal == 1:
                                 BaseDatosNuevaPrincipal = "Mysql"
                                 boolParaBDNueva = False
@@ -522,7 +614,7 @@ elif RolUsuario == 3:
                                 BaseDatosNuevaPrincipal = "Progresql"
                                 boolParaBDNueva = False
                             else:
-                                print("Esta no es una opción válida")
+                                print("Esta no es una opcion valida")
                         break
                     except ValueError:
                         input("Debe ingresar un valor numérico, presione ENTER para continuar")
@@ -533,7 +625,7 @@ elif RolUsuario == 3:
                     try:
                         boolParaBDNueva = True
                         while boolParaBDNueva == True:
-                            BaseDatosNuevaAlternativa = int(input("\n1.Mysql \n2. MongoDb \n3. Progresql \n ¿Qué materia desea agregar como Secundaria al módulo Base de Datos?: "))
+                            BaseDatosNuevaAlternativa = int(input("\n1.Mysql \n2. MongoDb \n3. Progresql \n ¿Qué materia desea agregar como Secundaria al modulo Base de Datos?: "))
                             if BaseDatosNuevaAlternativa == 1:
                                 BaseDatosNuevaAlternativa = "Mysql"
                                 boolParaBDNueva = False
@@ -544,7 +636,7 @@ elif RolUsuario == 3:
                                 BaseDatosNuevaAlternativa = "Progresql"
                                 boolParaBDNueva = False
                             else:
-                                print("Esta no es una opción válida")
+                                print("Esta no es una opcion valida")
                         break
                     except ValueError:
                         input("Debe ingresar un valor numérico, presione ENTER para continuar")
@@ -555,7 +647,7 @@ elif RolUsuario == 3:
                     try:
                         boolParaBackEndNueva = True
                         while boolParaBackEndNueva == True:
-                            BackendNuevo = int(input("\n1.NetCore \n2. SpringBoot \n3. Node \n4. Express \n ¿Qué materia desea agregar al módulo BackEnd?: "))
+                            BackendNuevo = int(input("\n1.NetCore \n2. SpringBoot \n3. Node \n4. Express \n ¿Qué materia desea agregar al modulo BackEnd?: "))
                             if BackendNuevo == 1:
                                 BackendNuevo = "NetCore"
                                 boolParaBackEndNueva = False
@@ -569,7 +661,7 @@ elif RolUsuario == 3:
                                 BackendNuevo = "Express"
                                 boolParaBackEndNueva = False
                             else:
-                                print("Esta no es una opción válida")
+                                print("Esta no es una opcion valida")
                         break
                     except ValueError:
                         input("Debe ingresar un valor numérico, presione ENTER para continuar")
@@ -696,75 +788,109 @@ elif RolUsuario == 3:
                 GeneralData = abrirArchivo()
                 for i in range (0,len(GeneralData[8]["NombresRutas"])):
                     if eleccionRutaStr == "Java":
-                        GeneralData[3]["Estudiantes"][Camper-1]["Ruta"] = "Java"
-                        GeneralData[3]["Estudiantes"][Camper-1]["Trainer"] = "Miguel Sanchez"
-                        GeneralData[3]["Estudiantes"][Camper-1]["Grupo"] = "T1"
-                        GeneralData[3]["Estudiantes"][Camper-1]["Salon"] = "Sputnik"
-                        GeneralData[3]["Estudiantes"][Camper-1]["FechaInicio"] = "00-00-00"
-                        GeneralData[3]["Estudiantes"][Camper-1]["FechaFinalizacion"] = "00-00-00"
-                        GeneralData[3]["Estudiantes"][Camper-1]["Horario"] = "6am-10am"
-                        guardarArchivo(GeneralData)
+                        if len(GeneralData[6]["Grupos"][0]["GrupoT1"])<33:
+                            GeneralData[3]["Estudiantes"][Camper-1]["Ruta"] = "Java"
+                            GeneralData[3]["Estudiantes"][Camper-1]["Trainer"] = "Miguel Sanchez"
+                            GeneralData[3]["Estudiantes"][Camper-1]["Grupo"] = "T1"
+                            GeneralData[3]["Estudiantes"][Camper-1]["Salon"] = "Sputnik"
+                            GeneralData[3]["Estudiantes"][Camper-1]["FechaInicio"] = "10-01-2024"
+                            GeneralData[3]["Estudiantes"][Camper-1]["FechaFinalizacion"] = "04-07-2025"
+                            GeneralData[3]["Estudiantes"][Camper-1]["Horario"] = "6am-10am"
+                            guardarArchivo(GeneralData)
+                        else:
+                            print("Ya se ha alcanzado el maximo de estudiantes en esta ruta de entrenamiento")
+                            input("Presione ENTER para continuar")
+                            system("cls")
 
                     elif eleccionRutaStr == "NetCore":
-                        GeneralData[3]["Estudiantes"][Camper-1]["Ruta"] = "NetCore"
-                        GeneralData[3]["Estudiantes"][Camper-1]["Trainer"] = "Jholver Garcia"
-                        GeneralData[3]["Estudiantes"][Camper-1]["Grupo"] = "T2"
-                        GeneralData[3]["Estudiantes"][Camper-1]["Salon"] = "Apolo"
-                        GeneralData[3]["Estudiantes"][Camper-1]["FechaInicio"] = "00-00-00"
-                        GeneralData[3]["Estudiantes"][Camper-1]["FechaFinalizacion"] = "00-00-00"
-                        GeneralData[3]["Estudiantes"][Camper-1]["Horario"] = "6am-10am"
-                        guardarArchivo(GeneralData)
+                        if len(GeneralData[6]["Grupos"][1]["GrupoT2"])<33:
+                            GeneralData[3]["Estudiantes"][Camper-1]["Ruta"] = "NetCore"
+                            GeneralData[3]["Estudiantes"][Camper-1]["Trainer"] = "Jholver Garcia"
+                            GeneralData[3]["Estudiantes"][Camper-1]["Grupo"] = "T2"
+                            GeneralData[3]["Estudiantes"][Camper-1]["Salon"] = "Apolo"
+                            GeneralData[3]["Estudiantes"][Camper-1]["FechaInicio"] = "15-02-2024"
+                            GeneralData[3]["Estudiantes"][Camper-1]["FechaFinalizacion"] = "06-06-2025"
+                            GeneralData[3]["Estudiantes"][Camper-1]["Horario"] = "6am-10am"
+                            guardarArchivo(GeneralData)
+                        else:
+                            print("Ya se ha alcanzado el maximo de estudiantes en esta ruta de entrenamiento")
+                            input("Presione ENTER para continuar")
+                            system("cls")
                     
                     elif eleccionRutaStr == "NodeJS":
-                        GeneralData[3]["Estudiantes"][Camper-1]["Ruta"] = "NodeJS"
-                        GeneralData[3]["Estudiantes"][Camper-1]["Grupo"] = "T3"
-                        GeneralData[3]["Estudiantes"][Camper-1]["Trainer"] = "Pedro Gomez"
-                        GeneralData[3]["Estudiantes"][Camper-1]["Salon"] = "Artemis"
-                        GeneralData[3]["Estudiantes"][Camper-1]["FechaInicio"] = "00-00-00"
-                        GeneralData[3]["Estudiantes"][Camper-1]["FechaFinalizacion"] = "00-00-00"
-                        GeneralData[3]["Estudiantes"][Camper-1]["Horario"] = "6am-10am"
-                        guardarArchivo(GeneralData)
+                        if len(GeneralData[6]["Grupos"][2]["GrupoT3"])<33:
+                            GeneralData[3]["Estudiantes"][Camper-1]["Ruta"] = "NodeJS"
+                            GeneralData[3]["Estudiantes"][Camper-1]["Grupo"] = "T3"
+                            GeneralData[3]["Estudiantes"][Camper-1]["Trainer"] = "Pedro Gomez"
+                            GeneralData[3]["Estudiantes"][Camper-1]["Salon"] = "Artemis"
+                            GeneralData[3]["Estudiantes"][Camper-1]["FechaInicio"] = "08-03-2024"
+                            GeneralData[3]["Estudiantes"][Camper-1]["FechaFinalizacion"] = "20-06-2025"
+                            GeneralData[3]["Estudiantes"][Camper-1]["Horario"] = "6am-10am"
+                            guardarArchivo(GeneralData)
+                        else:
+                            print("Ya se ha alcanzado el maximo de estudiantes en esta ruta de entrenamiento")
+                            input("Presione ENTER para continuar")
+                            system("cls")
 
                     elif eleccionRutaStr == GeneralData[8]["NombresRutas"][3]:
-                        GeneralData[3]["Estudiantes"][Camper-1]["Ruta"] = GeneralData[8]["NombresRutas"][3]
-                        GeneralData[3]["Estudiantes"][Camper-1]["Grupo"] = "T4"
-                        GeneralData[3]["Estudiantes"][Camper-1]["Trainer"] = "Miguel Sanchez"
-                        GeneralData[3]["Estudiantes"][Camper-1]["Salon"] = "Sputnik"
-                        GeneralData[3]["Estudiantes"][Camper-1]["FechaInicio"] = "00-00-00"
-                        GeneralData[3]["Estudiantes"][Camper-1]["FechaFinalizacion"] = "00-00-00"
-                        GeneralData[3]["Estudiantes"][Camper-1]["Horario"] = "2pm-6pm"
-                        guardarArchivo(GeneralData)
+                        if len(GeneralData[6]["Grupos"][3]["GrupoT4"])<33:
+                            GeneralData[3]["Estudiantes"][Camper-1]["Ruta"] = GeneralData[8]["NombresRutas"][3]
+                            GeneralData[3]["Estudiantes"][Camper-1]["Grupo"] = "T4"
+                            GeneralData[3]["Estudiantes"][Camper-1]["Trainer"] = "Miguel Sanchez"
+                            GeneralData[3]["Estudiantes"][Camper-1]["Salon"] = "Sputnik"
+                            GeneralData[3]["Estudiantes"][Camper-1]["FechaInicio"] = "07-04-2024"
+                            GeneralData[3]["Estudiantes"][Camper-1]["FechaFinalizacion"] = "22-08-2025"
+                            GeneralData[3]["Estudiantes"][Camper-1]["Horario"] = "2pm-6pm"
+                            guardarArchivo(GeneralData)
+                        else:
+                            print("Ya se ha alcanzado el maximo de estudiantes en esta ruta de entrenamiento")
+                            input("Presione ENTER para continuar")
+                            system("cls")
 
                     elif eleccionRutaStr == GeneralData[8]["NombresRutas"][4]:
-                        GeneralData[3]["Estudiantes"][Camper-1]["Ruta"] = GeneralData[8]["NombresRutas"][4]
-                        GeneralData[3]["Estudiantes"][Camper-1]["Grupo"] = "T5"
-                        GeneralData[3]["Estudiantes"][Camper-1]["Trainer"] = "Jholver Garcia"
-                        GeneralData[3]["Estudiantes"][Camper-1]["Salon"] = "Apolo"
-                        GeneralData[3]["Estudiantes"][Camper-1]["FechaInicio"] = "00-00-00"
-                        GeneralData[3]["Estudiantes"][Camper-1]["FechaFinalizacion"] = "00-00-00"
-                        GeneralData[3]["Estudiantes"][Camper-1]["Horario"] = "2pm-6pm"
-                        guardarArchivo(GeneralData)
+                        if len(GeneralData[6]["Grupos"][4]["GrupoT5"])<33:
+                            GeneralData[3]["Estudiantes"][Camper-1]["Ruta"] = GeneralData[8]["NombresRutas"][4]
+                            GeneralData[3]["Estudiantes"][Camper-1]["Grupo"] = "T5"
+                            GeneralData[3]["Estudiantes"][Camper-1]["Trainer"] = "Jholver Garcia"
+                            GeneralData[3]["Estudiantes"][Camper-1]["Salon"] = "Apolo"
+                            GeneralData[3]["Estudiantes"][Camper-1]["FechaInicio"] = "03-02-2024"
+                            GeneralData[3]["Estudiantes"][Camper-1]["FechaFinalizacion"] = "08-05-2025"
+                            GeneralData[3]["Estudiantes"][Camper-1]["Horario"] = "2pm-6pm"
+                            guardarArchivo(GeneralData)
+                        else:
+                            print("Ya se ha alcanzado el maximo de estudiantes en esta ruta de entrenamiento")
+                            input("Presione ENTER para continuar")
+                            system("cls")
 
                     elif eleccionRutaStr == GeneralData[8]["NombresRutas"][5]:
-                        GeneralData[3]["Estudiantes"][Camper-1]["Ruta"] = GeneralData[8]["NombresRutas"][5]
-                        GeneralData[3]["Estudiantes"][Camper-1]["Grupo"] = "T6"
-                        GeneralData[3]["Estudiantes"][Camper-1]["Trainer"] = "Pedro Gomez"
-                        GeneralData[3]["Estudiantes"][Camper-1]["Salon"] = "Artemis"
-                        GeneralData[3]["Estudiantes"][Camper-1]["FechaInicio"] = "00-00-00"
-                        GeneralData[3]["Estudiantes"][Camper-1]["FechaFinalizacion"] = "00-00-00"
-                        GeneralData[3]["Estudiantes"][Camper-1]["Horario"] = "2pm-6pm"
-                        guardarArchivo(GeneralData)
+                        if len(GeneralData[6]["Grupos"][5]["GrupoT6"])<33:
+                            GeneralData[3]["Estudiantes"][Camper-1]["Ruta"] = GeneralData[8]["NombresRutas"][5]
+                            GeneralData[3]["Estudiantes"][Camper-1]["Grupo"] = "T6"
+                            GeneralData[3]["Estudiantes"][Camper-1]["Trainer"] = "Pedro Gomez"
+                            GeneralData[3]["Estudiantes"][Camper-1]["Salon"] = "Artemis"
+                            GeneralData[3]["Estudiantes"][Camper-1]["FechaInicio"] = "01-03-2024"
+                            GeneralData[3]["Estudiantes"][Camper-1]["FechaFinalizacion"] = "05-07-2025"
+                            GeneralData[3]["Estudiantes"][Camper-1]["Horario"] = "2pm-6pm"
+                            guardarArchivo(GeneralData)
+                        else:
+                                print("Ya se ha alcanzado el maximo de estudiantes en esta ruta de entrenamiento")
+                                input("Presione ENTER para continuar")
+                                system("cls")
 
                     elif eleccionRutaStr == GeneralData[8]["NombresRutas"][6]:
-                        GeneralData[3]["Estudiantes"][Camper-1]["Ruta"] = GeneralData[8]["NombresRutas"][6]
-                        GeneralData[3]["Estudiantes"][Camper-1]["Grupo"] = "T7"
-                        GeneralData[3]["Estudiantes"][Camper-1]["Trainer"] = "Miguel Sanchez"
-                        GeneralData[3]["Estudiantes"][Camper-1]["Salon"] = "Artemis"
-                        GeneralData[3]["Estudiantes"][Camper-1]["FechaInicio"] = "00-00-00"
-                        GeneralData[3]["Estudiantes"][Camper-1]["FechaFinalizacion"] = "00-00-00"
-                        GeneralData[3]["Estudiantes"][Camper-1]["Horario"] = "6pm-10pm"
-                        guardarArchivo(GeneralData)
-
+                        if len(GeneralData[6]["Grupos"][6]["GrupoT7"])<33:
+                            GeneralData[3]["Estudiantes"][Camper-1]["Ruta"] = GeneralData[8]["NombresRutas"][6]
+                            GeneralData[3]["Estudiantes"][Camper-1]["Grupo"] = "T7"
+                            GeneralData[3]["Estudiantes"][Camper-1]["Trainer"] = "Miguel Sanchez"
+                            GeneralData[3]["Estudiantes"][Camper-1]["Salon"] = "Artemis"
+                            GeneralData[3]["Estudiantes"][Camper-1]["FechaInicio"] = "03-03-2024"
+                            GeneralData[3]["Estudiantes"][Camper-1]["FechaFinalizacion"] = "27-06-2025"
+                            GeneralData[3]["Estudiantes"][Camper-1]["Horario"] = "6pm-10pm"
+                            guardarArchivo(GeneralData)
+                        else:
+                            print("Ya se ha alcanzado el maximo de estudiantes en esta ruta de entrenamiento")
+                            input("Presione ENTER para continuar")
+                            system("cls")
 
                 AgregarGrupoT1 = {}
                 AgregarGrupoT2 = {}
@@ -864,6 +990,7 @@ elif RolUsuario == 3:
                         input("En este dato, debe ingresar un número, presione ENTER para continuar")
                         system("cls")
 
+                #=================== GRUPO T1 ==========================================================
                 if EleccionNotaModulo == 1:
                     print("T1")
                     contador=0
@@ -877,6 +1004,7 @@ elif RolUsuario == 3:
                             print("Identificador #",contador)
                             print("Nombres:",i["Nombres"])
                             print("Apellidos:",i["Apellidos"])
+                            print("")
                         boolTryCatch = True
                         while boolTryCatch == True:
                             try:
@@ -885,11 +1013,20 @@ elif RolUsuario == 3:
                             except ValueError:
                                 input("Debe ingresar un número, presione ENTER para continuar.")
                                 system("cls")
+
+                        boolTryCatch = True
+                        while boolTryCatch == True:
+                            try:
+                                ModuloNota = int(input("1. Fudamentos de Programacion\n2. Programacion Web\n3. Programacion Formal\n4. Bases de datos\n5. Backend\n ¿A qué ruta desea añadirle nota?: "))
+                                break
+                            except ValueError:
+                                input("Debe ingresar un número, presione ENTER para continuar.")
+                                system("cls")
                         
                         GeneralData=abrirArchivo()
-                        NotaPruebaTeorica = int(input("Ingrese la nota de la prueba teórica: "))
+                        NotaPruebaTeorica = int(input("Ingrese la nota de la prueba teorica: "))
                         NotaPruebaPractica = int(input("Ingrese la nota de la prueba practica: "))
-                        CantidadQuizes = int(input("¿Cuántos quizes hizo el trainer?: "))
+                        CantidadQuizes = int(input("¿Cuantos quizes hizo el trainer?: "))
                         contador = 0
                         NotaQuizes = 0
                         for i in range (0,CantidadQuizes):
@@ -900,14 +1037,48 @@ elif RolUsuario == 3:
                         NotaFinalModulo = (NotaPruebaTeorica*0.30)+(NotaPruebaPractica*0.60)+(NotaQuizesFinal*0.10)
                         GeneralData[6]["Grupos"][0]["GrupoT1"][EscogerEstudianteT1-1]["NotaModulo"] = NotaFinalModulo
 
+                        GeneralData = abrirArchivo()
+                        if ModuloNota == 1:
+                            GeneralData[6]["Grupos"][0]["GrupoT1"][EscogerEstudianteT1-1]["Fundamentos"] = NotaFinalModulo
+                            if NotaFinalModulo>= 60:
+                                GeneralData[6]["Grupos"][0]["GrupoT1"][EscogerEstudianteT1-1]["EstadoFundamentos"] = "Aprobado"
+                            else:
+                                GeneralData[6]["Grupos"][0]["GrupoT1"][EscogerEstudianteT1-1]["EstadoFundamentos"] = "Reprobado"
+                        elif ModuloNota == 2:
+                            GeneralData[6]["Grupos"][0]["GrupoT1"][EscogerEstudianteT1-1]["ProWeb"] = NotaFinalModulo
+                            if NotaFinalModulo>=60:
+                                GeneralData[6]["Grupos"][0]["GrupoT1"][EscogerEstudianteT1-1]["EstadoProWeb"] = "Aprobado"
+                            else:
+                                GeneralData[6]["Grupos"][0]["GrupoT1"][EscogerEstudianteT1-1]["EstadoProWeb"] = "Reprobado"
+                        elif ModuloNota == 3:
+                            GeneralData[6]["Grupos"][0]["GrupoT1"][EscogerEstudianteT1-1]["ProFormal"] = NotaFinalModulo
+                            if NotaFinalModulo>=60:
+                                GeneralData[6]["Grupos"][0]["GrupoT1"][EscogerEstudianteT1-1]["EstadoProFormal"] = "Aprobado"
+                            else:
+                                GeneralData[6]["Grupos"][0]["GrupoT1"][EscogerEstudianteT1-1]["EstadoProFormal"] = "Reprobado"
+                        elif ModuloNota == 4:
+                            GeneralData[6]["Grupos"][0]["GrupoT1"][EscogerEstudianteT1-1]["BasesDatos"] = NotaFinalModulo
+                            if NotaFinalModulo>= 60:
+                                GeneralData[6]["Grupos"][0]["GrupoT1"][EscogerEstudianteT1-1]["EstadoBasesDatos"] = "Aprobado"
+                            else:
+                                GeneralData[6]["Grupos"][0]["GrupoT1"][EscogerEstudianteT1-1]["EstadoBasesDatos"] = "Reprobado"
+                        elif ModuloNota == 5:
+                            GeneralData[6]["Grupos"][0]["GrupoT1"][EscogerEstudianteT1-1]["Backend"] = NotaFinalModulo
+                            if NotaFinalModulo>=60:
+                                GeneralData[6]["Grupos"][0]["GrupoT1"][EscogerEstudianteT1-1]["EstadoBackend"] = "Aprobado"
+                            else:
+                                GeneralData[6]["Grupos"][0]["GrupoT1"][EscogerEstudianteT1-1]["EstadoBackend"] = "Reprobado"
+                        guardarArchivo(GeneralData)
+                        
                         if NotaFinalModulo>=60:
                             GeneralData[6]["Grupos"][0]["GrupoT1"][EscogerEstudianteT1-1]["Estado"] = "Aprobado"
                             GeneralData[6]["Grupos"][0]["GrupoT1"][EscogerEstudianteT1-1]["Riesgo"] = "Bajo"
                             GeneralData[6]["Grupos"][0]["GrupoT1"][EscogerEstudianteT1-1]["Notas"] = {
-                            "Nota Teórica" : NotaPruebaTeorica, 
-                            "Nota Práctica" : NotaPruebaPractica,
+                            "Nota Teorica" : NotaPruebaTeorica, 
+                            "Nota Practica" : NotaPruebaPractica,
                             "Nota Quizes": NotaQuizesFinal
                             }
+                            guardarArchivo(GeneralData)
                             print("Aprobado")
                             input("Presione ENTER para continuar")
                             system("cls")
@@ -918,9 +1089,13 @@ elif RolUsuario == 3:
                             print("Reprobado")
                             input("Presione ENTER para continuar")
                             system("cls")
-                        guardarArchivo(GeneralData)
-
-
+                            GeneralData[6]["Grupos"][0]["GrupoT1"][EscogerEstudianteT1-1]["Notas"] = {
+                            "Nota Teorica" : NotaPruebaTeorica, 
+                            "Nota Practica" : NotaPruebaPractica,
+                            "Nota Quizes": NotaQuizesFinal
+                            }
+                            guardarArchivo(GeneralData)
+                #============================ GRUPO T2==============================================================
                 elif EleccionNotaModulo == 2:
                     print("T2")
                     contador=0
@@ -934,6 +1109,7 @@ elif RolUsuario == 3:
                             print("Identificador #",contador)
                             print("Nombres:",i["Nombres"])
                             print("Apellidos:",i["Apellidos"])
+                            print("")
                         boolTryCatch = True
                         while boolTryCatch == True:
                             try:
@@ -943,10 +1119,19 @@ elif RolUsuario == 3:
                                 input("Debe ingresar un número, presione ENTER para continuar.")
                                 system("cls")
 
+                        boolTryCatch = True
+                        while boolTryCatch == True:
+                            try:
+                                ModuloNota = int(input("1. Fudamentos de Programacion\n2. Programacion Web\n3. Programacion Formal\n4. Bases de datos\n5. Backend\n ¿A qué ruta desea añadirle nota?: "))
+                                break
+                            except ValueError:
+                                input("Debe ingresar un número, presione ENTER para continuar.")
+                                system("cls")
+                        
                         GeneralData=abrirArchivo()
-                        NotaPruebaTeorica = int(input("Ingrese la nota de la prueba teórica: "))
+                        NotaPruebaTeorica = int(input("Ingrese la nota de la prueba teorica: "))
                         NotaPruebaPractica = int(input("Ingrese la nota de la prueba practica: "))
-                        CantidadQuizes = int(input("¿Cuántos quizes hizo el trainer?: "))
+                        CantidadQuizes = int(input("¿Cuantos quizes hizo el trainer?: "))
                         contador = 0
                         NotaQuizes = 0
                         for i in range (0,CantidadQuizes):
@@ -957,14 +1142,48 @@ elif RolUsuario == 3:
                         NotaFinalModulo = (NotaPruebaTeorica*0.30)+(NotaPruebaPractica*0.60)+(NotaQuizesFinal*0.10)
                         GeneralData[6]["Grupos"][1]["GrupoT2"][EscogerEstudianteT2-1]["NotaModulo"] = NotaFinalModulo
 
+                        GeneralData = abrirArchivo()
+                        if ModuloNota == 1:
+                            GeneralData[6]["Grupos"][1]["GrupoT2"][EscogerEstudianteT2-1]["Fundamentos"] = NotaFinalModulo
+                            if NotaFinalModulo>= 60:
+                                GeneralData[6]["Grupos"][1]["GrupoT2"][EscogerEstudianteT2-1]["EstadoFundamentos"] = "Aprobado"
+                            else:
+                                GeneralData[6]["Grupos"][1]["GrupoT2"][EscogerEstudianteT2-1]["EstadoFundamentos"] = "Reprobado"
+                        elif ModuloNota == 2:
+                            GeneralData[6]["Grupos"][1]["GrupoT2"][EscogerEstudianteT2-1]["ProWeb"] = NotaFinalModulo
+                            if NotaFinalModulo>=60:
+                                GeneralData[6]["Grupos"][1]["GrupoT2"][EscogerEstudianteT2-1]["EstadoProWeb"] = "Aprobado"
+                            else:
+                                GeneralData[6]["Grupos"][1]["GrupoT2"][EscogerEstudianteT2-1]["EstadoProWeb"] = "Reprobado"
+                        elif ModuloNota == 3:
+                            GeneralData[6]["Grupos"][1]["GrupoT2"][EscogerEstudianteT2-1]["ProFormal"] = NotaFinalModulo
+                            if NotaFinalModulo>=60:
+                                GeneralData[6]["Grupos"][1]["GrupoT2"][EscogerEstudianteT2-1]["EstadoProFormal"] = "Aprobado"
+                            else:
+                                GeneralData[6]["Grupos"][1]["GrupoT2"][EscogerEstudianteT2-1]["EstadoProFormal"] = "Reprobado"
+                        elif ModuloNota == 4:
+                            GeneralData[6]["Grupos"][1]["GrupoT2"][EscogerEstudianteT2-1]["BasesDatos"] = NotaFinalModulo
+                            if NotaFinalModulo>= 60:
+                                GeneralData[6]["Grupos"][1]["GrupoT2"][EscogerEstudianteT2-1]["EstadoBasesDatos"] = "Aprobado"
+                            else:
+                                GeneralData[6]["Grupos"][1]["GrupoT2"][EscogerEstudianteT2-1]["EstadoBasesDatos"] = "Reprobado"
+                        elif ModuloNota == 5:
+                            GeneralData[6]["Grupos"][1]["GrupoT2"][EscogerEstudianteT2-1]["Backend"] = NotaFinalModulo
+                            if NotaFinalModulo>=60:
+                                GeneralData[6]["Grupos"][1]["GrupoT2"][EscogerEstudianteT2-1]["EstadoBackend"] = "Aprobado"
+                            else:
+                                GeneralData[6]["Grupos"][1]["GrupoT2"][EscogerEstudianteT2-1]["EstadoBackend"] = "Reprobado"
+                        guardarArchivo(GeneralData)
+                        
                         if NotaFinalModulo>=60:
                             GeneralData[6]["Grupos"][1]["GrupoT2"][EscogerEstudianteT2-1]["Estado"] = "Aprobado"
                             GeneralData[6]["Grupos"][1]["GrupoT2"][EscogerEstudianteT2-1]["Riesgo"] = "Bajo"
                             GeneralData[6]["Grupos"][1]["GrupoT2"][EscogerEstudianteT2-1]["Notas"] = {
-                            "Nota Teórica" : NotaPruebaTeorica, 
-                            "Nota Práctica" : NotaPruebaPractica,
+                            "Nota Teorica" : NotaPruebaTeorica, 
+                            "Nota Practica" : NotaPruebaPractica,
                             "Nota Quizes": NotaQuizesFinal
                             }
+                            guardarArchivo(GeneralData)
                             print("Aprobado")
                             input("Presione ENTER para continuar")
                             system("cls")
@@ -975,8 +1194,13 @@ elif RolUsuario == 3:
                             print("Reprobado")
                             input("Presione ENTER para continuar")
                             system("cls")
-                        guardarArchivo(GeneralData)
-
+                            GeneralData[6]["Grupos"][1]["GrupoT2"][EscogerEstudianteT2-1]["Notas"] = {
+                            "Nota Teorica" : NotaPruebaTeorica, 
+                            "Nota Practica" : NotaPruebaPractica,
+                            "Nota Quizes": NotaQuizesFinal
+                            }
+                            guardarArchivo(GeneralData)
+                #=========================== GRUPO T3====================================================
                 elif EleccionNotaModulo == 3:
                     print("T3")
                     contador=0
@@ -990,6 +1214,7 @@ elif RolUsuario == 3:
                             print("Identificador #",contador)
                             print("Nombres:",i["Nombres"])
                             print("Apellidos:",i["Apellidos"])
+                            print("")
                         boolTryCatch = True
                         while boolTryCatch == True:
                             try:
@@ -998,11 +1223,20 @@ elif RolUsuario == 3:
                             except ValueError:
                                 input("Debe ingresar un número, presione ENTER para continuar.")
                                 system("cls")
+
+                        boolTryCatch = True
+                        while boolTryCatch == True:
+                            try:
+                                ModuloNota = int(input("1. Fudamentos de Programacion\n2. Programacion Web\n3. Programacion Formal\n4. Bases de datos\n5. Backend\n ¿A qué ruta desea añadirle nota?: "))
+                                break
+                            except ValueError:
+                                input("Debe ingresar un número, presione ENTER para continuar.")
+                                system("cls")
                         
                         GeneralData=abrirArchivo()
-                        NotaPruebaTeorica = int(input("Ingrese la nota de la prueba teórica: "))
+                        NotaPruebaTeorica = int(input("Ingrese la nota de la prueba teorica: "))
                         NotaPruebaPractica = int(input("Ingrese la nota de la prueba practica: "))
-                        CantidadQuizes = int(input("¿Cuántos quizes hizo el trainer?: "))
+                        CantidadQuizes = int(input("¿Cuantos quizes hizo el trainer?: "))
                         contador = 0
                         NotaQuizes = 0
                         for i in range (0,CantidadQuizes):
@@ -1013,14 +1247,48 @@ elif RolUsuario == 3:
                         NotaFinalModulo = (NotaPruebaTeorica*0.30)+(NotaPruebaPractica*0.60)+(NotaQuizesFinal*0.10)
                         GeneralData[6]["Grupos"][2]["GrupoT3"][EscogerEstudianteT3-1]["NotaModulo"] = NotaFinalModulo
 
+                        GeneralData = abrirArchivo()
+                        if ModuloNota == 1:
+                            GeneralData[6]["Grupos"][2]["GrupoT3"][EscogerEstudianteT3-1]["Fundamentos"] = NotaFinalModulo
+                            if NotaFinalModulo>= 60:
+                                GeneralData[6]["Grupos"][2]["GrupoT3"][EscogerEstudianteT3-1]["EstadoFundamentos"] = "Aprobado"
+                            else:
+                                GeneralData[6]["Grupos"][2]["GrupoT3"][EscogerEstudianteT3-1]["EstadoFundamentos"] = "Reprobado"
+                        elif ModuloNota == 2:
+                            GeneralData[6]["Grupos"][2]["GrupoT3"][EscogerEstudianteT3-1]["ProWeb"] = NotaFinalModulo
+                            if NotaFinalModulo>=60:
+                                GeneralData[6]["Grupos"][2]["GrupoT3"][EscogerEstudianteT3-1]["EstadoProWeb"] = "Aprobado"
+                            else:
+                                GeneralData[6]["Grupos"][2]["GrupoT3"][EscogerEstudianteT3-1]["EstadoProWeb"] = "Reprobado"
+                        elif ModuloNota == 3:
+                            GeneralData[6]["Grupos"][2]["GrupoT3"][EscogerEstudianteT3-1]["ProFormal"] = NotaFinalModulo
+                            if NotaFinalModulo>=60:
+                                GeneralData[6]["Grupos"][2]["GrupoT3"][EscogerEstudianteT3-1]["EstadoProFormal"] = "Aprobado"
+                            else:
+                                GeneralData[6]["Grupos"][2]["GrupoT3"][EscogerEstudianteT3-1]["EstadoProFormal"] = "Reprobado"
+                        elif ModuloNota == 4:
+                            GeneralData[6]["Grupos"][2]["GrupoT3"][EscogerEstudianteT3-1]["BasesDatos"] = NotaFinalModulo
+                            if NotaFinalModulo>= 60:
+                                GeneralData[6]["Grupos"][2]["GrupoT3"][EscogerEstudianteT3-1]["EstadoBasesDatos"] = "Aprobado"
+                            else:
+                                GeneralData[6]["Grupos"][2]["GrupoT3"][EscogerEstudianteT3-1]["EstadoBasesDatos"] = "Reprobado"
+                        elif ModuloNota == 5:
+                            GeneralData[6]["Grupos"][2]["GrupoT3"][EscogerEstudianteT3-1]["Backend"] = NotaFinalModulo
+                            if NotaFinalModulo>=60:
+                                GeneralData[6]["Grupos"][2]["GrupoT3"][EscogerEstudianteT3-1]["EstadoBackend"] = "Aprobado"
+                            else:
+                                GeneralData[6]["Grupos"][2]["GrupoT3"][EscogerEstudianteT3-1]["EstadoBackend"] = "Reprobado"
+                        guardarArchivo(GeneralData)
+                        
                         if NotaFinalModulo>=60:
                             GeneralData[6]["Grupos"][2]["GrupoT3"][EscogerEstudianteT3-1]["Estado"] = "Aprobado"
                             GeneralData[6]["Grupos"][2]["GrupoT3"][EscogerEstudianteT3-1]["Riesgo"] = "Bajo"
                             GeneralData[6]["Grupos"][2]["GrupoT3"][EscogerEstudianteT3-1]["Notas"] = {
-                            "Nota Teórica" : NotaPruebaTeorica, 
-                            "Nota Práctica" : NotaPruebaPractica,
+                            "Nota Teorica" : NotaPruebaTeorica, 
+                            "Nota Practica" : NotaPruebaPractica,
                             "Nota Quizes": NotaQuizesFinal
                             }
+                            guardarArchivo(GeneralData)
                             print("Aprobado")
                             input("Presione ENTER para continuar")
                             system("cls")
@@ -1031,12 +1299,17 @@ elif RolUsuario == 3:
                             print("Reprobado")
                             input("Presione ENTER para continuar")
                             system("cls")
-                        guardarArchivo(GeneralData)
-                
+                            GeneralData[6]["Grupos"][0]["GrupoT1"][EscogerEstudianteT3-1]["Notas"] = {
+                            "Nota Teorica" : NotaPruebaTeorica, 
+                            "Nota Practica" : NotaPruebaPractica,
+                            "Nota Quizes": NotaQuizesFinal
+                            }
+                            guardarArchivo(GeneralData)
+                #========================= GRUPO T4 ========================================================
                 elif EleccionNotaModulo == 4:
                     print ("T4")
-                    contador = 0
-                    GeneralData = abrirArchivo()
+                    contador=0
+                    GeneralData=abrirArchivo()
                     if len(GeneralData[6]["Grupos"][3]["GrupoT4"])==0:
                         input("No hay ningun Camper dentro de éste grupo, presione ENTER para continuar")
                         system("cls")
@@ -1046,6 +1319,7 @@ elif RolUsuario == 3:
                             print("Identificador #",contador)
                             print("Nombres:",i["Nombres"])
                             print("Apellidos:",i["Apellidos"])
+                            print("")
                         boolTryCatch = True
                         while boolTryCatch == True:
                             try:
@@ -1054,11 +1328,20 @@ elif RolUsuario == 3:
                             except ValueError:
                                 input("Debe ingresar un número, presione ENTER para continuar.")
                                 system("cls")
-                
+
+                        boolTryCatch = True
+                        while boolTryCatch == True:
+                            try:
+                                ModuloNota = int(input("1. Fudamentos de Programacion\n2. Programacion Web\n3. Programacion Formal\n4. Bases de datos\n5. Backend\n ¿A qué ruta desea añadirle nota?: "))
+                                break
+                            except ValueError:
+                                input("Debe ingresar un número, presione ENTER para continuar.")
+                                system("cls")
+                        
                         GeneralData=abrirArchivo()
-                        NotaPruebaTeorica = int(input("Ingrese la nota de la prueba teórica: "))
+                        NotaPruebaTeorica = int(input("Ingrese la nota de la prueba teorica: "))
                         NotaPruebaPractica = int(input("Ingrese la nota de la prueba practica: "))
-                        CantidadQuizes = int(input("¿Cuántos quizes hizo el trainer?: "))
+                        CantidadQuizes = int(input("¿Cuantos quizes hizo el trainer?: "))
                         contador = 0
                         NotaQuizes = 0
                         for i in range (0,CantidadQuizes):
@@ -1069,14 +1352,48 @@ elif RolUsuario == 3:
                         NotaFinalModulo = (NotaPruebaTeorica*0.30)+(NotaPruebaPractica*0.60)+(NotaQuizesFinal*0.10)
                         GeneralData[6]["Grupos"][3]["GrupoT4"][EscogerEstudianteT4-1]["NotaModulo"] = NotaFinalModulo
 
+                        GeneralData = abrirArchivo()
+                        if ModuloNota == 1:
+                            GeneralData[6]["Grupos"][3]["GrupoT4"][EscogerEstudianteT4-1]["Fundamentos"] = NotaFinalModulo
+                            if NotaFinalModulo>= 60:
+                                GeneralData[6]["Grupos"][3]["GrupoT4"][EscogerEstudianteT4-1]["EstadoFundamentos"] = "Aprobado"
+                            else:
+                                GeneralData[6]["Grupos"][3]["GrupoT4"][EscogerEstudianteT4-1]["EstadoFundamentos"] = "Reprobado"
+                        elif ModuloNota == 2:
+                            GeneralData[6]["Grupos"][3]["GrupoT4"][EscogerEstudianteT4-1]["ProWeb"] = NotaFinalModulo
+                            if NotaFinalModulo>=60:
+                                GeneralData[6]["Grupos"][3]["GrupoT4"][EscogerEstudianteT4-1]["EstadoProWeb"] = "Aprobado"
+                            else:
+                                GeneralData[6]["Grupos"][3]["GrupoT4"][EscogerEstudianteT4-1]["EstadoProWeb"] = "Reprobado"
+                        elif ModuloNota == 3:
+                            GeneralData[6]["Grupos"][3]["GrupoT4"][EscogerEstudianteT4-1]["ProFormal"] = NotaFinalModulo
+                            if NotaFinalModulo>=60:
+                                GeneralData[6]["Grupos"][3]["GrupoT4"][EscogerEstudianteT4-1]["EstadoProFormal"] = "Aprobado"
+                            else:
+                                GeneralData[6]["Grupos"][3]["GrupoT4"][EscogerEstudianteT4-1]["EstadoProFormal"] = "Reprobado"
+                        elif ModuloNota == 4:
+                            GeneralData[6]["Grupos"][3]["GrupoT4"][EscogerEstudianteT4-1]["BasesDatos"] = NotaFinalModulo
+                            if NotaFinalModulo>= 60:
+                                GeneralData[6]["Grupos"][3]["GrupoT4"][EscogerEstudianteT4-1]["EstadoBasesDatos"] = "Aprobado"
+                            else:
+                                GeneralData[6]["Grupos"][3]["GrupoT4"][EscogerEstudianteT4-1]["EstadoBasesDatos"] = "Reprobado"
+                        elif ModuloNota == 5:
+                            GeneralData[6]["Grupos"][3]["GrupoT4"][EscogerEstudianteT4-1]["Backend"] = NotaFinalModulo
+                            if NotaFinalModulo>=60:
+                                GeneralData[6]["Grupos"][3]["GrupoT4"][EscogerEstudianteT4-1]["EstadoBackend"] = "Aprobado"
+                            else:
+                                GeneralData[6]["Grupos"][3]["GrupoT4"][EscogerEstudianteT4-1]["EstadoBackend"] = "Reprobado"
+                        guardarArchivo(GeneralData)
+                        
                         if NotaFinalModulo>=60:
                             GeneralData[6]["Grupos"][3]["GrupoT4"][EscogerEstudianteT4-1]["Estado"] = "Aprobado"
                             GeneralData[6]["Grupos"][3]["GrupoT4"][EscogerEstudianteT4-1]["Riesgo"] = "Bajo"
                             GeneralData[6]["Grupos"][3]["GrupoT4"][EscogerEstudianteT4-1]["Notas"] = {
-                            "Nota Teórica" : NotaPruebaTeorica, 
-                            "Nota Práctica" : NotaPruebaPractica,
+                            "Nota Teorica" : NotaPruebaTeorica, 
+                            "Nota Practica" : NotaPruebaPractica,
                             "Nota Quizes": NotaQuizesFinal
                             }
+                            guardarArchivo(GeneralData)
                             print("Aprobado")
                             input("Presione ENTER para continuar")
                             system("cls")
@@ -1087,13 +1404,17 @@ elif RolUsuario == 3:
                             print("Reprobado")
                             input("Presione ENTER para continuar")
                             system("cls")
-                        guardarArchivo(GeneralData)
-
-
+                            GeneralData[6]["Grupos"][3]["GrupoT4"][EscogerEstudianteT4-1]["Notas"] = {
+                            "Nota Teorica" : NotaPruebaTeorica, 
+                            "Nota Practica" : NotaPruebaPractica,
+                            "Nota Quizes": NotaQuizesFinal
+                            }
+                            guardarArchivo(GeneralData)
+                #=========================== GRUPO T5 ========================================================
                 elif EleccionNotaModulo == 5:
                     print ("T5")
-                    contador = 0
-                    GeneralData = abrirArchivo()
+                    contador=0
+                    GeneralData=abrirArchivo()
                     if len(GeneralData[6]["Grupos"][4]["GrupoT5"])==0:
                         input("No hay ningun Camper dentro de éste grupo, presione ENTER para continuar")
                         system("cls")
@@ -1103,6 +1424,7 @@ elif RolUsuario == 3:
                             print("Identificador #",contador)
                             print("Nombres:",i["Nombres"])
                             print("Apellidos:",i["Apellidos"])
+                            print("")
                         boolTryCatch = True
                         while boolTryCatch == True:
                             try:
@@ -1112,10 +1434,19 @@ elif RolUsuario == 3:
                                 input("Debe ingresar un número, presione ENTER para continuar.")
                                 system("cls")
 
+                        boolTryCatch = True
+                        while boolTryCatch == True:
+                            try:
+                                ModuloNota = int(input("1. Fudamentos de Programacion\n2. Programacion Web\n3. Programacion Formal\n4. Bases de datos\n5. Backend\n ¿A qué ruta desea añadirle nota?: "))
+                                break
+                            except ValueError:
+                                input("Debe ingresar un número, presione ENTER para continuar.")
+                                system("cls")
+                        
                         GeneralData=abrirArchivo()
-                        NotaPruebaTeorica = int(input("Ingrese la nota de la prueba teórica: "))
+                        NotaPruebaTeorica = int(input("Ingrese la nota de la prueba teorica: "))
                         NotaPruebaPractica = int(input("Ingrese la nota de la prueba practica: "))
-                        CantidadQuizes = int(input("¿Cuántos quizes hizo el trainer?: "))
+                        CantidadQuizes = int(input("¿Cuantos quizes hizo el trainer?: "))
                         contador = 0
                         NotaQuizes = 0
                         for i in range (0,CantidadQuizes):
@@ -1126,14 +1457,48 @@ elif RolUsuario == 3:
                         NotaFinalModulo = (NotaPruebaTeorica*0.30)+(NotaPruebaPractica*0.60)+(NotaQuizesFinal*0.10)
                         GeneralData[6]["Grupos"][4]["GrupoT5"][EscogerEstudianteT5-1]["NotaModulo"] = NotaFinalModulo
 
+                        GeneralData = abrirArchivo()
+                        if ModuloNota == 1:
+                            GeneralData[6]["Grupos"][4]["GrupoT5"][EscogerEstudianteT5-1]["Fundamentos"] = NotaFinalModulo
+                            if NotaFinalModulo>= 60:
+                                GeneralData[6]["Grupos"][4]["GrupoT5"][EscogerEstudianteT5-1]["EstadoFundamentos"] = "Aprobado"
+                            else:
+                                GeneralData[6]["Grupos"][4]["GrupoT5"][EscogerEstudianteT5-1]["EstadoFundamentos"] = "Reprobado"
+                        elif ModuloNota == 2:
+                            GeneralData[6]["Grupos"][4]["GrupoT5"][EscogerEstudianteT5-1]["ProWeb"] = NotaFinalModulo
+                            if NotaFinalModulo>=60:
+                                GeneralData[6]["Grupos"][4]["GrupoT5"][EscogerEstudianteT5-1]["EstadoProWeb"] = "Aprobado"
+                            else:
+                                GeneralData[6]["Grupos"][4]["GrupoT5"][EscogerEstudianteT5-1]["EstadoProWeb"] = "Reprobado"
+                        elif ModuloNota == 3:
+                            GeneralData[6]["Grupos"][4]["GrupoT5"][EscogerEstudianteT5-1]["ProFormal"] = NotaFinalModulo
+                            if NotaFinalModulo>=60:
+                                GeneralData[6]["Grupos"][4]["GrupoT5"][EscogerEstudianteT5-1]["EstadoProFormal"] = "Aprobado"
+                            else:
+                                GeneralData[6]["Grupos"][4]["GrupoT5"][EscogerEstudianteT5-1]["EstadoProFormal"] = "Reprobado"
+                        elif ModuloNota == 4:
+                            GeneralData[6]["Grupos"][4]["GrupoT5"][EscogerEstudianteT5-1]["BasesDatos"] = NotaFinalModulo
+                            if NotaFinalModulo>= 60:
+                                GeneralData[6]["Grupos"][4]["GrupoT5"][EscogerEstudianteT5-1]["EstadoBasesDatos"] = "Aprobado"
+                            else:
+                                GeneralData[6]["Grupos"][4]["GrupoT5"][EscogerEstudianteT5-1]["EstadoBasesDatos"] = "Reprobado"
+                        elif ModuloNota == 5:
+                            GeneralData[6]["Grupos"][4]["GrupoT5"][EscogerEstudianteT5-1]["Backend"] = NotaFinalModulo
+                            if NotaFinalModulo>=60:
+                                GeneralData[6]["Grupos"][4]["GrupoT5"][EscogerEstudianteT5-1]["EstadoBackend"] = "Aprobado"
+                            else:
+                                GeneralData[6]["Grupos"][4]["GrupoT5"][EscogerEstudianteT5-1]["EstadoBackend"] = "Reprobado"
+                        guardarArchivo(GeneralData)
+                        
                         if NotaFinalModulo>=60:
                             GeneralData[6]["Grupos"][4]["GrupoT5"][EscogerEstudianteT5-1]["Estado"] = "Aprobado"
                             GeneralData[6]["Grupos"][4]["GrupoT5"][EscogerEstudianteT5-1]["Riesgo"] = "Bajo"
                             GeneralData[6]["Grupos"][4]["GrupoT5"][EscogerEstudianteT5-1]["Notas"] = {
-                            "Nota Teórica" : NotaPruebaTeorica, 
-                            "Nota Práctica" : NotaPruebaPractica,
+                            "Nota Teorica" : NotaPruebaTeorica, 
+                            "Nota Practica" : NotaPruebaPractica,
                             "Nota Quizes": NotaQuizesFinal
                             }
+                            guardarArchivo(GeneralData)
                             print("Aprobado")
                             input("Presione ENTER para continuar")
                             system("cls")
@@ -1144,12 +1509,17 @@ elif RolUsuario == 3:
                             print("Reprobado")
                             input("Presione ENTER para continuar")
                             system("cls")
-                        guardarArchivo(GeneralData)
-                
+                            GeneralData[6]["Grupos"][4]["GrupoT5"][EscogerEstudianteT5-1]["Notas"] = {
+                            "Nota Teorica" : NotaPruebaTeorica, 
+                            "Nota Practica" : NotaPruebaPractica,
+                            "Nota Quizes": NotaQuizesFinal
+                            }
+                            guardarArchivo(GeneralData)
+                #============================ GRUPO T6 =======================================================
                 elif EleccionNotaModulo == 6:
                     print ("T6")
-                    contador = 0
-                    GeneralData = abrirArchivo()
+                    contador=0
+                    GeneralData=abrirArchivo()
                     if len(GeneralData[6]["Grupos"][5]["GrupoT6"])==0:
                         input("No hay ningun Camper dentro de éste grupo, presione ENTER para continuar")
                         system("cls")
@@ -1159,6 +1529,7 @@ elif RolUsuario == 3:
                             print("Identificador #",contador)
                             print("Nombres:",i["Nombres"])
                             print("Apellidos:",i["Apellidos"])
+                            print("")
                         boolTryCatch = True
                         while boolTryCatch == True:
                             try:
@@ -1168,10 +1539,19 @@ elif RolUsuario == 3:
                                 input("Debe ingresar un número, presione ENTER para continuar.")
                                 system("cls")
 
+                        boolTryCatch = True
+                        while boolTryCatch == True:
+                            try:
+                                ModuloNota = int(input("1. Fudamentos de Programacion\n2. Programacion Web\n3. Programacion Formal\n4. Bases de datos\n5. Backend\n ¿A qué ruta desea añadirle nota?: "))
+                                break
+                            except ValueError:
+                                input("Debe ingresar un número, presione ENTER para continuar.")
+                                system("cls")
+                        
                         GeneralData=abrirArchivo()
-                        NotaPruebaTeorica = int(input("Ingrese la nota de la prueba teórica: "))
+                        NotaPruebaTeorica = int(input("Ingrese la nota de la prueba teorica: "))
                         NotaPruebaPractica = int(input("Ingrese la nota de la prueba practica: "))
-                        CantidadQuizes = int(input("¿Cuántos quizes hizo el trainer?: "))
+                        CantidadQuizes = int(input("¿Cuantos quizes hizo el trainer?: "))
                         contador = 0
                         NotaQuizes = 0
                         for i in range (0,CantidadQuizes):
@@ -1182,14 +1562,48 @@ elif RolUsuario == 3:
                         NotaFinalModulo = (NotaPruebaTeorica*0.30)+(NotaPruebaPractica*0.60)+(NotaQuizesFinal*0.10)
                         GeneralData[6]["Grupos"][5]["GrupoT6"][EscogerEstudianteT6-1]["NotaModulo"] = NotaFinalModulo
 
+                        GeneralData = abrirArchivo()
+                        if ModuloNota == 1:
+                            GeneralData[6]["Grupos"][5]["GrupoT6"][EscogerEstudianteT6-1]["Fundamentos"] = NotaFinalModulo
+                            if NotaFinalModulo>= 60:
+                                GeneralData[6]["Grupos"][5]["GrupoT6"][EscogerEstudianteT6-1]["EstadoFundamentos"] = "Aprobado"
+                            else:
+                                GeneralData[6]["Grupos"][5]["GrupoT6"][EscogerEstudianteT6-1]["EstadoFundamentos"] = "Reprobado"
+                        elif ModuloNota == 2:
+                            GeneralData[6]["Grupos"][5]["GrupoT6"][EscogerEstudianteT6-1]["ProWeb"] = NotaFinalModulo
+                            if NotaFinalModulo>=60:
+                                GeneralData[6]["Grupos"][5]["GrupoT6"][EscogerEstudianteT6-1]["EstadoProWeb"] = "Aprobado"
+                            else:
+                                GeneralData[6]["Grupos"][5]["GrupoT6"][EscogerEstudianteT6-1]["EstadoProWeb"] = "Reprobado"
+                        elif ModuloNota == 3:
+                            GeneralData[6]["Grupos"][5]["GrupoT6"][EscogerEstudianteT6-1]["ProFormal"] = NotaFinalModulo
+                            if NotaFinalModulo>=60:
+                                GeneralData[6]["Grupos"][5]["GrupoT6"][EscogerEstudianteT6-1]["EstadoProFormal"] = "Aprobado"
+                            else:
+                                GeneralData[6]["Grupos"][5]["GrupoT6"][EscogerEstudianteT6-1]["EstadoProFormal"] = "Reprobado"
+                        elif ModuloNota == 4:
+                            GeneralData[6]["Grupos"][5]["GrupoT6"][EscogerEstudianteT6-1]["BasesDatos"] = NotaFinalModulo
+                            if NotaFinalModulo>= 60:
+                                GeneralData[6]["Grupos"][5]["GrupoT6"][EscogerEstudianteT6-1]["EstadoBasesDatos"] = "Aprobado"
+                            else:
+                                GeneralData[6]["Grupos"][5]["GrupoT6"][EscogerEstudianteT6-1]["EstadoBasesDatos"] = "Reprobado"
+                        elif ModuloNota == 5:
+                            GeneralData[6]["Grupos"][5]["GrupoT6"][EscogerEstudianteT6-1]["Backend"] = NotaFinalModulo
+                            if NotaFinalModulo>=60:
+                                GeneralData[6]["Grupos"][5]["GrupoT6"][EscogerEstudianteT6-1]["EstadoBackend"] = "Aprobado"
+                            else:
+                                GeneralData[6]["Grupos"][5]["GrupoT6"][EscogerEstudianteT6-1]["EstadoBackend"] = "Reprobado"
+                        guardarArchivo(GeneralData)
+                        
                         if NotaFinalModulo>=60:
                             GeneralData[6]["Grupos"][5]["GrupoT6"][EscogerEstudianteT6-1]["Estado"] = "Aprobado"
                             GeneralData[6]["Grupos"][5]["GrupoT6"][EscogerEstudianteT6-1]["Riesgo"] = "Bajo"
                             GeneralData[6]["Grupos"][5]["GrupoT6"][EscogerEstudianteT6-1]["Notas"] = {
-                            "Nota Teórica" : NotaPruebaTeorica, 
-                            "Nota Práctica" : NotaPruebaPractica,
+                            "Nota Teorica" : NotaPruebaTeorica, 
+                            "Nota Practica" : NotaPruebaPractica,
                             "Nota Quizes": NotaQuizesFinal
                             }
+                            guardarArchivo(GeneralData)
                             print("Aprobado")
                             input("Presione ENTER para continuar")
                             system("cls")
@@ -1197,12 +1611,20 @@ elif RolUsuario == 3:
                             GeneralData[6]["Grupos"][5]["GrupoT6"][EscogerEstudianteT6-1]["Estado"] = "Reprobado"
                             GeneralData[6]["Grupos"][5]["GrupoT6"][EscogerEstudianteT6-1]["Riesgo"] = "Alto"
                             GeneralData[10]["RendimientoBajo"].append(GeneralData[6]["Grupos"][5]["GrupoT6"][EscogerEstudianteT6-1])
-                        guardarArchivo(GeneralData)
-                
+                            print("Reprobado")
+                            input("Presione ENTER para continuar")
+                            system("cls")
+                            GeneralData[6]["Grupos"][5]["GrupoT6"][EscogerEstudianteT6-1]["Notas"] = {
+                            "Nota Teorica" : NotaPruebaTeorica, 
+                            "Nota Practica" : NotaPruebaPractica,
+                            "Nota Quizes": NotaQuizesFinal
+                            }
+                            guardarArchivo(GeneralData)
+                #============================ GRUPO T7 ======================================================
                 elif EleccionNotaModulo == 7:
                     print ("T7")
-                    contador = 0
-                    GeneralData = abrirArchivo()
+                    contador=0
+                    GeneralData=abrirArchivo()
                     if len(GeneralData[6]["Grupos"][6]["GrupoT7"])==0:
                         input("No hay ningun Camper dentro de éste grupo, presione ENTER para continuar")
                         system("cls")
@@ -1212,6 +1634,7 @@ elif RolUsuario == 3:
                             print("Identificador #",contador)
                             print("Nombres:",i["Nombres"])
                             print("Apellidos:",i["Apellidos"])
+                            print("")
                         boolTryCatch = True
                         while boolTryCatch == True:
                             try:
@@ -1221,10 +1644,19 @@ elif RolUsuario == 3:
                                 input("Debe ingresar un número, presione ENTER para continuar.")
                                 system("cls")
 
+                        boolTryCatch = True
+                        while boolTryCatch == True:
+                            try:
+                                ModuloNota = int(input("1. Fudamentos de Programacion\n2. Programacion Web\n3. Programacion Formal\n4. Bases de datos\n5. Backend\n ¿A qué ruta desea añadirle nota?: "))
+                                break
+                            except ValueError:
+                                input("Debe ingresar un número, presione ENTER para continuar.")
+                                system("cls")
+                        
                         GeneralData=abrirArchivo()
-                        NotaPruebaTeorica = int(input("Ingrese la nota de la prueba teórica: "))
+                        NotaPruebaTeorica = int(input("Ingrese la nota de la prueba teorica: "))
                         NotaPruebaPractica = int(input("Ingrese la nota de la prueba practica: "))
-                        CantidadQuizes = int(input("¿Cuántos quizes hizo el trainer?: "))
+                        CantidadQuizes = int(input("¿Cuantos quizes hizo el trainer?: "))
                         contador = 0
                         NotaQuizes = 0
                         for i in range (0,CantidadQuizes):
@@ -1235,14 +1667,48 @@ elif RolUsuario == 3:
                         NotaFinalModulo = (NotaPruebaTeorica*0.30)+(NotaPruebaPractica*0.60)+(NotaQuizesFinal*0.10)
                         GeneralData[6]["Grupos"][6]["GrupoT7"][EscogerEstudianteT7-1]["NotaModulo"] = NotaFinalModulo
 
+                        GeneralData = abrirArchivo()
+                        if ModuloNota == 1:
+                            GeneralData[6]["Grupos"][6]["GrupoT7"][EscogerEstudianteT7-1]["Fundamentos"] = NotaFinalModulo
+                            if NotaFinalModulo>= 60:
+                                GeneralData[6]["Grupos"][6]["GrupoT7"][EscogerEstudianteT7-1]["EstadoFundamentos"] = "Aprobado"
+                            else:
+                                GeneralData[6]["Grupos"][6]["GrupoT7"][EscogerEstudianteT7-1]["EstadoFundamentos"] = "Reprobado"
+                        elif ModuloNota == 2:
+                            GeneralData[6]["Grupos"][6]["GrupoT7"][EscogerEstudianteT7-1]["ProWeb"] = NotaFinalModulo
+                            if NotaFinalModulo>=60:
+                                GeneralData[6]["Grupos"][6]["GrupoT7"][EscogerEstudianteT7-1]["EstadoProWeb"] = "Aprobado"
+                            else:
+                                GeneralData[6]["Grupos"][6]["GrupoT7"][EscogerEstudianteT7-1]["EstadoProWeb"] = "Reprobado"
+                        elif ModuloNota == 3:
+                            GeneralData[6]["Grupos"][6]["GrupoT7"][EscogerEstudianteT7-1]["ProFormal"] = NotaFinalModulo
+                            if NotaFinalModulo>=60:
+                                GeneralData[6]["Grupos"][6]["GrupoT7"][EscogerEstudianteT7-1]["EstadoProFormal"] = "Aprobado"
+                            else:
+                                GeneralData[6]["Grupos"][6]["GrupoT7"][EscogerEstudianteT7-1]["EstadoProFormal"] = "Reprobado"
+                        elif ModuloNota == 4:
+                            GeneralData[6]["Grupos"][6]["GrupoT7"][EscogerEstudianteT7-1]["BasesDatos"] = NotaFinalModulo
+                            if NotaFinalModulo>= 60:
+                                GeneralData[6]["Grupos"][6]["GrupoT7"][EscogerEstudianteT7-1]["EstadoBasesDatos"] = "Aprobado"
+                            else:
+                                GeneralData[6]["Grupos"][6]["GrupoT7"][EscogerEstudianteT7-1]["EstadoBasesDatos"] = "Reprobado"
+                        elif ModuloNota == 5:
+                            GeneralData[6]["Grupos"][6]["GrupoT7"][EscogerEstudianteT7-1]["Backend"] = NotaFinalModulo
+                            if NotaFinalModulo>=60:
+                                GeneralData[6]["Grupos"][6]["GrupoT7"][EscogerEstudianteT7-1]["EstadoBackend"] = "Aprobado"
+                            else:
+                                GeneralData[6]["Grupos"][6]["GrupoT7"][EscogerEstudianteT7-1]["EstadoBackend"] = "Reprobado"
+                        guardarArchivo(GeneralData)
+                        
                         if NotaFinalModulo>=60:
                             GeneralData[6]["Grupos"][6]["GrupoT7"][EscogerEstudianteT7-1]["Estado"] = "Aprobado"
                             GeneralData[6]["Grupos"][6]["GrupoT7"][EscogerEstudianteT7-1]["Riesgo"] = "Bajo"
                             GeneralData[6]["Grupos"][6]["GrupoT7"][EscogerEstudianteT7-1]["Notas"] = {
-                            "Nota Teórica" : NotaPruebaTeorica, 
-                            "Nota Práctica" : NotaPruebaPractica,
+                            "Nota Teorica" : NotaPruebaTeorica, 
+                            "Nota Practica" : NotaPruebaPractica,
                             "Nota Quizes": NotaQuizesFinal
                             }
+                            guardarArchivo(GeneralData)
                             print("Aprobado")
                             input("Presione ENTER para continuar")
                             system("cls")
@@ -1253,36 +1719,38 @@ elif RolUsuario == 3:
                             print("Reprobado")
                             input("Presione ENTER para continuar")
                             system("cls")
-                        guardarArchivo(GeneralData)
-
+                            GeneralData[6]["Grupos"][6]["GrupoT7"][EscogerEstudianteT7-1]["Notas"] = {
+                            "Nota Teorica" : NotaPruebaTeorica, 
+                            "Nota Practica" : NotaPruebaPractica,
+                            "Nota Quizes": NotaQuizesFinal
+                            }
+                            guardarArchivo(GeneralData)
+                #============================ CERRAR MODULO DE NOTAS ==========================================
                 elif EleccionNotaModulo == 8:
                     input("Presione ENTER para continuar")
                     system("cls")
                     boolAñadirNotas = False
                     break
-
+                #========================== EN CASO DE ELECCION NO VALIDA ======================================
                 else:
-                    input("Esta no es una opción válida, presione ENTER para continuar")
+                    input("Esta no es una opcion valida, presione ENTER para continuar")
                     system("cls")
-
         #====SALIR DEL MODULO DEL COORDINADOR====
         elif eleccionCoordinador == 6:
-            print("Saliendo del módulo del coordinador")
+            print("Saliendo del modulo del coordinador")
             input("Presione ENTER para continuar")
             system("cls")
             boolCoordinador = False
-
         #====EN CASO DE INGRESAR UNA OPCION NO VALIDA====
         else:
-            input("Esta no es una opción válida, presione ENTER para continuar")
-
+            input("Esta no es una opcion valida, presione ENTER para continuar")
 #==================================== MODULO DE REPORTES ==================================================
 if RolUsuario == 2:
     boolReportes = True
 elif RolUsuario == 3:
     boolReportes = True
 else:
-    print("Si eres Camper no puedes entrar al módulo de reportes")
+    print("Si eres Camper no puedes entrar al modulo de reportes")
     boolReportes = False 
 while boolReportes == True:
     boolTryCatch = True
@@ -1294,7 +1762,7 @@ while boolReportes == True:
     3. Listar los entrenadores que se encuentran trabajando con CampusLands.
     4. Listar los campers que cuentan con bajo rendimiento.
     5. Listar los Campers y Trainers que se encuentren asociados a una ruta de entrenamiento.
-    6. Mostrar cuantos campers perdieron y aprobaron cada uno de los módulos teniendo en cuenta la ruta de entrenamiento y el entrenador encargado.
+    6. Mostrar cuantos campers perdieron y aprobaron cada uno de los modulos teniendo en cuenta la ruta de entrenamiento y el entrenador encargado.
     7. Salir.
           """)
             eleccionReportes = int(input("¿Qué desea hacer?: "))                    
@@ -1360,8 +1828,7 @@ while boolReportes == True:
         system("cls")
     #============================== LISTAR CAMPERS CON RENDIMIENTO BAJO =============================================
     elif eleccionReportes == 4:
-        print("Listar Campers con rendimiento Bajo")
-        print("")
+        print("Campers que han tenido rendimiento bajo\n")
         GeneralData = abrirArchivo()
         if len(GeneralData[10]["RendimientoBajo"]) == 0:
             print("No hay ningún Camper con rendimiento bajo")
@@ -1372,9 +1839,10 @@ while boolReportes == True:
             for i in GeneralData[10]["RendimientoBajo"]:
                 contador += 1
                 print("Nombres:",i["Nombres"])
-                print("Apellidos",i["Apellidos"])
-                print("Nota del modulo:",i["NotaModulo"])
-                print("============")
+                print("Apellidos:",i["Apellidos"])
+                print("Ruta:",i["Ruta"])
+                print("Grupo:",i["Grupo"])
+                print("============\n")
             input("\nPresione ENTER para continuar")
             system("cls")
     #============================ LISTAR TRAINERS Y CAMPERS CON LA MISMA RUTA DE ENTRENAMIENTO ================================================================
@@ -1452,7 +1920,7 @@ while boolReportes == True:
                         print("Ruta:",i["Ruta"])
                         print("===========")
             else:
-                input("Esta no es una opción válida, presione ENTER para continuar")
+                input("Esta no es una opcion valida, presione ENTER para continuar")
                 system("cls")
 
         elif eleccionRutaEntrenamiento == 5:
@@ -1470,7 +1938,7 @@ while boolReportes == True:
                         print("Ruta:",i["Ruta"])
                         print("===========")
             else:
-                input("Esta no es una opción válida, presione ENTER para continuar")
+                input("Esta no es una opcion valida, presione ENTER para continuar")
                 system("cls")
 
         elif eleccionRutaEntrenamiento == 6:
@@ -1488,7 +1956,7 @@ while boolReportes == True:
                         print("Ruta:",i["Ruta"])
                         print("===========")
             else:
-                input("Esta no es una opción válida, presione ENTER para contunuar")
+                input("Esta no es una opcion valida, presione ENTER para contunuar")
                 system("cls")
 
         elif eleccionRutaEntrenamiento == 7:
@@ -1506,17 +1974,938 @@ while boolReportes == True:
                         print("Ruta:",i["Ruta"])
                         print("===========") 
             else: 
-                input("Esta no es una opción válida, presione ENTER para continuar")
+                input("Esta no es una opcion valida, presione ENTER para continuar")
                 system("cls")
 
         else:
-            input("Esta no es una opción válida, presione ENTER para continuar")
+            input("Esta no es una opcion valida, presione ENTER para continuar")
 
         input("Presione ENTER para continuar")    
         system("cls")       
     #============================ LISTAR CAMPERS QUE PERDIERON Y APROBARON CADA MODULO =============================
     elif eleccionReportes == 6:
-        print("Listar Campers que perdieron y aprobaron cada uno de los modulos dependiendo la ruta de entrenamiento")
+        print("Listar Campers que perdieron y aprobaron cada uno de los modulos dependiendo la ruta de entrenamiento\n")  
+        boolTryCatch = True
+        while boolTryCatch == True:
+            try:
+                GeneralData = abrirArchivo()
+                contador = 0
+                for i in GeneralData[8]["NombresRutas"]:
+                    contador +=1
+                    print(contador,":",i)
+                ListarAprobados = int(input("¿Qué grupo/ruta desea revisar?: "))
+                system("cls")
+                break
+            except ValueError:
+                input("Debe ingresar un valor entero, presione ENTER para continuar")
+                system("cls")
+
+        GeneralData = abrirArchivo()
+        if ListarAprobados == 1:
+            if len(GeneralData[6]["Grupos"][0]["GrupoT1"]) == 0:
+                input("Este Grupo está vacio, Presione ENTER para continuar")
+                system("cls")
+            else: 
+                boolTryCatch = True
+                while boolTryCatch == True:
+                    try:
+                        ModuloVer = int(input("\n1. Fundamentos de programación\n2. Programación web\n3. Programación formal\n4. Bases de datos\n5. Backend\¿Qué modulo desea revisar?: "))
+                        system("cls")
+                        break
+                    except ValueError:
+                        input("Debe ingresar un valor numerico, presione ENTER para continuar")
+                        system("cls")
+                boolTryCatch = True
+                while boolTryCatch == True:
+                    try:
+                        AproDesapro = int(input("Desea ver\n1. Aprobados\n2. Desaprobados\n¿Qué deesea ver?: "))
+                        system("cls")
+                        break
+                    except ValueError:
+                        input("Debe ingresar un valor entero, presione ENTER para continuar")
+                        system("cls")
+
+                if ModuloVer == 1:
+                    if AproDesapro == 1:
+                        for i in GeneralData[6]["Grupos"][0]["GrupoT1"]:
+                            if i["EstadoFundamentos"] == "Aprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                                print("")
+                                input("\nPresione ENTER para continuar")
+                                system("cls")
+                            else: 
+                                "No hay ningun Camper para mostrar"
+                    elif AproDesapro == 2:
+                        for i in GeneralData[6]["Grupos"][0]["GrupoT1"]:
+                            if i["EstadoFundamentos"] == "Reprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                            else:
+                                "No hay ningun Camper para mostrar"
+                
+                elif ModuloVer == 2:
+                    if AproDesapro == 1:
+                        for i in GeneralData[6]["Grupos"][0]["GrupoT1"]:
+                            if i["EstadoProWeb"] == "Aprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                                print("")
+                                input("\nPresione ENTER para continuar")
+                                system("cls")
+                            else: 
+                                "No hay ningun Camper para mostrar"
+                    elif AproDesapro == 2:
+                        for i in GeneralData[6]["Grupos"][0]["GrupoT1"]:
+                            if i["EstadoProweb"] == "Reprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                            else:
+                                "No hay ningun Camper para mostrar"
+
+                elif ModuloVer == 3:
+                    if AproDesapro == 1:
+                        for i in GeneralData[6]["Grupos"][0]["GrupoT1"]:
+                            if i["EstadoProFormal"] == "Aprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                                print("")
+                                input("\nPresione ENTER para continuar")
+                                system("cls")
+                            else: 
+                                "No hay ningun Camper para mostrar"
+                    elif AproDesapro == 2:
+                        for i in GeneralData[6]["Grupos"][0]["GrupoT1"]:
+                            if i["EstadoProFormal"] == "Reprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                            else:
+                                "No hay ningun Camper para mostrar"
+
+                elif ModuloVer == 4:
+                    if AproDesapro == 1:
+                        for i in GeneralData[6]["Grupos"][0]["GrupoT1"]:
+                            if i["EstadoBasesDatos"] == "Aprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                                print("")
+                                input("\nPresione ENTER para continuar")
+                                system("cls")
+                            else: 
+                                "No hay ningun Camper para mostrar"
+                    elif AproDesapro == 2:
+                        for i in GeneralData[6]["Grupos"][0]["GrupoT1"]:
+                            if i["EstadoBasesDatos"] == "Reprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                            else:
+                                "No hay ningun Camper para mostrar"
+                
+                elif ModuloVer == 5:
+                    if AproDesapro == 1:
+                        for i in GeneralData[6]["Grupos"][0]["GrupoT1"]:
+                            if i["EstadoBackend"] == "Aprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                                print("")
+                                input("\nPresione ENTER para continuar")
+                                system("cls")
+                            else: 
+                                "No hay ningun Camper para mostrar"
+                    elif AproDesapro == 2:
+                        for i in GeneralData[6]["Grupos"][0]["GrupoT1"]:
+                            if i["EstadoBackend"] == "Reprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                            else:
+                                "No hay ningun Camper para mostrar"
+        
+        elif ListarAprobados == 2:
+            if len(GeneralData[6]["Grupos"][1]["GrupoT2"]) == 0:
+                input("Este Grupo está vacio, Presione ENTER para continuar")
+                system("cls")
+            else: 
+                boolTryCatch = True
+                while boolTryCatch == True:
+                    try:
+                        ModuloVer = int(input("\n1. Fundamentos de programación\n2. Programación web\n3. Programación formal\n4. Bases de datos\n5. Backend\¿Qué modulo desea revisar?: "))
+                        system("cls")
+                        break
+                    except ValueError:
+                        input("Debe ingresar un valor numerico, presione ENTER para continuar")
+                        system("cls")
+                boolTryCatch = True
+                while boolTryCatch == True:
+                    try:
+                        AproDesapro = int(input("Desea ver\n1. Aprobados\n2. Desaprobados\n¿Qué deesea ver?: "))
+                        system("cls")
+                        break
+                    except ValueError:
+                        input("Debe ingresar un valor entero, presione ENTER para continuar")
+                        system("cls")
+
+                if ModuloVer == 1:
+                    if AproDesapro == 1:
+                        for i in GeneralData[6]["Grupos"][1]["GrupoT2"]:
+                            if i["EstadoFundamentos"] == "Aprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                                print("")
+                                input("\nPresione ENTER para continuar")
+                                system("cls")
+                            else: 
+                                "No hay ningun Camper para mostrar"
+                    elif AproDesapro == 2:
+                        for i in GeneralData[6]["Grupos"][1]["GrupoT2"]:
+                            if i["EstadoFundamentos"] == "Reprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                            else:
+                                "No hay ningun Camper para mostrar"
+                
+                elif ModuloVer == 2:
+                    if AproDesapro == 1:
+                        for i in GeneralData[6]["Grupos"][1]["GrupoT2"]:
+                            if i["EstadoProWeb"] == "Aprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                                print("")
+                                input("\nPresione ENTER para continuar")
+                                system("cls")
+                            else: 
+                                "No hay ningun Camper para mostrar"
+                    elif AproDesapro == 2:
+                        for i in GeneralData[6]["Grupos"][1]["GrupoT2"]:
+                            if i["EstadoProweb"] == "Reprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                            else:
+                                "No hay ningun Camper para mostrar"
+
+                elif ModuloVer == 3:
+                    if AproDesapro == 1:
+                        for i in GeneralData[6]["Grupos"][1]["GrupoT2"]:
+                            if i["EstadoProFormal"] == "Aprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                                print("")
+                                input("\nPresione ENTER para continuar")
+                                system("cls")
+                            else: 
+                                "No hay ningun Camper para mostrar"
+                    elif AproDesapro == 2:
+                        for i in GeneralData[6]["Grupos"][1]["GrupoT2"]:
+                            if i["EstadoProFormal"] == "Reprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                            else:
+                                "No hay ningun Camper para mostrar"
+
+                elif ModuloVer == 4:
+                    if AproDesapro == 1:
+                        for i in GeneralData[6]["Grupos"][1]["GrupoT2"]:
+                            if i["EstadoBasesDatos"] == "Aprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                                print("")
+                                input("\nPresione ENTER para continuar")
+                                system("cls")
+                            else: 
+                                "No hay ningun Camper para mostrar"
+                    elif AproDesapro == 2:
+                        for i in GeneralData[6]["Grupos"][1]["GrupoT2"]:
+                            if i["EstadoBasesDatos"] == "Reprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                            else:
+                                "No hay ningun Camper para mostrar"
+                
+                elif ModuloVer == 5:
+                    if AproDesapro == 1:
+                        for i in GeneralData[6]["Grupos"][1]["GrupoT2"]:
+                            if i["EstadoBackend"] == "Aprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                                print("")
+                                input("\nPresione ENTER para continuar")
+                                system("cls")
+                            else: 
+                                "No hay ningun Camper para mostrar"
+                    elif AproDesapro == 2:
+                        for i in GeneralData[6]["Grupos"][1]["GrupoT2"]:
+                            if i["EstadoBackend"] == "Reprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                            else:
+                                "No hay ningun Camper para mostrar"
+
+        elif ListarAprobados == 3:
+            if len(GeneralData[6]["Grupos"][2]["GrupoT3"]) == 0:
+                input("Este Grupo está vacio, Presione ENTER para continuar")
+                system("cls")
+            else: 
+                boolTryCatch = True
+                while boolTryCatch == True:
+                    try:
+                        ModuloVer = int(input("\n1. Fundamentos de programación\n2. Programación web\n3. Programación formal\n4. Bases de datos\n5. Backend\¿Qué modulo desea revisar?: "))
+                        system("cls")
+                        break
+                    except ValueError:
+                        input("Debe ingresar un valor numerico, presione ENTER para continuar")
+                        system("cls")
+                boolTryCatch = True
+                while boolTryCatch == True:
+                    try:
+                        AproDesapro = int(input("Desea ver\n1. Aprobados\n2. Desaprobados\n¿Qué deesea ver?: "))
+                        system("cls")
+                        break
+                    except ValueError:
+                        input("Debe ingresar un valor entero, presione ENTER para continuar")
+                        system("cls")
+
+                if ModuloVer == 1:
+                    if AproDesapro == 1:
+                        for i in GeneralData[6]["Grupos"][2]["GrupoT3"]:
+                            if i["EstadoFundamentos"] == "Aprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                                print("")
+                                input("\nPresione ENTER para continuar")
+                                system("cls")
+                            else: 
+                                "No hay ningun Camper para mostrar"
+                    elif AproDesapro == 2:
+                        for i in GeneralData[6]["Grupos"][2]["GrupoT3"]:
+                            if i["EstadoFundamentos"] == "Reprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                            else:
+                                "No hay ningun Camper para mostrar"
+                
+                elif ModuloVer == 2:
+                    if AproDesapro == 1:
+                        for i in GeneralData[6]["Grupos"][2]["GrupoT3"]:
+                            if i["EstadoProWeb"] == "Aprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                                print("")
+                                input("\nPresione ENTER para continuar")
+                                system("cls")
+                            else: 
+                                "No hay ningun Camper para mostrar"
+                    elif AproDesapro == 2:
+                        for i in GeneralData[6]["Grupos"][2]["GrupoT3"]:
+                            if i["EstadoProweb"] == "Reprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                            else:
+                                "No hay ningun Camper para mostrar"
+
+                elif ModuloVer == 3:
+                    if AproDesapro == 1:
+                        for i in GeneralData[6]["Grupos"][2]["GrupoT3"]:
+                            if i["EstadoProFormal"] == "Aprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                                print("")
+                                input("\nPresione ENTER para continuar")
+                                system("cls")
+                            else: 
+                                "No hay ningun Camper para mostrar"
+                    elif AproDesapro == 2:
+                        for i in GeneralData[6]["Grupos"][2]["GrupoT3"]:
+                            if i["EstadoProFormal"] == "Reprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                            else:
+                                "No hay ningun Camper para mostrar"
+
+                elif ModuloVer == 4:
+                    if AproDesapro == 1:
+                        for i in GeneralData[6]["Grupos"][2]["GrupoT3"]:
+                            if i["EstadoBasesDatos"] == "Aprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                                print("")
+                                input("\nPresione ENTER para continuar")
+                                system("cls")
+                            else: 
+                                "No hay ningun Camper para mostrar"
+                    elif AproDesapro == 2:
+                        for i in GeneralData[6]["Grupos"][2]["GrupoT3"]:
+                            if i["EstadoBasesDatos"] == "Reprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                            else:
+                                "No hay ningun Camper para mostrar"
+                
+                elif ModuloVer == 5:
+                    if AproDesapro == 1:
+                        for i in GeneralData[6]["Grupos"][2]["GrupoT3"]:
+                            if i["EstadoBackend"] == "Aprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                                print("")
+                                input("\nPresione ENTER para continuar")
+                                system("cls")
+                            else: 
+                                "No hay ningun Camper para mostrar"
+                    elif AproDesapro == 2:
+                        for i in GeneralData[6]["Grupos"][2]["GrupoT3"]:
+                            if i["EstadoBackend"] == "Reprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                            else:
+                                "No hay ningun Camper para mostrar"
+
+        elif ListarAprobados == 4:
+            if len(GeneralData[6]["Grupos"][3]["GrupoT4"]) == 0:
+                input("Este Grupo está vacio, Presione ENTER para continuar")
+                system("cls")
+            else: 
+                boolTryCatch = True
+                while boolTryCatch == True:
+                    try:
+                        ModuloVer = int(input("\n1. Fundamentos de programación\n2. Programación web\n3. Programación formal\n4. Bases de datos\n5. Backend\¿Qué modulo desea revisar?: "))
+                        system("cls")
+                        break
+                    except ValueError:
+                        input("Debe ingresar un valor numerico, presione ENTER para continuar")
+                        system("cls")
+                boolTryCatch = True
+                while boolTryCatch == True:
+                    try:
+                        AproDesapro = int(input("Desea ver\n1. Aprobados\n2. Desaprobados\n¿Qué deesea ver?: "))
+                        system("cls")
+                        break
+                    except ValueError:
+                        input("Debe ingresar un valor entero, presione ENTER para continuar")
+                        system("cls")
+
+                if ModuloVer == 1:
+                    if AproDesapro == 1:
+                        for i in GeneralData[6]["Grupos"][3]["GrupoT4"]:
+                            if i["EstadoFundamentos"] == "Aprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                                print("")
+                                input("\nPresione ENTER para continuar")
+                                system("cls")
+                            else: 
+                                "No hay ningun Camper para mostrar"
+                    elif AproDesapro == 2:
+                        for i in GeneralData[6]["Grupos"][3]["GrupoT4"]:
+                            if i["EstadoFundamentos"] == "Reprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                            else:
+                                "No hay ningun Camper para mostrar"
+                
+                elif ModuloVer == 2:
+                    if AproDesapro == 1:
+                        for i in GeneralData[6]["Grupos"][3]["GrupoT4"]:
+                            if i["EstadoProWeb"] == "Aprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                                print("")
+                                input("\nPresione ENTER para continuar")
+                                system("cls")
+                            else: 
+                                "No hay ningun Camper para mostrar"
+                    elif AproDesapro == 2:
+                        for i in GeneralData[6]["Grupos"][3]["GrupoT4"]:
+                            if i["EstadoProweb"] == "Reprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                            else:
+                                "No hay ningun Camper para mostrar"
+
+                elif ModuloVer == 3:
+                    if AproDesapro == 1:
+                        for i in GeneralData[6]["Grupos"][3]["GrupoT4"]:
+                            if i["EstadoProFormal"] == "Aprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                                print("")
+                                input("\nPresione ENTER para continuar")
+                                system("cls")
+                            else: 
+                                "No hay ningun Camper para mostrar"
+                    elif AproDesapro == 2:
+                        for i in GeneralData[6]["Grupos"][3]["GrupoT4"]:
+                            if i["EstadoProFormal"] == "Reprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                            else:
+                                "No hay ningun Camper para mostrar"
+
+                elif ModuloVer == 4:
+                    if AproDesapro == 1:
+                        for i in GeneralData[6]["Grupos"][3]["GrupoT4"]:
+                            if i["EstadoBasesDatos"] == "Aprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                                print("")
+                                input("\nPresione ENTER para continuar")
+                                system("cls")
+                            else: 
+                                "No hay ningun Camper para mostrar"
+                    elif AproDesapro == 2:
+                        for i in GeneralData[6]["Grupos"][3]["GrupoT4"]:
+                            if i["EstadoBasesDatos"] == "Reprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                            else:
+                                "No hay ningun Camper para mostrar"
+                
+                elif ModuloVer == 5:
+                    if AproDesapro == 1:
+                        for i in GeneralData[6]["Grupos"][3]["GrupoT4"]:
+                            if i["EstadoBackend"] == "Aprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                                print("")
+                                input("\nPresione ENTER para continuar")
+                                system("cls")
+                            else: 
+                                "No hay ningun Camper para mostrar"
+                    elif AproDesapro == 2:
+                        for i in GeneralData[6]["Grupos"][3]["GrupoT4"]:
+                            if i["EstadoBackend"] == "Reprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                            else:
+                                "No hay ningun Camper para mostrar"
+        
+        elif ListarAprobados == 5:
+            if len(GeneralData[6]["Grupos"][4]["GrupoT5"]) == 0:
+                input("Este Grupo está vacio, Presione ENTER para continuar")
+                system("cls")
+            else: 
+                boolTryCatch = True
+                while boolTryCatch == True:
+                    try:
+                        ModuloVer = int(input("\n1. Fundamentos de programación\n2. Programación web\n3. Programación formal\n4. Bases de datos\n5. Backend\¿Qué modulo desea revisar?: "))
+                        system("cls")
+                        break
+                    except ValueError:
+                        input("Debe ingresar un valor numerico, presione ENTER para continuar")
+                        system("cls")
+                boolTryCatch = True
+                while boolTryCatch == True:
+                    try:
+                        AproDesapro = int(input("Desea ver\n1. Aprobados\n2. Desaprobados\n¿Qué deesea ver?: "))
+                        system("cls")
+                        break
+                    except ValueError:
+                        input("Debe ingresar un valor entero, presione ENTER para continuar")
+                        system("cls")
+
+                if ModuloVer == 1:
+                    if AproDesapro == 1:
+                        for i in GeneralData[6]["Grupos"][4]["GrupoT5"]:
+                            if i["EstadoFundamentos"] == "Aprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                                print("")
+                                input("\nPresione ENTER para continuar")
+                                system("cls")
+                            else: 
+                                "No hay ningun Camper para mostrar"
+                    elif AproDesapro == 2:
+                        for i in GeneralData[6]["Grupos"][4]["GrupoT5"]:
+                            if i["EstadoFundamentos"] == "Reprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                            else:
+                                "No hay ningun Camper para mostrar"
+                
+                elif ModuloVer == 2:
+                    if AproDesapro == 1:
+                        for i in GeneralData[6]["Grupos"][4]["GrupoT5"]:
+                            if i["EstadoProWeb"] == "Aprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                                print("")
+                                input("\nPresione ENTER para continuar")
+                                system("cls")
+                            else: 
+                                "No hay ningun Camper para mostrar"
+                    elif AproDesapro == 2:
+                        for i in GeneralData[6]["Grupos"][4]["GrupoT5"]:
+                            if i["EstadoProweb"] == "Reprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                            else:
+                                "No hay ningun Camper para mostrar"
+
+                elif ModuloVer == 3:
+                    if AproDesapro == 1:
+                        for i in GeneralData[6]["Grupos"][4]["GrupoT5"]:
+                            if i["EstadoProFormal"] == "Aprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                                print("")
+                                input("\nPresione ENTER para continuar")
+                                system("cls")
+                            else: 
+                                "No hay ningun Camper para mostrar"
+                    elif AproDesapro == 2:
+                        for i in GeneralData[6]["Grupos"][4]["GrupoT5"]:
+                            if i["EstadoProFormal"] == "Reprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                            else:
+                                "No hay ningun Camper para mostrar"
+
+                elif ModuloVer == 4:
+                    if AproDesapro == 1:
+                        for i in GeneralData[6]["Grupos"][4]["GrupoT5"]:
+                            if i["EstadoBasesDatos"] == "Aprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                                print("")
+                                input("\nPresione ENTER para continuar")
+                                system("cls")
+                            else: 
+                                "No hay ningun Camper para mostrar"
+                    elif AproDesapro == 2:
+                        for i in GeneralData[6]["Grupos"][4]["GrupoT5"]:
+                            if i["EstadoBasesDatos"] == "Reprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                            else:
+                                "No hay ningun Camper para mostrar"
+                
+                elif ModuloVer == 5:
+                    if AproDesapro == 1:
+                        for i in GeneralData[6]["Grupos"][4]["GrupoT5"]:
+                            if i["EstadoBackend"] == "Aprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                                print("")
+                                input("\nPresione ENTER para continuar")
+                                system("cls")
+                            else: 
+                                "No hay ningun Camper para mostrar"
+                    elif AproDesapro == 2:
+                        for i in GeneralData[6]["Grupos"][4]["GrupoT5"]:
+                            if i["EstadoBackend"] == "Reprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                            else:
+                                "No hay ningun Camper para mostrar"
+        
+        elif ListarAprobados == 6:
+            if len(GeneralData[6]["Grupos"][5]["GrupoT6"]) == 0:
+                input("Este Grupo está vacio, Presione ENTER para continuar")
+                system("cls")
+            else: 
+                boolTryCatch = True
+                while boolTryCatch == True:
+                    try:
+                        ModuloVer = int(input("\n1. Fundamentos de programación\n2. Programación web\n3. Programación formal\n4. Bases de datos\n5. Backend\¿Qué modulo desea revisar?: "))
+                        system("cls")
+                        break
+                    except ValueError:
+                        input("Debe ingresar un valor numerico, presione ENTER para continuar")
+                        system("cls")
+                boolTryCatch = True
+                while boolTryCatch == True:
+                    try:
+                        AproDesapro = int(input("Desea ver\n1. Aprobados\n2. Desaprobados\n¿Qué deesea ver?: "))
+                        system("cls")
+                        break
+                    except ValueError:
+                        input("Debe ingresar un valor entero, presione ENTER para continuar")
+                        system("cls")
+
+                if ModuloVer == 1:
+                    if AproDesapro == 1:
+                        for i in GeneralData[6]["Grupos"][5]["GrupoT6"]:
+                            if i["EstadoFundamentos"] == "Aprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                                print("")
+                                input("\nPresione ENTER para continuar")
+                                system("cls")
+                            else: 
+                                "No hay ningun Camper para mostrar"
+                    elif AproDesapro == 2:
+                        for i in GeneralData[6]["Grupos"][5]["GrupoT6"]:
+                            if i["EstadoFundamentos"] == "Reprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                            else:
+                                "No hay ningun Camper para mostrar"
+                
+                elif ModuloVer == 2:
+                    if AproDesapro == 1:
+                        for i in GeneralData[6]["Grupos"][5]["GrupoT6"]:
+                            if i["EstadoProWeb"] == "Aprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                                print("")
+                                input("\nPresione ENTER para continuar")
+                                system("cls")
+                            else: 
+                                "No hay ningun Camper para mostrar"
+                    elif AproDesapro == 2:
+                        for i in GeneralData[6]["Grupos"][5]["GrupoT6"]:
+                            if i["EstadoProweb"] == "Reprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                            else:
+                                "No hay ningun Camper para mostrar"
+
+                elif ModuloVer == 3:
+                    if AproDesapro == 1:
+                        for i in GeneralData[6]["Grupos"][5]["GrupoT6"]:
+                            if i["EstadoProFormal"] == "Aprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                                print("")
+                                input("\nPresione ENTER para continuar")
+                                system("cls")
+                            else: 
+                                "No hay ningun Camper para mostrar"
+                    elif AproDesapro == 2:
+                        for i in GeneralData[6]["Grupos"][5]["GrupoT6"]:
+                            if i["EstadoProFormal"] == "Reprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                            else:
+                                "No hay ningun Camper para mostrar"
+
+                elif ModuloVer == 4:
+                    if AproDesapro == 1:
+                        for i in GeneralData[6]["Grupos"][5]["GrupoT6"]:
+                            if i["EstadoBasesDatos"] == "Aprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                                print("")
+                                input("\nPresione ENTER para continuar")
+                                system("cls")
+                            else: 
+                                "No hay ningun Camper para mostrar"
+                    elif AproDesapro == 2:
+                        for i in GeneralData[6]["Grupos"][5]["GrupoT6"]:
+                            if i["EstadoBasesDatos"] == "Reprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                            else:
+                                "No hay ningun Camper para mostrar"
+                
+                elif ModuloVer == 5:
+                    if AproDesapro == 1:
+                        for i in GeneralData[6]["Grupos"][5]["GrupoT6"]:
+                            if i["EstadoBackend"] == "Aprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                                print("")
+                                input("\nPresione ENTER para continuar")
+                                system("cls")
+                            else: 
+                                "No hay ningun Camper para mostrar"
+                    elif AproDesapro == 2:
+                        for i in GeneralData[6]["Grupos"][5]["GrupoT6"]:
+                            if i["EstadoBackend"] == "Reprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                            else:
+                                "No hay ningun Camper para mostrar"
+
+        elif ListarAprobados == 7:
+            if len(GeneralData[6]["Grupos"][6]["GrupoT7"]) == 0:
+                input("Este Grupo está vacio, Presione ENTER para continuar")
+                system("cls")
+            else: 
+                boolTryCatch = True
+                while boolTryCatch == True:
+                    try:
+                        ModuloVer = int(input("\n1. Fundamentos de programación\n2. Programación web\n3. Programación formal\n4. Bases de datos\n5. Backend\¿Qué modulo desea revisar?: "))
+                        system("cls")
+                        break
+                    except ValueError:
+                        input("Debe ingresar un valor numerico, presione ENTER para continuar")
+                        system("cls")
+                boolTryCatch = True
+                while boolTryCatch == True:
+                    try:
+                        AproDesapro = int(input("Desea ver\n1. Aprobados\n2. Desaprobados\n¿Qué deesea ver?: "))
+                        system("cls")
+                        break
+                    except ValueError:
+                        input("Debe ingresar un valor entero, presione ENTER para continuar")
+                        system("cls")
+
+                if ModuloVer == 1:
+                    if AproDesapro == 1:
+                        for i in GeneralData[6]["Grupos"][6]["GrupoT7"]:
+                            if i["EstadoFundamentos"] == "Aprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                                print("")
+                                input("\nPresione ENTER para continuar")
+                                system("cls")
+                            else: 
+                                "No hay ningun Camper para mostrar"
+                    elif AproDesapro == 2:
+                        for i in GeneralData[6]["Grupos"][6]["GrupoT7"]:
+                            if i["EstadoFundamentos"] == "Reprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                            else:
+                                "No hay ningun Camper para mostrar"
+                
+                elif ModuloVer == 2:
+                    if AproDesapro == 1:
+                        for i in GeneralData[6]["Grupos"][6]["GrupoT7"]:
+                            if i["EstadoProWeb"] == "Aprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                                print("")
+                                input("\nPresione ENTER para continuar")
+                                system("cls")
+                            else: 
+                                "No hay ningun Camper para mostrar"
+                    elif AproDesapro == 2:
+                        for i in GeneralData[6]["Grupos"][6]["GrupoT7"]:
+                            if i["EstadoProweb"] == "Reprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                            else:
+                                "No hay ningun Camper para mostrar"
+
+                elif ModuloVer == 3:
+                    if AproDesapro == 1:
+                        for i in GeneralData[6]["Grupos"][6]["GrupoT7"]:
+                            if i["EstadoProFormal"] == "Aprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                                print("")
+                                input("\nPresione ENTER para continuar")
+                                system("cls")
+                            else: 
+                                "No hay ningun Camper para mostrar"
+                    elif AproDesapro == 2:
+                        for i in GeneralData[6]["Grupos"][6]["GrupoT7"]:
+                            if i["EstadoProFormal"] == "Reprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                            else:
+                                "No hay ningun Camper para mostrar"
+
+                elif ModuloVer == 4:
+                    if AproDesapro == 1:
+                        for i in GeneralData[6]["Grupos"][6]["GrupoT7"]:
+                            if i["EstadoBasesDatos"] == "Aprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                                print("")
+                                input("\nPresione ENTER para continuar")
+                                system("cls")
+                            else: 
+                                "No hay ningun Camper para mostrar"
+                    elif AproDesapro == 2:
+                        for i in GeneralData[6]["Grupos"][6]["GrupoT7"]:
+                            if i["EstadoBasesDatos"] == "Reprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                            else:
+                                "No hay ningun Camper para mostrar"
+                
+                elif ModuloVer == 5:
+                    if AproDesapro == 1:
+                        for i in GeneralData[6]["Grupos"][6]["GrupoT7"]:
+                            if i["EstadoBackend"] == "Aprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                                print("")
+                                input("\nPresione ENTER para continuar")
+                                system("cls")
+                            else: 
+                                "No hay ningun Camper para mostrar"
+                    elif AproDesapro == 2:
+                        for i in GeneralData[6]["Grupos"][6]["GrupoT7"]:
+                            if i["EstadoBackend"] == "Reprobado":
+                                print(i["Nombres"])
+                                print(i["Apellidos"])
+                                print(i["Grupo"])
+                            else:
+                                "No hay ningun Camper para mostrar"
+
+                system("cls")
+
     #============================= SALIR DEL MODULO DE REPORTES =============================================================
     elif eleccionReportes == 7:
         print("Saliendo del programa")
@@ -1524,7 +2913,7 @@ while boolReportes == True:
         boolReportes = False
     #============================= ELECCION NO VALIDA==============================================================
     else:
-        print("Esta no es una opción válida, intente de nuevo")
+        print("Esta no es una opcion valida, intente de nuevo")
         input("Presione ENTER para continuar")
         system("cls")
       

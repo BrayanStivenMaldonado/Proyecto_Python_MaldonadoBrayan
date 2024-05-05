@@ -4,20 +4,26 @@
         "Trainers": [
             {
                 "Nombre": "Miguel Sanchez",
-                "Ruta": ["Java"],
-                "Salon" : "Sputnik,",
-                "Grupos": "T1 - T4 - T7"
+                "Ruta": [
+                    "Java"
+                ],
+                "Salon": "Sputnik,",
+                "Grupo": "T1 - T4 - T7"
             },
             {
                 "Nombre": "Jholver Garcia",
-                "Ruta": ["NetCore"],
-                "Salon" : "Apolo",
+                "Ruta": [
+                    "NetCore"
+                ],
+                "Salon": "Apolo",
                 "Grupo": "T2 - T5"
             },
             {
                 "Nombre": "Pedro Gomez",
-                "Ruta": ["NodeJS"],
-                "Salon" : "Artemis",
+                "Ruta": [
+                    "NodeJS"
+                ],
+                "Salon": "Artemis",
                 "Grupo": "T3 - T6"
             }
         ]
@@ -34,20 +40,6 @@
     {
         "Tipo": "Inscritos",
         "Estudiantes": [
-            
-            {
-                "Identificador": 1,
-                "Estado": "Inscrito",
-                "Ruta": "",
-                "Documento": 12313,
-                "Nombres": "Brayan Stiven",
-                "Apellidos": "Maldonado Ortega",
-                "Direccion": "nose",
-                "Acudiente": "Josefa",
-                "Celular": 345342323,
-                "Fijo": 67545353,
-                "NotaPrueba": 0
-            },        
             {
                 "Identificador": 2,
                 "Estado": "Inscrito",
@@ -59,7 +51,12 @@
                 "Acudiente": "Patrocla",
                 "Celular": 31213412,
                 "Fijo": 2984923,
-                "NotaPrueba": 0
+                "NotaPrueba": 0,
+                "EstadoFundamentos": "",
+                "EstadoProWeb": "",
+                "EstadoProFormal": "",
+                "EstadoBasesDatos": "",
+                "EstadoBackend": ""
             },
             {
                 "Identificador": 3,
@@ -72,7 +69,12 @@
                 "Acudiente": "Pepita",
                 "Celular": 2131232,
                 "Fijo": 245343,
-                "NotaPrueba": 0
+                "NotaPrueba": 0,
+                "EstadoFundamentos": "",
+                "EstadoProWeb": "",
+                "EstadoProFormal": "",
+                "EstadoBasesDatos": "",
+                "EstadoBackend": ""
             },
             {
                 "Identificador": 4,
@@ -85,7 +87,12 @@
                 "Acudiente": "Guillermina",
                 "Celular": 43543542,
                 "Fijo": 25465423,
-                "NotaPrueba": 0
+                "NotaPrueba": 0,
+                "EstadoFundamentos": "",
+                "EstadoProWeb": "",
+                "EstadoProFormal": "",
+                "EstadoBasesDatos": "",
+                "EstadoBackend": ""
             },
             {
                 "Identificador": 5,
@@ -98,7 +105,12 @@
                 "Acudiente": "Josefina",
                 "Celular": "1334234",
                 "Fijo": "4353423",
-                "NotaPrueba": 0
+                "NotaPrueba": 0,
+                "EstadoFundamentos": "",
+                "EstadoProWeb": "",
+                "EstadoProFormal": "",
+                "EstadoBasesDatos": "",
+                "EstadoBackend": ""
             }
         ]
     },
@@ -123,7 +135,39 @@
         "Tipo": "Grupos",
         "Grupos": [
             {
-                "GrupoT1": []
+                "GrupoT1": [
+                    {
+                        "Identificador": 1,
+                        "Estado": "Aprobado",
+                        "Ruta": "Java",
+                        "Documento": 12313,
+                        "Nombres": "Brayan Stiven",
+                        "Apellidos": "Maldonado Ortega",
+                        "Direccion": "nose",
+                        "Acudiente": "Josefa",
+                        "Celular": 345342323,
+                        "Fijo": 67545353,
+                        "NotaPrueba": 80.0,
+                        "EstadoFundamentos": "Aprobado",
+                        "EstadoProWeb": "",
+                        "EstadoProFormal": "",
+                        "EstadoBasesDatos": "",
+                        "EstadoBackend": "",
+                        "Trainer": "Miguel Sanchez",
+                        "Grupo": "T1",
+                        "Salon": "Sputnik",
+                        "FechaInicio": "10-01-2024",
+                        "FechaFinalizacion": "04-07-2025",
+                        "Horario": "6am-10am",
+                        "Fundamentos": 80.0,
+                        "Riesgo": "Bajo",
+                        "Notas": {
+                            "Nota Teorica": 80,
+                            "Nota Practica": 80,
+                            "Nota Quizes": 80.0
+                        }
+                    }
+                ]
             },
             {
                 "GrupoT2": []
@@ -132,16 +176,16 @@
                 "GrupoT3": []
             },
             {
-                "GrupoT4" : []
+                "GrupoT4": []
             },
             {
-                "GrupoT5" : []
+                "GrupoT5": []
             },
             {
-                "GrupoT6" : []
+                "GrupoT6": []
             },
             {
-                "GrupoT7" : []
+                "GrupoT7": []
             }
         ]
     },
@@ -151,76 +195,141 @@
             {
                 "Java": [
                     {
-                        "FundamentosProgramacion":["Pseint","Python", "Introduccion a la algoritmia"]
+                        "FundamentosProgramacion": [
+                            "Pseint",
+                            "Python",
+                            "Introduccion a la algoritmia"
+                        ]
                     },
                     {
-                        "ProgramacionWeb":["HTML", "CSS", "BootStrap"]
+                        "ProgramacionWeb": [
+                            "HTML",
+                            "CSS",
+                            "BootStrap"
+                        ]
                     },
                     {
-                      "ProgramacionFormal":[]  
+                        "ProgramacionFormal": [
+                            "Java"
+                        ]
                     },
                     {
-                        "BaseDatos":[]
+                        "BaseDatos": [
+                            "Mysql",
+                            "MongoDb"
+                        ]
                     },
                     {
-                        "Backend": []
+                        "Backend": [
+                            "Node"
+                        ]
                     }
-
                 ]
             },
             {
                 "NetCore": [
                     {
-                        "FundamentosProgramacion":["Pseint","Python", "Introduccion a la algoritmia"]
+                        "FundamentosProgramacion": [
+                            "Pseint",
+                            "Python",
+                            "Introduccion a la algoritmia"
+                        ]
                     },
                     {
-                        "ProgramacionWeb":["HTML", "CSS", "BootStrap"]
+                        "ProgramacionWeb": [
+                            "HTML",
+                            "CSS",
+                            "BootStrap"
+                        ]
                     },
                     {
-                      "ProgramacionFormal":[]  
+                        "ProgramacionFormal": [
+                            "C#"
+                        ]
                     },
                     {
-                        "BaseDatos":[]
+                        "BaseDatos": [
+                            "Mysql",
+                            "MongoDb"
+                        ]
                     },
                     {
-                        "Backend": []
+                        "Backend": [
+                            "NetCore"
+                        ]
                     }
-
                 ]
             },
             {
                 "NodeJS": [
                     {
-                        "FundamentosProgramacion":["Pseint","Python", "Introduccion a la algoritmia"]
+                        "FundamentosProgramacion": [
+                            "Pseint",
+                            "Python",
+                            "Introduccion a la algoritmia"
+                        ]
                     },
                     {
-                        "ProgramacionWeb":["HTML", "CSS", "BootStrap"]
+                        "ProgramacionWeb": [
+                            "HTML",
+                            "CSS",
+                            "BootStrap"
+                        ]
                     },
                     {
-                      "ProgramacionFormal":[]  
+                        "ProgramacionFormal": [
+                            "JavaScript"
+                        ]
                     },
                     {
-                        "BaseDatos":[]
+                        "BaseDatos": [
+                            "Mysql",
+                            "MongoDb"
+                        ]
                     },
                     {
-                        "Backend": []
+                        "Backend": [
+                            "Node"
+                        ]
                     }
-
                 ]
             }
         ]
     },
     {
-        "Tipo" : "NombresRutas",
-        "NombresRutas" : ["Java","NetCore","NoteJS"]
+        "Tipo": "NombresRutas",
+        "NombresRutas": [
+            "Java",
+            "NetCore",
+            "NoteJS"
+        ]
     },
     {
-        "Tipo" : "EstudiantesAprobaronPruebaInicial",
-        "EstudiantesAprobaronPruebaInicial" : []
+        "Tipo": "EstudiantesAprobaronPruebaInicial",
+        "EstudiantesAprobaronPruebaInicial": [
+            {
+                "Identificador": 1,
+                "Estado": "Aprobado",
+                "Ruta": "",
+                "Documento": 12313,
+                "Nombres": "Brayan Stiven",
+                "Apellidos": "Maldonado Ortega",
+                "Direccion": "nose",
+                "Acudiente": "Josefa",
+                "Celular": 345342323,
+                "Fijo": 67545353,
+                "NotaPrueba": 80.0,
+                "EstadoFundamentos": "",
+                "EstadoProWeb": "",
+                "EstadoProFormal": "",
+                "EstadoBasesDatos": "",
+                "EstadoBackend": ""
+            }
+        ]
     },
     {
-        "Tipo" : "RiesgoAlto",
-        "RendimientoBajo" : []
+        "Tipo": "RiesgoAlto",
+        "RendimientoBajo": []
     },
     {
         "Tipo": "Notas",
