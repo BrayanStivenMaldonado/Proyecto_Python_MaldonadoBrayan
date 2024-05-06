@@ -15,33 +15,29 @@ def guardarArchivo(miData): #Funcion que va a servir para guardar los datos que 
         json.dump(miData,outfile)
 #=================================== INICIO DEL PROGRAMA ===========================================================
 #================================ELECCION DEL TIPO DE USUARIO=======================================================
-boolUsuario = True
-TipoUsuario = ""
-while boolUsuario == True:
+boolUsuario = True # Se crea booleano para dar el parametro al while en el menu
+while boolUsuario == True: # Se crea el repetidor while para el menu, mientras el booleano sea verdadero
 
-    boolTryCatch = True
-    while boolTryCatch == True: 
-        try: 
+    boolTryCatch = True # Ceamos un trycatch, para serciorarnos que el usuario coloque en la entrada lo solicitado en el programa.
+    while boolTryCatch == True: # Se crea el repetidor while del trycatch.
+        try: # Si la opcion ingresada es correcta, da continuacion al menu.
             RolUsuario = int(input("¿Cual es su rol dentro de CampusLands?\n 1. Camper\n 2. Trainer\n 3. Coordinador\n"))
             break
-        except ValueError:
+        except ValueError: # Sino, nos solicita ingresar el valor requerido.
             input("Debe ingresar un número entero")
             system("cls")
     
    
-    if RolUsuario == 1: #Dependiendo de la eleccion numerica, esta va a tomar un valor de texto
-        TipoUsuario = "Camper"
+    if RolUsuario == 1: 
         boolUsuario = False
 
     elif RolUsuario == 2: 
-        TipoUsuario = "Trainer"
         boolUsuario = False
 
     elif RolUsuario == 3:
-        TipoUsuario = "Coordinador"
         boolUsuario = False
 
-    else:
+    else: # Si se coloca una opcion no valida, nos regresa al inicio.
         print("Este no es un número valido")
         input("Presione ENTER para continuar")
         system("cls")
@@ -68,15 +64,27 @@ if RolUsuario == 1:
                 system("cls")
         system("cls")
 
-        if eleccionCamper == 1:
-            print("----VER NOTAS----")
-            system("cls")
+        if eleccionCamper == 1: #Si la seleccion es 1 nos va a mostrar todos los datos del camper
+            print("----VER DATOS DEL CAMPER----")
             boolmostrar = False
-            IdentificadorCamper=str(input("Ingrese sus nombres para el estado en el que se encuentra.\n"))  
+            IdentificadorCamper=str(input("Ingrese su nombre para ver sus datos.\n")) # Se crea una variable que nos permita escribir el nombre del camper  
             system("cls")     
 
-            GeneralData=abrirArchivo()
-            for i in GeneralData[6]["Grupos"][0]["GrupoT1"]:
+            GeneralData=abrirArchivo() #Se abre el archivo json
+            for i in GeneralData[6]["Grupos"][0]["GrupoT1"]: # Se crea un for para que recorra el json en la posicion de grupos y me bote los datos relevantes del camper.
+                if i["Nombres"] == IdentificadorCamper:
+                    boolmostrar = True
+                    print(i ["Nombres"])
+                    print(i ["Apellidos"])
+                    print(i ["Ruta"])
+                    print(i ["Notas"])
+                    print(i ["Horario"])
+                    print(i ["Salon"])
+                    input("Para averiguar a otro camper, presione ENTER.")
+                    system("cls")
+
+            GeneralData=abrirArchivo() #Se abre el archivo json
+            for i in GeneralData[6]["Grupos"][1]["GrupoT2"]: # Se crea un for para que recorra el json en la posicion de grupos y me bote los datos relevantes del camper.
                 if i ["Nombres"] == IdentificadorCamper:
                     boolmostrar = True
                     print(i ["Nombres"])
@@ -88,8 +96,8 @@ if RolUsuario == 1:
                     input("Para averiguar a otro camper, presione ENTER.")
                     system("cls")
 
-            GeneralData=abrirArchivo()
-            for i in GeneralData[6]["Grupos"][1]["GrupoT2"]:
+            GeneralData=abrirArchivo() #Se abre el archivo json
+            for i in GeneralData[6]["Grupos"][2]["GrupoT3"]: # Se crea un for para que recorra el json en la posicion de grupos y me bote los datos relevantes del camper.
                 if i ["Nombres"] == IdentificadorCamper:
                     boolmostrar = True
                     print(i ["Nombres"])
@@ -101,21 +109,8 @@ if RolUsuario == 1:
                     input("Para averiguar a otro camper, presione ENTER.")
                     system("cls")
 
-            GeneralData=abrirArchivo()
-            for i in GeneralData[6]["Grupos"][2]["GrupoT3"]:
-                if i ["Nombres"] == IdentificadorCamper:
-                    boolmostrar = True
-                    print(i ["Nombres"])
-                    print(i ["Apellidos"])
-                    print(i ["Ruta"])
-                    print(i ["Notas"])
-                    print(i ["Horario"])
-                    print(i ["Salon"])
-                    input("Para averiguar a otro camper, presione ENTER.")
-                    system("cls")
-
-            GeneralData=abrirArchivo()
-            for i in GeneralData[6]["Grupos"][3]["GrupoT4"]:
+            GeneralData=abrirArchivo() #Se abre el archivo json
+            for i in GeneralData[6]["Grupos"][3]["GrupoT4"]: # Se crea un for para que recorra el json en la posicion de grupos y me bote los datos relevantes del camper.
                 if i ["Nombres"] == IdentificadorCamper:
                     boolmostrar = True
                     print(i ["Nombres"])
@@ -127,8 +122,8 @@ if RolUsuario == 1:
                     input("Para averiguar a otro camper, presione ENTER.")
                     system("cls")
                                         
-            GeneralData=abrirArchivo()
-            for i in GeneralData[6]["Grupos"][4]["GrupoT5"]:
+            GeneralData=abrirArchivo() #Se abre el archivo json
+            for i in GeneralData[6]["Grupos"][4]["GrupoT5"]: # Se crea un for para que recorra el json en la posicion de grupos y me bote los datos relevantes del camper.
                 if i ["Nombres"] == IdentificadorCamper:
                     boolmostrar = True
                     print(i ["Nombres"])
@@ -140,8 +135,8 @@ if RolUsuario == 1:
                     input("Para averiguar a otro camper, presione ENTER.")
                     system("cls")
                                             
-            GeneralData=abrirArchivo()
-            for i in GeneralData[6]["Grupos"][5]["GrupoT6"]:
+            GeneralData=abrirArchivo() #Se abre el archivo json
+            for i in GeneralData[6]["Grupos"][5]["GrupoT6"]: # Se crea un for para que recorra el json en la posicion de grupos y me bote los datos relevantes del camper.
                 if i ["Nombres"] == IdentificadorCamper:
                     boolmostrar = True
                     print(i ["Nombres"])
@@ -153,8 +148,8 @@ if RolUsuario == 1:
                     input("Para averiguar a otro camper, presione ENTER.")
                     system("cls")
                                                        
-            GeneralData=abrirArchivo()
-            for i in GeneralData[6]["Grupos"][6]["GrupoT7"]:
+            GeneralData=abrirArchivo() #Se abre el archivo json
+            for i in GeneralData[6]["Grupos"][6]["GrupoT7"]: # Se crea un for para que recorra el json en la posicion de grupos y me bote los datos relevantes del camper.
                 if i ["Nombres"] == IdentificadorCamper:
                     boolmostrar = True
                     print(i["Nombres"])
@@ -166,21 +161,24 @@ if RolUsuario == 1:
                     input("Para averiguar a otro camper, presione ENTER.")
                     system("cls")
 
-            GeneralData = abrirArchivo()                                        
-            for i in GeneralData[2]["Estudiantes"]:
-                if i["Nombres"] == IdentificadorCamper:
-                    boolmostrar = True
-                    print(i["Nombres"])
-                    print(i["Apellidos"])
-                    print(i["Estado"])
-                    input("Para averiguar a otro camper, presione ENTER.")
-                    system("cls")
+            GeneralData = abrirArchivo()  #Se abre el archivo json
+            if len(GeneralData[2]["Estudiantes"])==0: # Se crea el condicional si para que si no encuentra nada, solo siga derecho.
+                continue
+            else:                                       
+                for i in GeneralData[2]["Estudiantes"]: #Se crea un for para que recorra el json en la posicion de estudiantes (inscritos) y me bote los datos relevantes del camper.
+                    if i["Nombres"] == IdentificadorCamper:
+                        boolmostrar = True
+                        print(i["Nombres"])
+                        print(i["Apellidos"])
+                        print(i["Estado"])
+                        input("Para averiguar a otro camper, presione ENTER.")
+                        system("cls")
             
-            GeneralData = abrirArchivo()
-            if len(GeneralData[3]["Estudiantes"])==0:
+            GeneralData = abrirArchivo() #Se abre el archivo json
+            if len(GeneralData[3]["Estudiantes"])==0: # Se crea el condicional si para que si no encuentra nada, solo siga derecho.
                 continue
             else:
-                for i in GeneralData[3]["Estudiantes"]:
+                for i in GeneralData[3]["Estudiantes"]: #Se crea un for para que recorra el json en la posicion de estudiantes (Cursando) y me bote los datos relevantes del camper.
                     if GeneralData[3]["Estudiantes"]["Nombres"] == IdentificadorCamper:
                         boolmostrar = True
                         print(i["Nombres"])
@@ -188,50 +186,50 @@ if RolUsuario == 1:
                         print(i["Estado"])
                         input("Para averiguar a otro camper, presione ENTER")
             
-            GeneralData = abrirArchivo()
-            if len(GeneralData[4]["Estudiantes"])==0:
+            GeneralData = abrirArchivo() #Se abre el archivo json
+            if len(GeneralData[4]["Estudiantes"])==0: # Se crea el condicional si para que si no encuentra nada, solo siga derecho.
                 continue
             else:
-                for i in GeneralData[3]["Estudiantes"]:
+                for i in GeneralData[4]["Estudiantes"]: # Se crea un for para que recorra el json en la posicion de estudiantes (expulsados) y me bote los datos relevantes del camper.
                     boolmostrar = True
-                    if GeneralData[3]["Estudiantes"]["Nombres"] == IdentificadorCamper:
+                    if GeneralData[4]["Estudiantes"]["Nombres"] == IdentificadorCamper:
                         print(i["Nombres"])
                         print(i["Apellidos"])
                         print(i["Estado"])
                         input("Para averiguar a otro camper, presione ENTER")
         
-            if boolmostrar == False:
+            if boolmostrar == False:  # Si el booleano es falso, nos dira que el camper no esta en el sistema
                 print("Este Camper no se encuentra dentro del sistema")
                 input("\nPresione ENTER para continuar")
                 system("cls")
 
-        elif eleccionCamper == 2:
+        elif eleccionCamper == 2: # Si la seleccion en el menu es 2, nos dara la salida del rol camper
             print("Saliendo del modulo Camper")
             input("Presione ENTER para continuar")
             boolCamper = False
 
-        else:
+        else: # Si una opcion dada, no es la correcta nos dira que no es valida la opcion.
             input("Esta no es una opcion valida, presione ENTER para continuar")
             system("cls")
 #=================================== MODULO DEL TRAINER ===========================================================
-elif RolUsuario == 2:
+elif RolUsuario == 2: # Si en el menu principal la seleccion es 2, entrara al modulo trainer
     boollIngresar = True
     while boollIngresar == True:
-        print("Acceder al modulo Trainer")
+        print("Acceder al modulo Trainer") #Se pide al trainer el acceso a su modulo
         print("")
-        TrainerUser = str(input("Ingrese su nombre de usuario: "))
-        if TrainerUser == "TrainerCampus":
+        TrainerUser = str(input("Ingrese su nombre de usuario: ")) # Se le solicita un usuario ya predeterminado para el trainer
+        if TrainerUser == "TrainerCampus": # Si el usuario es correcto, solicitara la contraseña
             print("Usuario Correcto.")
-            CoordinadorPassWord = str(input("Ingrese su contraseña: "))
+            CoordinadorPassWord = str(input("Ingrese su contraseña: ")) # Si la contraseña es correcta, dara el acceso al modulo.
             if CoordinadorPassWord == "Trainer123":
                 print("Bienvenido Trainer")
                 boolTrainer = True
                 boollIngresar = False
             else:
-                input("Contraseña incorrecta, Presione ENTER para volver a intentarlo")
+                input("Contraseña incorrecta, Presione ENTER para volver a intentarlo") # Si la contraseña no es valida, nos regresara a intentarlo una 2da vez
                 system("cls")
                 boolTrainer = False
-        elif TrainerUser != "CampusTibu":
+        elif TrainerUser != "TrainerCampus": # Si el usuario no es el correcto, nos preguntara si de verdad es trainer
             input("¡¿Seguro que eres Trainer?!, Presiona ENTER para volver a intentarlo")
             system("cls")
             boolTrainer = False
@@ -260,84 +258,84 @@ elif RolUsuario == 2:
 
             GeneralData = abrirArchivo() 
             print ("GRUPOS"),print("")
-            print("GRUPO T1")
+            print("GRUPO T1") #Nos mostrara el nombre del grupo
             contador = 0
-            if len(GeneralData[6]["Grupos"][0]["GrupoT1"]) == 0:
+            if len(GeneralData[6]["Grupos"][0]["GrupoT1"]) == 0: # Si en ese grupo no hay nadie ingresado, nos dira que ese salon esta vacio.
                 print("Este salon se encuentra vacío")
                 print("")
             else:
-                for i in GeneralData[6]["Grupos"][0]["GrupoT1"]:
+                for i in GeneralData[6]["Grupos"][0]["GrupoT1"]: # Pero, si hay alguien alli, nos mostrara todos los datos relevantes
                     contador+=1
                     print("Estudiante #",contador)
                     print("Nombres:",i["Nombres"]),print("Apellidos:",i["Apellidos"]),print("Grupo:",i["Grupo"]),print("Salon:",i["Salon"]),print("Trainer:",i["Trainer"])
                     print("================")
             
-            print("GRUPO T2")
+            print("GRUPO T2") #Nos mostrara el nombre del grupo
             contador = 0
-            if len(GeneralData[6]["Grupos"][1]["GrupoT2"]) == 0:
+            if len(GeneralData[6]["Grupos"][1]["GrupoT2"]) == 0:  # Si en ese grupo no hay nadie ingresado, nos dira que ese salon esta vacio.
                 print("Este salon se encuentra vacío")
                 print("")
             else:
-                for i in GeneralData[6]["Grupos"][1]["GrupoT2"]:
+                for i in GeneralData[6]["Grupos"][1]["GrupoT2"]: # Pero, si hay alguien alli, nos mostrara todos los datos relevantes
                     contador+=1
                     print("Estudiante #",contador)
                     print("Nombres:",i["Nombres"]),print("Apellidos:",i["Apellidos"]),print("Grupo:",i["Grupo"]),print("Salon:",i["Salon"]),print("Trainer:",i["Trainer"])
                     print("================")
 
-            print("GRUPO T3")
+            print("GRUPO T3") #Nos mostrara el nombre del grupo
             contador = 0
-            if len(GeneralData[6]["Grupos"][2]["GrupoT3"]) == 0:
+            if len(GeneralData[6]["Grupos"][2]["GrupoT3"]) == 0: # Si en ese grupo no hay nadie ingresado, nos dira que ese salon esta vacio.
                 print("Este salon se encuentra vacío")
                 print("")
             else:
-                for i in GeneralData[6]["Grupos"][2]["GrupoT3"]:
+                for i in GeneralData[6]["Grupos"][2]["GrupoT3"]: # Pero, si hay alguien alli, nos mostrara todos los datos relevantes
                     contador+=1
                     print("Estudiante #",contador)
                     print("Nombres:",i["Nombres"]),print("Apellidos:",i["Apellidos"]),print("Grupo:",i["Grupo"]),print("Salon:",i["Salon"]),print("Trainer:",i["Trainer"])
                     print("================")
 
-            print("GRUPO T4")
+            print("GRUPO T4") #Nos mostrara el nombre del grupo
             contador = 0
-            if len(GeneralData[6]["Grupos"][3]["GrupoT4"]) == 0:
+            if len(GeneralData[6]["Grupos"][3]["GrupoT4"]) == 0: # Si en ese grupo no hay nadie ingresado, nos dira que ese salon esta vacio.
                 print("Este salon se encuentra vacío")
                 print("")
             else:
-                for i in GeneralData[6]["Grupos"][3]["GrupoT4"]:
+                for i in GeneralData[6]["Grupos"][3]["GrupoT4"]: # Pero, si hay alguien alli, nos mostrara todos los datos relevantes
                     contador+=1
                     print("Estudiante #",contador)
                     print("Nombres:",i["Nombres"]),print("Apellidos:",i["Apellidos"]),print("Grupo:",i["Grupo"]),print("Salon:",i["Salon"]),print("Trainer:",i["Trainer"])
                     print("================")
 
-            print("GRUPO T5")
+            print("GRUPO T5") #Nos mostrara el nombre del grupo
             contador = 0
-            if len(GeneralData[6]["Grupos"][4]["GrupoT5"]) == 0:
+            if len(GeneralData[6]["Grupos"][4]["GrupoT5"]) == 0: # Si en ese grupo no hay nadie ingresado, nos dira que ese salon esta vacio.
                 print("Este salon se encuentra vacío")
                 print("")
-            for i in GeneralData[6]["Grupos"][4]["GrupoT5"]:
+            for i in GeneralData[6]["Grupos"][4]["GrupoT5"]: # Pero, si hay alguien alli, nos mostrara todos los datos relevantes
                 contador+=1
                 print("Estudiante #",contador)
                 print("Nombres:",i["Nombres"]),print("Apellidos:",i["Apellidos"]),print("Grupo:",i["Grupo"]),print("Salon:",i["Salon"]),print("Trainer:",i["Trainer"])
                 print("================")
 
-            print("GRUPO T6")
+            print("GRUPO T6") #Nos mostrara el nombre del grupo
             contador = 0
-            if len(GeneralData[6]["Grupos"][5]["GrupoT6"]) == 0:
+            if len(GeneralData[6]["Grupos"][5]["GrupoT6"]) == 0: # Si en ese grupo no hay nadie ingresado, nos dira que ese salon esta vacio.
                 print("Este salon se encuentra vacío")
                 print("")
             else:
-                for i in GeneralData[6]["Grupos"][5]["GrupoT6"]:
+                for i in GeneralData[6]["Grupos"][5]["GrupoT6"]: # Pero, si hay alguien alli, nos mostrara todos los datos relevantes
                     contador+=1
                     print("Estudiante #",contador)
                     print("Nombres:",i["Nombres"]),print("Apellidos:",i["Apellidos"]),print("Grupo:",i["Grupo"]),print("Salon:",i["Salon"]),print("Trainer:",i["Trainer"])
                     print("================")
 
-            print("GRUPO T7")
+            print("GRUPO T7") #Nos mostrara el nombre del grupo
             contador = 0
-            if len(GeneralData[6]["Grupos"][6]["GrupoT7"]) == 0:
+            if len(GeneralData[6]["Grupos"][6]["GrupoT7"]) == 0: # Si en ese grupo no hay nadie ingresado, nos dira que ese salon esta vacio.
                 print("Este salon se encuentra vacío")
                 print("")
             else:
-                for i in GeneralData[6]["Grupos"][6]["GrupoT7"]:
+                for i in GeneralData[6]["Grupos"][6]["GrupoT7"]: # Pero, si hay alguien alli, nos mostrara todos los datos relevantes
                     contador+=1
                     print("Estudiante #",contador)
                     print("Nombres:",i["Nombres"]),print("Apellidos:",i["Apellidos"]),print("Grupo:",i["Grupo"]),print("Salon:",i["Salon"]),print("Trainer:",i["Trainer"])
@@ -345,7 +343,7 @@ elif RolUsuario == 2:
             input("\nPresione ENTER para continuar")
             system("cls")
 
-        elif eleccionTrainer == 2:
+        elif eleccionTrainer == 2: # Si la seleccion es 2, nos dara salida del modulo trainer
             print("Saliendo del modulo del trainer")
             input("Presione ENTER para continuar")
             boolTrainer = False
@@ -356,22 +354,22 @@ elif RolUsuario == 2:
 elif RolUsuario == 3:
     boolIngresar = True
     while boolIngresar == True:
-        print("Acceder al modulo Coordinador")
+        print("Acceder al modulo Coordinador") #Se pide el acceso al coordinador
         print("")
-        CoordinadorUser = str(input("Ingrese su nombre de usuario: "))
-        if CoordinadorUser == "CampusTibu":
+        CoordinadorUser = str(input("Ingrese su nombre de usuario: ")) # Se le solicita un usuario ya predeterminado para el coordinador
+        if CoordinadorUser == "CampusTibu": # Si el usuario es correcto, solicitara la contraseña
             print("Usuario Correcto :D")
-            CoordinadorPassWord = str(input("Ingrese su contraseña: "))
+            CoordinadorPassWord = str(input("Ingrese su contraseña: ")) # Si la contraseña es correcta, dara el acceso al modulo.
             if CoordinadorPassWord == "Campus123":
                 print("Bienvenido Coordinador")
                 boolCoordinador = True
                 boolIngresar = False
             else:
-                input("Contraseña incorrecta, Presione ENTER para volver a intentarlo")
+                input("Contraseña incorrecta, Presione ENTER para volver a intentarlo") # Si la contraseña no es valida, nos regresara a intentarlo una 2da vez
                 system("cls")
                 boolCoordinador = False
-        elif CoordinadorUser != "CampusTibu":
-            input("¡¿Seguro que eres coordinador?!, Presiona ENTER para volver a intentarlo")
+        elif CoordinadorUser != "CampusTibu": 
+            input("¡¿Seguro que eres coordinador?!, Presiona ENTER para volver a intentarlo") # Si el usuario no es el correcto, nos preguntara si de verdad es el coordinador.
             system("cls")
             boolCoordinador = False
     system("cls")
@@ -381,8 +379,8 @@ elif RolUsuario == 3:
         while boolTryCatch == True:
             try: 
                 print("---COORDINADOR---")
-                print("")
-                print(""" MENÚ DEL COORDINADOR
+                print("")  # Se crea un menú para el coordinador
+                print(""" MENÚ DEL COORDINADOR 
 
 1. Registrar nuevo Camper.
 2. Ingresar Nota de la prueba inicial al Camper.
@@ -399,13 +397,13 @@ elif RolUsuario == 3:
         system("cls")
 
         #=====Crear Nuevo Camper=====
-        if eleccionCoordinador == 1:
-            print("---REGISTRAR CAMPER A INSCRITOS---")
+        if eleccionCoordinador == 1: # Si la opcion es 1 nos abrira la opcion de registrar a campers
+            print("---REGISTRAR CAMPER A INSCRITOS---") 
 
             boolTryCatch = True
             while boolTryCatch == True: 
                 try:
-                    DocumentoNuevo = int(input("Ingrese su documento: "))
+                    DocumentoNuevo = int(input("Ingrese su documento: ")) # Nos solicitara datos relevantes del camper a registrar
                     break
                 except ValueError:
                     input("En este dato, debe ingresar números, presione ENTER para continuar")
@@ -414,7 +412,7 @@ elif RolUsuario == 3:
             boolTryCatch = True
             while boolTryCatch == True: 
                 try:
-                    NombreNuevo = str(input("Ingrese los Nombres del Camper: "))
+                    NombreNuevo = str(input("Ingrese los Nombres del Camper: ")) # Nos solicitara datos relevantes del camper a registrar
                     break
                 except ValueError:
                     input("En este dato, debe ingresar letras, presione ENTER para continuar")
@@ -423,7 +421,7 @@ elif RolUsuario == 3:
             boolTryCatch = True
             while boolTryCatch == True: 
                 try:
-                    ApellidoNuevo = str(input("Ingrese los apellidos del Camper: "))
+                    ApellidoNuevo = str(input("Ingrese los apellidos del Camper: ")) # Nos solicitara datos relevantes del camper a registrar
                     break
                 except ValueError:
                     input("En este dato, debe ingresar letras, presione ENTER para continuar")
@@ -432,7 +430,7 @@ elif RolUsuario == 3:
             boolTryCatch = True
             while boolTryCatch == True: 
                 try:
-                    DireccionNueva = str(input("Ingrese la direccion del Camper: "))
+                    DireccionNueva = str(input("Ingrese la direccion del Camper: ")) # Nos solicitara datos relevantes del camper a registrar
                     break
                 except ValueError:
                     input("En este dato, debe ingresar letras, presione ENTER para continuar")
@@ -441,7 +439,7 @@ elif RolUsuario == 3:
             boolTryCatch = True
             while boolTryCatch == True: 
                 try:
-                    AcudienteNuevo = str(input("Ingrese el nomnbre de el/la acudiente del Camper: "))
+                    AcudienteNuevo = str(input("Ingrese el nomnbre de el/la acudiente del Camper: ")) # Nos solicitara datos relevantes del camper a registrar
                     break
                 except ValueError:
                     input("En este dato, debe ingresar letras, presione ENTER para continuar")
@@ -450,7 +448,7 @@ elif RolUsuario == 3:
             boolTryCatch = True
             while boolTryCatch == True: 
                 try:
-                    CelularNuevo = int(input("Ingrese el número de celular del Camper: "))
+                    CelularNuevo = int(input("Ingrese el número de celular del Camper: ")) # Nos solicitara datos relevantes del camper a registrar
                     break
                 except ValueError:
                     input("En este dato, debe ingresar números, presione ENTER para continuar")
@@ -459,13 +457,13 @@ elif RolUsuario == 3:
             boolTryCatch = True
             while boolTryCatch == True: 
                 try:
-                    FijoNuevo = int(input("Ingrese el telefono fijo del Camper: "))
+                    FijoNuevo = int(input("Ingrese el telefono fijo del Camper: ")) # Nos solicitara datos relevantes del camper a registrar
                     break
                 except ValueError:
                     input("En este dato, debe ingresar números, presione ENTER para continuar")
                     system("cls")
-         
-            GeneralData = abrirArchivo()
+        
+            GeneralData = abrirArchivo() # Nos agregara el nuevo camper en la ultima posicion de la lista de estudiantes.
             GeneralData[2]["Estudiantes"].append ({
                     "Identificador" : len(GeneralData[2]["Estudiantes"])+1,
                     "Estado" : "Inscrito",
@@ -484,21 +482,22 @@ elif RolUsuario == 3:
                     "EstadoBasesDatos" : "",
                     "EstadoBackend" : ""
                     })
-            guardarArchivo(GeneralData)
+            guardarArchivo(GeneralData) # Nos guardara lo ingresado en el json
             print("Camper Registrado!")
             print("")
             input("Presione ENTER para continuar")
             system("cls")
+
         #INGRESAR NOTA DE LA PRUEBA INICIAL
-        elif eleccionCoordinador == 2: 
+        elif eleccionCoordinador == 2: # Si la seleccion en el menu es 2, le permitira al coordinador ingresar nota
             print("---INGRESAR LA NOTA DE LA PRUEBA INICIAL---")
             
             boolTryCatch = True
             while boolTryCatch == True: 
                 try:
                     contador = 0 
-                    GeneralData = abrirArchivo()
-                    for i in GeneralData[2]["Estudiantes"]:
+                    GeneralData = abrirArchivo() # Abrimos el json
+                    for i in GeneralData[2]["Estudiantes"]: # Mostramos datos relevantes del camper, para asi poder ver a quien se le va a asignar la nota
                         contador+=1
                         print("==========================")
                         print("Idetinficador:",contador)
@@ -506,7 +505,7 @@ elif RolUsuario == 3:
                         print("Nombres:",i["Nombres"])
                         print("Apellidos:",i["Apellidos"]) 
                     print("==========================")
-                    CamperParaNota = int(input("Ingrese el identificador del Camper: "))
+                    CamperParaNota = int(input("Ingrese el identificador del Camper: ")) # se solicita el identificador del campre para seleccionarlo
                     break
                 except ValueError:
                     input("En este dato, debe ingresar un número, presione ENTER para continuar")
@@ -515,7 +514,7 @@ elif RolUsuario == 3:
             boolTryCatch = True
             while boolTryCatch == True: 
                 try:
-                    PruebaTeorica = int(input("Ingrese la nota de la prueba teorica: "))                    
+                    PruebaTeorica = int(input("Ingrese la nota de la prueba teorica: ")) # se solicita ingresar la nota de la prueba inicial (teorica)              
                     break
                 except ValueError:
                     input("En este dato, debe ingresar un número, presione ENTER para continuar")
@@ -524,151 +523,152 @@ elif RolUsuario == 3:
             boolTryCatch = True
             while boolTryCatch == True: 
                 try:
-                    PruebaPractica = int(input("Ingrese la nota de la prueba practica: "))                    
+                    PruebaPractica = int(input("Ingrese la nota de la prueba practica: ")) # se solicita ingresar la nota de la prueba inicial (practica)                 
                     break
                 except ValueError:
                     input("En este dato, debe ingresar números, presione ENTER para continuar")
                     system("cls")
 
             NotaCamper = (PruebaPractica+PruebaTeorica)/2 #La nota de la prueba general del camper es el prom de las dos que realizo
-            GeneralData[2]["Estudiantes"][CamperParaNota-1]["NotaPrueba"] = NotaCamper
-            guardarArchivo(GeneralData)
+            GeneralData[2]["Estudiantes"][CamperParaNota-1]["NotaPrueba"] = NotaCamper # se le pone la  nota final al camper elegido
+            guardarArchivo(GeneralData) # se guarda todo en el json
             print("Nota Agregada!")
             input("Presione ENTER para continuar")
             system("cls")
 
-            AprobadosInicial = {}
-            ReprobadosInicial = {}          
+            AprobadosInicial = {} # Se hace un diccionario para que me guarde los valores
+            ReprobadosInicial = {} # Se hace un diccionario para que me guarde los valores         
                 
             GeneralData = abrirArchivo()
-            for i in range (0,(len(GeneralData[2]["Estudiantes"]))):
+            for i in range (0,(len(GeneralData[2]["Estudiantes"]))): # Se realiza un for para que recorra los estudiantes en estado inscrito
                 if GeneralData[2]["Estudiantes"][i]["NotaPrueba"]>=60:
                     AprobadosInicial = GeneralData[2]["Estudiantes"][i] #Dependiendo de la nota que se le dé al camper 
                     GeneralData[3]["Estudiantes"].append(AprobadosInicial) #Se va a añadir a la lista de "Cursando"
                     GeneralData[9]["EstudiantesAprobaronPruebaInicial"].append(AprobadosInicial)
-                    GeneralData[2]["Estudiantes"][i]["Estado"] = "Aprobado" # o a la de "Expulsados"
-                    del GeneralData[2]["Estudiantes"][i]
-                    guardarArchivo(GeneralData)
+                    GeneralData[2]["Estudiantes"][i]["Estado"] = "Aprobado" # Aca hacemos el cambio de inscrito a aprobado en el json
+                    del GeneralData[2]["Estudiantes"][i] # al pasarse de inscrito a cursando, se eliminara de inscritos
+                    guardarArchivo(GeneralData)  # guadara los cambios en el json
                     break
 
             GeneralData = abrirArchivo()
-            for i in range (0,(len(GeneralData[2]["Estudiantes"]))):
+            for i in range (0,(len(GeneralData[2]["Estudiantes"]))): # Se realiza un for para que recorra los estudiantes en estado inscrito
                 if GeneralData[2]["Estudiantes"][i]["NotaPrueba"]<=59 and GeneralData[2]["Estudiantes"][i]["NotaPrueba"]>0: #Primero se Guardan en un diccionario y posteriormente
-                    ReprobadosInicial = GeneralData[2]["Estudiantes"][i] #se agregan al json
-                    GeneralData[4]["Estudiantes"].append(ReprobadosInicial)
-                    GeneralData[2]["Estudiantes"][i]["Estado"] = "Reprobado"
-                    del GeneralData[2]["Estudiantes"][i]
-                    guardarArchivo(GeneralData)
+                    ReprobadosInicial = GeneralData[2]["Estudiantes"][i] #Dependiendo de la nota que se le dé al camper
+                    GeneralData[4]["Estudiantes"].append(ReprobadosInicial) #Se va a añadir a la lista de "Expulsados"
+                    GeneralData[2]["Estudiantes"][i]["Estado"] = "Reprobado" # Aca hacemos el cambio de inscrito a reprobado
+                    del GeneralData[2]["Estudiantes"][i] # al pasarse de inscrito a expulsado, se eliminara de inscritos
+                    guardarArchivo(GeneralData) # guadara los cambios en el json
                     break
             else:
                 print("")
 
             guardarArchivo(GeneralData)    
             print(AprobadosInicial)  
-            print(ReprobadosInicial)          
+            print(ReprobadosInicial)     
+
         #===CREAR RUTA===        
         elif eleccionCoordinador == 3:
-            print("----CREAR RUTA----")
+            print("----CREAR RUTA----") # Si la seleccion en el menu es 3, le permitira al coordinador crear una ruta
 
             GeneralData = abrirArchivo()
-            if len(GeneralData[8]["NombresRutas"])>= 7:
-                print(""),print("LO SIENTO, YA SE HA ALCANZADO EL MAXIMO DE RUTAS")
+            if len(GeneralData[8]["NombresRutas"])>= 7: # se le da una condicion de crear hasta 7 rutas
+                print(""),print("LO SIENTO, YA SE HA ALCANZADO EL MAXIMO DE RUTAS") # si se pasa de las 7, le dira que ha alcanzado su maximo
             else:
 
-                NombreRutaNueva = str(input("Ingrese el nombre de la Ruta que va a Crear: "))
+                NombreRutaNueva = str(input("Ingrese el nombre de la Ruta que va a Crear: ")) # solicitara los valores relevantes para la creacion de la ruta
                 boolTryCatch = True
                 while boolTryCatch == True:
                     try:
-                        boolParaPFNueva = True
-                        while boolParaPFNueva == True:
-                            ProgramacionFormalNueva = int(input("\n1. Java\n2. JavaScript\n3. C#\n ¿Que materia desea agregar al modulo programacion formal?: "))
-                            if ProgramacionFormalNueva == 1:
+                        boolParaPFNueva = True # Creamos un booleano para la ruta
+                        while boolParaPFNueva == True: # Mientras este sea verdadero, nos permitira seguir al mini menu.
+                            ProgramacionFormalNueva = int(input("\n1. Java\n2. JavaScript\n3. C#\n ¿Que materia desea agregar al modulo programacion formal?: ")) # se  solicita elegir una de las opciones
+                            if ProgramacionFormalNueva == 1: # dependiendo la eleccion, se añadira valor a la variable.
                                 ProgramacionFormalNueva = "Java"
                                 boolParaPFNueva = False
-                            elif ProgramacionFormalNueva == 2:
+                            elif ProgramacionFormalNueva == 2: # dependiendo la eleccion, se añadira valor a la variable.
                                 ProgramacionFormalNueva = "JavaScript"
                                 boolParaPFNueva = False
-                            elif ProgramacionFormalNueva == 3:
+                            elif ProgramacionFormalNueva == 3: # dependiendo la eleccion, se añadira valor a la variable.
                                 ProgramacionFormalNueva = "C#"
                                 boolParaPFNueva = False
                             else:
-                                print("Esta no es una opcion valida")
+                                print("Esta no es una opcion valida") # si ingresamos una opcion diferente, nos regresara al mini menu nuevamente
                         break
                     except ValueError:
-                        input("Debe ingresar un valor númerico, presione ENTER para continuar")
+                        input("Debe ingresar un valor númerico, presione ENTER para continuar") # Si añadimos algo contrario a lo que se solicita, nos regresara al inicio del booleano
                         system("cls")
                 
                 boolTryCatch = True
                 while boolTryCatch == True:
                     try:
-                        boolParaBDNueva = True
-                        while boolParaBDNueva == True:
-                            BaseDatosNuevaPrincipal = int(input("\n1.Mysql \n2. MongoDb \n3. Progresql\n ¿Qué materia desea agregar como principal al modulo Base de Datos?: "))
-                            if BaseDatosNuevaPrincipal == 1:
+                        boolParaBDNueva = True # Creamos un booleano para la ruta
+                        while boolParaBDNueva == True: # Mientras este sea verdadero, nos permitira seguir al mini menu.
+                            BaseDatosNuevaPrincipal = int(input("\n1.Mysql \n2. MongoDb \n3. Progresql\n ¿Qué materia desea agregar como principal al modulo Base de Datos?: ")) # se  solicita elegir una de las opciones
+                            if BaseDatosNuevaPrincipal == 1: # dependiendo la eleccion, se añadira valor a la variable.
                                 BaseDatosNuevaPrincipal = "Mysql"
                                 boolParaBDNueva = False
-                            elif BaseDatosNuevaPrincipal == 2:
+                            elif BaseDatosNuevaPrincipal == 2: # dependiendo la eleccion, se añadira valor a la variable.
                                 BaseDatosNuevaPrincipal = "MongoDb"
                                 boolParaBDNueva = False
-                            elif BaseDatosNuevaPrincipal == 3:
+                            elif BaseDatosNuevaPrincipal == 3: # dependiendo la eleccion, se añadira valor a la variable.
                                 BaseDatosNuevaPrincipal = "Progresql"
                                 boolParaBDNueva = False
                             else:
-                                print("Esta no es una opcion valida")
+                                print("Esta no es una opcion valida") # si ingresamos una opcion diferente, nos regresara al mini menu nuevamente
                         break
                     except ValueError:
-                        input("Debe ingresar un valor numérico, presione ENTER para continuar")
+                        input("Debe ingresar un valor numérico, presione ENTER para continuar") # Si añadimos algo contrario a lo que se solicita, nos regresara al inicio del booleano
                         system("cls")
                     
                 boolTryCatch = True
                 while boolTryCatch == True:
                     try:
-                        boolParaBDNueva = True
-                        while boolParaBDNueva == True:
-                            BaseDatosNuevaAlternativa = int(input("\n1.Mysql \n2. MongoDb \n3. Progresql \n ¿Qué materia desea agregar como Secundaria al modulo Base de Datos?: "))
-                            if BaseDatosNuevaAlternativa == 1:
+                        boolParaBDNueva = True # Creamos un booleano para la ruta
+                        while boolParaBDNueva == True: # Mientras este sea verdadero, nos permitira seguir al mini menu.
+                            BaseDatosNuevaAlternativa = int(input("\n1.Mysql \n2. MongoDb \n3. Progresql \n ¿Qué materia desea agregar como Secundaria al modulo Base de Datos?: ")) # se  solicita elegir una de las opciones
+                            if BaseDatosNuevaAlternativa == 1: # dependiendo la eleccion, se añadira valor a la variable.
                                 BaseDatosNuevaAlternativa = "Mysql"
                                 boolParaBDNueva = False
-                            elif BaseDatosNuevaAlternativa == 2:
+                            elif BaseDatosNuevaAlternativa == 2: # dependiendo la eleccion, se añadira valor a la variable.
                                 BaseDatosNuevaAlternativa = "MongoDb"
                                 boolParaBDNueva = False
-                            elif BaseDatosNuevaAlternativa == 3:
+                            elif BaseDatosNuevaAlternativa == 3: # dependiendo la eleccion, se añadira valor a la variable.
                                 BaseDatosNuevaAlternativa = "Progresql"
                                 boolParaBDNueva = False
                             else:
-                                print("Esta no es una opcion valida")
+                                print("Esta no es una opcion valida")  # si ingresamos una opcion diferente, nos regresara al mini menu nuevamente
                         break
                     except ValueError:
-                        input("Debe ingresar un valor numérico, presione ENTER para continuar")
+                        input("Debe ingresar un valor numérico, presione ENTER para continuar") # Si añadimos algo contrario a lo que se solicita, nos regresara al inicio del booleano
                         system("cls")
 
                 boolTryCatch = True
                 while boolTryCatch == True:
                     try:
-                        boolParaBackEndNueva = True
-                        while boolParaBackEndNueva == True:
-                            BackendNuevo = int(input("\n1.NetCore \n2. SpringBoot \n3. Node \n4. Express \n ¿Qué materia desea agregar al modulo BackEnd?: "))
-                            if BackendNuevo == 1:
+                        boolParaBackEndNueva = True # Creamos un booleano para la ruta
+                        while boolParaBackEndNueva == True: # Mientras este sea verdadero, nos permitira seguir al mini menu.
+                            BackendNuevo = int(input("\n1.NetCore \n2. SpringBoot \n3. Node \n4. Express \n ¿Qué materia desea agregar al modulo BackEnd?: ")) # se  solicita elegir una de las opciones
+                            if BackendNuevo == 1: # dependiendo la eleccion, se añadira valor a la variable.
                                 BackendNuevo = "NetCore"
                                 boolParaBackEndNueva = False
-                            elif BackendNuevo == 2:
+                            elif BackendNuevo == 2: # dependiendo la eleccion, se añadira valor a la variable.
                                 BackendNuevo = "SpringBoot"
                                 boolParaBackEndNueva = False
-                            elif BackendNuevo == 3:
+                            elif BackendNuevo == 3: # dependiendo la eleccion, se añadira valor a la variable.
                                 BackendNuevo = "Node"
                                 boolParaBackEndNueva = False
-                            elif BackendNuevo == 4:
+                            elif BackendNuevo == 4: # dependiendo la eleccion, se añadira valor a la variable.
                                 BackendNuevo = "Express"
                                 boolParaBackEndNueva = False
                             else:
-                                print("Esta no es una opcion valida")
+                                print("Esta no es una opcion valida") # si ingresamos una opcion diferente, nos regresara al mini menu nuevamente
                         break
                     except ValueError:
-                        input("Debe ingresar un valor numérico, presione ENTER para continuar")
+                        input("Debe ingresar un valor numérico, presione ENTER para continuar") # Si añadimos algo contrario a lo que se solicita, nos regresara al inicio del booleano
                         system("cls")
 
                 NuevaRuta = {
-                    NombreRutaNueva : [
+                    NombreRutaNueva : [ # Se crea una variable para darle nombre a la lista en la que van a estar los 5 modulos
                         {
                             "FundamentosProgramacion" : ["Pseint","Python", "Introduccion a la algoritmia"]
                         },
@@ -687,40 +687,41 @@ elif RolUsuario == 3:
                     ]
                 }
 
-            GeneralData = abrirArchivo()
-            GeneralData[7]["Rutas"].append(NuevaRuta)
-            GeneralData[8]["NombresRutas"].append(NombreRutaNueva) 
-            guardarArchivo(GeneralData) 
+            GeneralData = abrirArchivo() # Se abre el json
+            GeneralData[7]["Rutas"].append(NuevaRuta) # se añade a la ultima posicion la nueva ruta con los valores puestos anteriormente
+            GeneralData[8]["NombresRutas"].append(NombreRutaNueva) # se añade a la ultima posicion el nombre de la nueva ruta
+            guardarArchivo(GeneralData) # guarda el cambio en el json
 
-            GeneralData = abrirArchivo()
-            if len(GeneralData[8]["NombresRutas"]) == 4:
+            GeneralData = abrirArchivo() # abrimos el json
+            if len(GeneralData[8]["NombresRutas"]) == 4: # se hace una condicional para que dependiendo el tamaño, se agg en ultima posicion al trainer en la posicion 0  
                 GeneralData[0]["Trainers"][0]["Ruta"].append(NombreRutaNueva)
-            if len(GeneralData[8]["NombresRutas"] ) == 5:
+            if len(GeneralData[8]["NombresRutas"] ) == 5:# se hace una condicional para que dependiendo el tamaño, se agg en ultima posicion al trainer en la posicion 1
                 GeneralData[0]["Trainers"][1]["Ruta"].append(NombreRutaNueva)
-            if len(GeneralData[8]["NombresRutas"] )== 6:
+            if len(GeneralData[8]["NombresRutas"] )== 6:# se hace una condicional para que dependiendo el tamaño, se agg en ultima posicion al trainer en la posicion 2
                 GeneralData[0]["Trainers"][2]["Ruta"].append(NombreRutaNueva)
-            if len(GeneralData[8]["NombresRutas"]) == 7:
+            if len(GeneralData[8]["NombresRutas"]) == 7:# se hace una condicional para que dependiendo el tamaño, se agg en ultima posicion al trainer en la posicion 0
                 GeneralData[0]["Trainers"][0]["Ruta"].append(NombreRutaNueva)
-            guardarArchivo(GeneralData)
+            guardarArchivo(GeneralData) # guarda lo realizado en el json
 
             input("Cambios guardados!, presione ENTER para continuar")
             system("cls")
+
         #===DEFINIR RUTA DEL CAMPER, ASIGNACION DE TRAINER, SALON Y DEFINICION DE HORARIO===        
-        elif eleccionCoordinador == 4:
+        elif eleccionCoordinador == 4: # Si la seleccion en el menu es 4, le permitira al coordinador definir ruta, asignar trainer, salon y definir horario
             print("----REGISTRAR RUTA DE ESTUDIO, ASIGNACION DE TRAINER, SALON Y DEFINICION DE HORARIO----")
             GeneralData = abrirArchivo()
-            if len(GeneralData[3]["Estudiantes"]) == 0:
+            if len(GeneralData[3]["Estudiantes"]) == 0: # Se crea una condicional que nos diga si en el tamaño de la lista de estudiantes hay alguno para agg una ruta.
                 print("")
-                print("No hay ningun estudiante disponible para registrarle Ruta de Estudio")
+                print("No hay ningun estudiante disponible para registrarle Ruta de Estudio") # si no lo hay, nos dirá que este no esta disponible
                 input("Presione ENTER para continuar")
                 system("cls")
             else:
                 boolTryCatch = True
                 while boolTryCatch == True: 
                     try:
-                        GeneralData = abrirArchivo()
-                        contador = 0
-                        for i in GeneralData[3]["Estudiantes"]:
+                        GeneralData = abrirArchivo() # abrimos el json
+                        contador = 0 # se  crea una variable contador para que me enumere los estudiantes en el identificador
+                        for i in GeneralData[3]["Estudiantes"]: # con un for, mostramos datos relevantes del camper, para asi poder ver a quien se va a elegir
                             contador+=1
                             print("=================")
                             print("Idetinficador:",contador)
@@ -728,7 +729,7 @@ elif RolUsuario == 3:
                             print("Nombres",i["Nombres"])
                             print("Apellidos",i["Apellidos"])
                         print("=================")
-                        Camper = int(input("\nIngrese el identificador del Camper que desea escoger: "))                    
+                        Camper = int(input("\nIngrese el identificador del Camper que desea escoger: ")) #se crea una variable que nos servira de seleccion al camper                     
                         break
                     except:
                         input("En este dato, debe ingresar números, presione ENTER para continuar")
@@ -737,14 +738,14 @@ elif RolUsuario == 3:
                 boolTryCatch = True
                 while boolTryCatch == True:
                     try:
-                        GeneralData = abrirArchivo()
-                        contador = 0
-                        for i in GeneralData[8]["NombresRutas"]:
+                        GeneralData = abrirArchivo() 
+                        contador = 0 # se  crea una variable contador para que me enumere las rutas disponibles
+                        for i in GeneralData[8]["NombresRutas"]: # se crea un for para que me  muestre todas las rutas disponibles
                             contador += 1
                             print("Ruta #",contador)
                             print(i)
                             print("====")
-                        eleccionRuta = int(input("¿A qué ruta desea agregar al Camper?: "))
+                        eleccionRuta = int(input("¿A qué ruta desea agregar al Camper?: ")) #se crea una variable que nos servira de seleccion para la ruta
                         break
                     except ValueError:
                         input("Debe ingresar un valor númerico, presione ENTER para volver a intentar")
@@ -785,8 +786,8 @@ elif RolUsuario == 3:
                 elif eleccionRuta == 7:
                     eleccionRutaStr = NombreRutaAgregada4
 
-                GeneralData = abrirArchivo()
-                for i in range (0,len(GeneralData[8]["NombresRutas"])):
+                GeneralData = abrirArchivo() 
+                for i in range (0,len(GeneralData[8]["NombresRutas"])): # se crea un for para 
                     if eleccionRutaStr == "Java":
                         if len(GeneralData[6]["Grupos"][0]["GrupoT1"])<33:
                             GeneralData[3]["Estudiantes"][Camper-1]["Ruta"] = "Java"
