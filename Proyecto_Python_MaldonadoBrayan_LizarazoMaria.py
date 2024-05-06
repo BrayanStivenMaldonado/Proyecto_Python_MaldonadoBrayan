@@ -787,30 +787,30 @@ elif RolUsuario == 3:
                     eleccionRutaStr = NombreRutaAgregada4
 
                 GeneralData = abrirArchivo() 
-                for i in range (0,len(GeneralData[8]["NombresRutas"])): # se crea un for para 
-                    if eleccionRutaStr == "Java":
+                for i in range (0,len(GeneralData[8]["NombresRutas"])): # se crea un for para que cuando escoja una de las rutas, me muestre los datos que la acompañan.
+                    if eleccionRutaStr == "Java": #Si elige esta ruta, me mostrara lo sgte:
                         if len(GeneralData[6]["Grupos"][0]["GrupoT1"])<33:
-                            GeneralData[3]["Estudiantes"][Camper-1]["Ruta"] = "Java"
-                            GeneralData[3]["Estudiantes"][Camper-1]["Trainer"] = "Miguel Sanchez"
-                            GeneralData[3]["Estudiantes"][Camper-1]["Grupo"] = "T1"
-                            GeneralData[3]["Estudiantes"][Camper-1]["Salon"] = "Sputnik"
-                            GeneralData[3]["Estudiantes"][Camper-1]["FechaInicio"] = "10-01-2024"
-                            GeneralData[3]["Estudiantes"][Camper-1]["FechaFinalizacion"] = "04-07-2025"
-                            GeneralData[3]["Estudiantes"][Camper-1]["Horario"] = "6am-10am"
+                            GeneralData[3]["Estudiantes"][Camper-1]["Ruta"] = "Java" # El nombre de la ruta
+                            GeneralData[3]["Estudiantes"][Camper-1]["Trainer"] = "Miguel Sanchez" #El nombre del trainer asignado
+                            GeneralData[3]["Estudiantes"][Camper-1]["Grupo"] = "T1" #El grupo asignado
+                            GeneralData[3]["Estudiantes"][Camper-1]["Salon"] = "Sputnik" #El salon asignado
+                            GeneralData[3]["Estudiantes"][Camper-1]["FechaInicio"] = "10-01-2024" #La fecha en la que inicio el proceso academico
+                            GeneralData[3]["Estudiantes"][Camper-1]["FechaFinalizacion"] = "04-07-2025" #La fecha en la que finaliza el proceso academico
+                            GeneralData[3]["Estudiantes"][Camper-1]["Horario"] = "6am-10am" # Y el horario asignado
                             guardarArchivo(GeneralData)
                         else:
                             print("Ya se ha alcanzado el maximo de estudiantes en esta ruta de entrenamiento")
                             input("Presione ENTER para continuar")
                             system("cls")
 
-                    elif eleccionRutaStr == "NetCore":
+                    elif eleccionRutaStr == "NetCore": #Si elige esta ruta, me mostrara lo sgte:
                         if len(GeneralData[6]["Grupos"][1]["GrupoT2"])<33:
-                            GeneralData[3]["Estudiantes"][Camper-1]["Ruta"] = "NetCore"
-                            GeneralData[3]["Estudiantes"][Camper-1]["Trainer"] = "Jholver Garcia"
-                            GeneralData[3]["Estudiantes"][Camper-1]["Grupo"] = "T2"
-                            GeneralData[3]["Estudiantes"][Camper-1]["Salon"] = "Apolo"
-                            GeneralData[3]["Estudiantes"][Camper-1]["FechaInicio"] = "15-02-2024"
-                            GeneralData[3]["Estudiantes"][Camper-1]["FechaFinalizacion"] = "06-06-2025"
+                            GeneralData[3]["Estudiantes"][Camper-1]["Ruta"] = "NetCore" # El nombre de la ruta
+                            GeneralData[3]["Estudiantes"][Camper-1]["Trainer"] = "Jholver Garcia" #El nombre del trainer asignado
+                            GeneralData[3]["Estudiantes"][Camper-1]["Grupo"] = "T2" #El grupo asignado
+                            GeneralData[3]["Estudiantes"][Camper-1]["Salon"] = "Apolo" #El salon asignado
+                            GeneralData[3]["Estudiantes"][Camper-1]["FechaInicio"] = "15-02-2024" #La fecha en la que inicio el proceso academico
+                            GeneralData[3]["Estudiantes"][Camper-1]["FechaFinalizacion"] = "06-06-2025" #La fecha en la que finaliza el proceso academico
                             GeneralData[3]["Estudiantes"][Camper-1]["Horario"] = "6am-10am"
                             guardarArchivo(GeneralData)
                         else:
@@ -818,75 +818,75 @@ elif RolUsuario == 3:
                             input("Presione ENTER para continuar")
                             system("cls")
                     
-                    elif eleccionRutaStr == "NodeJS":
+                    elif eleccionRutaStr == "NodeJS": #Si elige esta ruta, me mostrara lo sgte:
                         if len(GeneralData[6]["Grupos"][2]["GrupoT3"])<33:
-                            GeneralData[3]["Estudiantes"][Camper-1]["Ruta"] = "NodeJS"
-                            GeneralData[3]["Estudiantes"][Camper-1]["Grupo"] = "T3"
-                            GeneralData[3]["Estudiantes"][Camper-1]["Trainer"] = "Pedro Gomez"
-                            GeneralData[3]["Estudiantes"][Camper-1]["Salon"] = "Artemis"
-                            GeneralData[3]["Estudiantes"][Camper-1]["FechaInicio"] = "08-03-2024"
-                            GeneralData[3]["Estudiantes"][Camper-1]["FechaFinalizacion"] = "20-06-2025"
-                            GeneralData[3]["Estudiantes"][Camper-1]["Horario"] = "6am-10am"
+                            GeneralData[3]["Estudiantes"][Camper-1]["Ruta"] = "NodeJS" # El nombre de la ruta
+                            GeneralData[3]["Estudiantes"][Camper-1]["Grupo"] = "T3" #El grupo asignado
+                            GeneralData[3]["Estudiantes"][Camper-1]["Trainer"] = "Pedro Gomez" #El nombre del trainer asignado
+                            GeneralData[3]["Estudiantes"][Camper-1]["Salon"] = "Artemis" #El salon asignado
+                            GeneralData[3]["Estudiantes"][Camper-1]["FechaInicio"] = "08-03-2024" #La fecha en la que inicio el proceso academico
+                            GeneralData[3]["Estudiantes"][Camper-1]["FechaFinalizacion"] = "20-06-2025" #La fecha en la que finaliza el proceso academico
+                            GeneralData[3]["Estudiantes"][Camper-1]["Horario"] = "6am-10am" # Y el horario asignado
                             guardarArchivo(GeneralData)
                         else:
                             print("Ya se ha alcanzado el maximo de estudiantes en esta ruta de entrenamiento")
                             input("Presione ENTER para continuar")
                             system("cls")
 
-                    elif eleccionRutaStr == GeneralData[8]["NombresRutas"][3]:
+                    elif eleccionRutaStr == GeneralData[8]["NombresRutas"][3]: #Si elige esta ruta, me mostrara lo sgte:
                         if len(GeneralData[6]["Grupos"][3]["GrupoT4"])<33:
-                            GeneralData[3]["Estudiantes"][Camper-1]["Ruta"] = GeneralData[8]["NombresRutas"][3]
-                            GeneralData[3]["Estudiantes"][Camper-1]["Grupo"] = "T4"
-                            GeneralData[3]["Estudiantes"][Camper-1]["Trainer"] = "Miguel Sanchez"
-                            GeneralData[3]["Estudiantes"][Camper-1]["Salon"] = "Sputnik"
-                            GeneralData[3]["Estudiantes"][Camper-1]["FechaInicio"] = "07-04-2024"
-                            GeneralData[3]["Estudiantes"][Camper-1]["FechaFinalizacion"] = "22-08-2025"
-                            GeneralData[3]["Estudiantes"][Camper-1]["Horario"] = "2pm-6pm"
+                            GeneralData[3]["Estudiantes"][Camper-1]["Ruta"] = GeneralData[8]["NombresRutas"][3] # El nombre de la ruta
+                            GeneralData[3]["Estudiantes"][Camper-1]["Grupo"] = "T4" #El grupo asignado
+                            GeneralData[3]["Estudiantes"][Camper-1]["Trainer"] = "Miguel Sanchez" #El nombre del trainer asignado
+                            GeneralData[3]["Estudiantes"][Camper-1]["Salon"] = "Sputnik" #El salon asignado
+                            GeneralData[3]["Estudiantes"][Camper-1]["FechaInicio"] = "07-04-2024" #La fecha en la que inicio el proceso academico
+                            GeneralData[3]["Estudiantes"][Camper-1]["FechaFinalizacion"] = "22-08-2025" #La fecha en la que finaliza el proceso academico
+                            GeneralData[3]["Estudiantes"][Camper-1]["Horario"] = "2pm-6pm" # Y el horario asignado
                             guardarArchivo(GeneralData)
                         else:
                             print("Ya se ha alcanzado el maximo de estudiantes en esta ruta de entrenamiento")
                             input("Presione ENTER para continuar")
                             system("cls")
 
-                    elif eleccionRutaStr == GeneralData[8]["NombresRutas"][4]:
+                    elif eleccionRutaStr == GeneralData[8]["NombresRutas"][4]: #Si elige esta ruta, me mostrara lo sgte:
                         if len(GeneralData[6]["Grupos"][4]["GrupoT5"])<33:
-                            GeneralData[3]["Estudiantes"][Camper-1]["Ruta"] = GeneralData[8]["NombresRutas"][4]
-                            GeneralData[3]["Estudiantes"][Camper-1]["Grupo"] = "T5"
-                            GeneralData[3]["Estudiantes"][Camper-1]["Trainer"] = "Jholver Garcia"
-                            GeneralData[3]["Estudiantes"][Camper-1]["Salon"] = "Apolo"
-                            GeneralData[3]["Estudiantes"][Camper-1]["FechaInicio"] = "03-02-2024"
-                            GeneralData[3]["Estudiantes"][Camper-1]["FechaFinalizacion"] = "08-05-2025"
-                            GeneralData[3]["Estudiantes"][Camper-1]["Horario"] = "2pm-6pm"
+                            GeneralData[3]["Estudiantes"][Camper-1]["Ruta"] = GeneralData[8]["NombresRutas"][4] # El nombre de la ruta
+                            GeneralData[3]["Estudiantes"][Camper-1]["Grupo"] = "T5" #El grupo asignado
+                            GeneralData[3]["Estudiantes"][Camper-1]["Trainer"] = "Jholver Garcia" #El nombre del trainer asignado
+                            GeneralData[3]["Estudiantes"][Camper-1]["Salon"] = "Apolo" #El salon asignado
+                            GeneralData[3]["Estudiantes"][Camper-1]["FechaInicio"] = "03-02-2024" #La fecha en la que inicio el proceso academico
+                            GeneralData[3]["Estudiantes"][Camper-1]["FechaFinalizacion"] = "08-05-2025" #La fecha en la que finaliza el proceso academico
+                            GeneralData[3]["Estudiantes"][Camper-1]["Horario"] = "2pm-6pm" # Y el horario asignado
                             guardarArchivo(GeneralData)
                         else:
                             print("Ya se ha alcanzado el maximo de estudiantes en esta ruta de entrenamiento")
                             input("Presione ENTER para continuar")
                             system("cls")
 
-                    elif eleccionRutaStr == GeneralData[8]["NombresRutas"][5]:
+                    elif eleccionRutaStr == GeneralData[8]["NombresRutas"][5]: #Si elige esta ruta, me mostrara lo sgte:
                         if len(GeneralData[6]["Grupos"][5]["GrupoT6"])<33:
-                            GeneralData[3]["Estudiantes"][Camper-1]["Ruta"] = GeneralData[8]["NombresRutas"][5]
-                            GeneralData[3]["Estudiantes"][Camper-1]["Grupo"] = "T6"
-                            GeneralData[3]["Estudiantes"][Camper-1]["Trainer"] = "Pedro Gomez"
-                            GeneralData[3]["Estudiantes"][Camper-1]["Salon"] = "Artemis"
-                            GeneralData[3]["Estudiantes"][Camper-1]["FechaInicio"] = "01-03-2024"
-                            GeneralData[3]["Estudiantes"][Camper-1]["FechaFinalizacion"] = "05-07-2025"
-                            GeneralData[3]["Estudiantes"][Camper-1]["Horario"] = "2pm-6pm"
+                            GeneralData[3]["Estudiantes"][Camper-1]["Ruta"] = GeneralData[8]["NombresRutas"][5] # El nombre de la ruta
+                            GeneralData[3]["Estudiantes"][Camper-1]["Grupo"] = "T6" #El grupo asignado
+                            GeneralData[3]["Estudiantes"][Camper-1]["Trainer"] = "Pedro Gomez" #El nombre del trainer asignado
+                            GeneralData[3]["Estudiantes"][Camper-1]["Salon"] = "Artemis" #El salon asignado
+                            GeneralData[3]["Estudiantes"][Camper-1]["FechaInicio"] = "01-03-2024" #La fecha en la que inicio el proceso academico
+                            GeneralData[3]["Estudiantes"][Camper-1]["FechaFinalizacion"] = "05-07-2025" #La fecha en la que finaliza el proceso academico
+                            GeneralData[3]["Estudiantes"][Camper-1]["Horario"] = "2pm-6pm" # Y el horario asignado
                             guardarArchivo(GeneralData)
                         else:
                                 print("Ya se ha alcanzado el maximo de estudiantes en esta ruta de entrenamiento")
                                 input("Presione ENTER para continuar")
                                 system("cls")
 
-                    elif eleccionRutaStr == GeneralData[8]["NombresRutas"][6]:
+                    elif eleccionRutaStr == GeneralData[8]["NombresRutas"][6]: #Si elige esta ruta, me mostrara lo sgte:
                         if len(GeneralData[6]["Grupos"][6]["GrupoT7"])<33:
-                            GeneralData[3]["Estudiantes"][Camper-1]["Ruta"] = GeneralData[8]["NombresRutas"][6]
-                            GeneralData[3]["Estudiantes"][Camper-1]["Grupo"] = "T7"
-                            GeneralData[3]["Estudiantes"][Camper-1]["Trainer"] = "Miguel Sanchez"
-                            GeneralData[3]["Estudiantes"][Camper-1]["Salon"] = "Artemis"
-                            GeneralData[3]["Estudiantes"][Camper-1]["FechaInicio"] = "03-03-2024"
-                            GeneralData[3]["Estudiantes"][Camper-1]["FechaFinalizacion"] = "27-06-2025"
-                            GeneralData[3]["Estudiantes"][Camper-1]["Horario"] = "6pm-10pm"
+                            GeneralData[3]["Estudiantes"][Camper-1]["Ruta"] = GeneralData[8]["NombresRutas"][6] # El nombre de la ruta
+                            GeneralData[3]["Estudiantes"][Camper-1]["Grupo"] = "T7" #El grupo asignado
+                            GeneralData[3]["Estudiantes"][Camper-1]["Trainer"] = "Miguel Sanchez" #El nombre del trainer asignado
+                            GeneralData[3]["Estudiantes"][Camper-1]["Salon"] = "Artemis" #El salon asignado
+                            GeneralData[3]["Estudiantes"][Camper-1]["FechaInicio"] = "03-03-2024" #La fecha en la que inicio el proceso academico
+                            GeneralData[3]["Estudiantes"][Camper-1]["FechaFinalizacion"] = "27-06-2025" #La fecha en la que finaliza el proceso academico
+                            GeneralData[3]["Estudiantes"][Camper-1]["Horario"] = "6pm-10pm" # Y el horario asignado
                             guardarArchivo(GeneralData)
                         else:
                             print("Ya se ha alcanzado el maximo de estudiantes en esta ruta de entrenamiento")
