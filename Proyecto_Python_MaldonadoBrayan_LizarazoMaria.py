@@ -3,6 +3,7 @@
 #Importacion de librerias
 import json
 from os import system
+from datetime import datetime
 
 #Definicion de funciones
 def abrirArchivo(): #Funcion que va a servir para abrir el archivo
@@ -12,7 +13,7 @@ def abrirArchivo(): #Funcion que va a servir para abrir el archivo
     return miJSON
 def guardarArchivo(miData): #Funcion que va a servir para guardar los datos que se realicen al archivo
     with open("mainIndex.json","w",encoding='utf-8') as outfile:
-        json.dump(miData,outfile)
+        json.dump(miData,outfile,indent=4)
 #=================================== INICIO DEL PROGRAMA ===========================================================
 #================================ELECCION DEL TIPO DE USUARIO=======================================================
 boolGeneral = True
@@ -48,6 +49,25 @@ while boolGeneral == True:
 
     #=================================== MODULO DEL CAMPER ===========================================================
     if RolUsuario == 1:
+
+        idCamper = str(input("Ingrese su id de Camper: "))
+        system("cls")
+        
+        Fecha = datetime.now()
+        FechaIngreso = Fecha.isoformat()
+
+        GeneralData = abrirArchivo()
+
+        GeneralData[12]["RegistroEntrada"].append(
+            {
+                "CamperId" : idCamper,
+                "Fecha" : FechaIngreso,
+                "ActividadRealizada" : "Visualizacion de datos",
+                "Estado" : "Activo"
+            }
+        )
+        guardarArchivo(GeneralData)
+
         boolCamper = True
         while boolCamper == True:
             boolTryCatch = True
@@ -207,8 +227,13 @@ while boolGeneral == True:
                     system("cls")
 
             elif eleccionCamper == 2: # Si la seleccion en el menu es 2, nos dara la salida del rol camper
+                PosicionIngreso = len(GeneralData[12]["RegistroEntrada"])
+                print(PosicionIngreso)
                 print("Saliendo del modulo Camper")
+                GeneralData = abrirArchivo()
+                GeneralData[12]["RegistroEntrada"][PosicionIngreso-1]["Estado"] = "Inactivo"
                 input("Presione ENTER para continuar")
+                guardarArchivo(GeneralData)
                 boolCamper = False
 
             else: # Si una opcion dada, no es la correcta nos dira que no es valida la opcion.
