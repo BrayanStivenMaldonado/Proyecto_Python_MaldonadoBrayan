@@ -4,20 +4,26 @@
         "Trainers": [
             {
                 "Nombre": "Miguel Sanchez",
-                "Ruta": ["Java"],
-                "Salon" : "Sputnik,",
+                "Ruta": [
+                    "Java"
+                ],
+                "Salon": "Sputnik,",
                 "Grupo": "T1 - T4 - T7"
             },
             {
                 "Nombre": "Jholver Garcia",
-                "Ruta": ["NetCore"],
-                "Salon" : "Apolo",
+                "Ruta": [
+                    "NetCore"
+                ],
+                "Salon": "Apolo",
                 "Grupo": "T2 - T5"
             },
             {
                 "Nombre": "Pedro Gomez",
-                "Ruta": ["NodeJS"],
-                "Salon" : "Artemis",
+                "Ruta": [
+                    "NodeJS"
+                ],
+                "Salon": "Artemis",
                 "Grupo": "T3 - T6"
             }
         ]
@@ -34,7 +40,6 @@
     {
         "Tipo": "Inscritos",
         "Estudiantes": [
-            
             {
                 "Identificador": 1,
                 "Estado": "Inscrito",
@@ -47,12 +52,12 @@
                 "Celular": 345342323,
                 "Fijo": 67545353,
                 "NotaPrueba": 0,
-                "EstadoFundamentos" : "",
-                "EstadoProWeb" : "",
-                "EstadoProFormal" : "",
-                "EstadoBasesDatos" : "",
-                "EstadoBackend" : ""
-            },        
+                "EstadoFundamentos": "",
+                "EstadoProWeb": "",
+                "EstadoProFormal": "",
+                "EstadoBasesDatos": "",
+                "EstadoBackend": ""
+            },
             {
                 "Identificador": 2,
                 "Estado": "Inscrito",
@@ -65,11 +70,11 @@
                 "Celular": 31213412,
                 "Fijo": 2984923,
                 "NotaPrueba": 0,
-                "EstadoFundamentos" : "",
-                "EstadoProWeb" : "",
-                "EstadoProFormal" : "",
-                "EstadoBasesDatos" : "",
-                "EstadoBackend" : ""
+                "EstadoFundamentos": "",
+                "EstadoProWeb": "",
+                "EstadoProFormal": "",
+                "EstadoBasesDatos": "",
+                "EstadoBackend": ""
             },
             {
                 "Identificador": 3,
@@ -83,11 +88,11 @@
                 "Celular": 2131232,
                 "Fijo": 245343,
                 "NotaPrueba": 0,
-                "EstadoFundamentos" : "",
-                "EstadoProWeb" : "",
-                "EstadoProFormal" : "",
-                "EstadoBasesDatos" : "",
-                "EstadoBackend" : ""
+                "EstadoFundamentos": "",
+                "EstadoProWeb": "",
+                "EstadoProFormal": "",
+                "EstadoBasesDatos": "",
+                "EstadoBackend": ""
             },
             {
                 "Identificador": 4,
@@ -101,11 +106,11 @@
                 "Celular": 43543542,
                 "Fijo": 25465423,
                 "NotaPrueba": 0,
-                "EstadoFundamentos" : "",
-                "EstadoProWeb" : "",
-                "EstadoProFormal" : "",
-                "EstadoBasesDatos" : "",
-                "EstadoBackend" : ""
+                "EstadoFundamentos": "",
+                "EstadoProWeb": "",
+                "EstadoProFormal": "",
+                "EstadoBasesDatos": "",
+                "EstadoBackend": ""
             },
             {
                 "Identificador": 5,
@@ -119,11 +124,11 @@
                 "Celular": "1334234",
                 "Fijo": "4353423",
                 "NotaPrueba": 0,
-                "EstadoFundamentos" : "",
-                "EstadoProWeb" : "",
-                "EstadoProFormal" : "",
-                "EstadoBasesDatos" : "",
-                "EstadoBackend" : ""
+                "EstadoFundamentos": "",
+                "EstadoProWeb": "",
+                "EstadoProFormal": "",
+                "EstadoBasesDatos": "",
+                "EstadoBackend": ""
             }
         ]
     },
@@ -157,16 +162,16 @@
                 "GrupoT3": []
             },
             {
-                "GrupoT4" : []
+                "GrupoT4": []
             },
             {
-                "GrupoT5" : []
+                "GrupoT5": []
             },
             {
-                "GrupoT6" : []
+                "GrupoT6": []
             },
             {
-                "GrupoT7" : []
+                "GrupoT7": []
             }
         ]
     },
@@ -176,79 +181,130 @@
             {
                 "Java": [
                     {
-                        "FundamentosProgramacion":["Pseint","Python", "Introduccion a la algoritmia"]
+                        "FundamentosProgramacion": [
+                            "Pseint",
+                            "Python",
+                            "Introduccion a la algoritmia"
+                        ]
                     },
                     {
-                        "ProgramacionWeb":["HTML", "CSS", "BootStrap"]
+                        "ProgramacionWeb": [
+                            "HTML",
+                            "CSS",
+                            "BootStrap"
+                        ]
                     },
                     {
-                      "ProgramacionFormal":["Java"]  
+                        "ProgramacionFormal": [
+                            "Java"
+                        ]
                     },
                     {
-                        "BaseDatos":["Mysql", "MongoDb"]
+                        "BaseDatos": [
+                            "Mysql",
+                            "MongoDb"
+                        ]
                     },
                     {
-                        "Backend": ["Node"]
+                        "Backend": [
+                            "Node"
+                        ]
                     }
-
                 ]
             },
             {
                 "NetCore": [
                     {
-                        "FundamentosProgramacion":["Pseint","Python", "Introduccion a la algoritmia"]
+                        "FundamentosProgramacion": [
+                            "Pseint",
+                            "Python",
+                            "Introduccion a la algoritmia"
+                        ]
                     },
                     {
-                        "ProgramacionWeb":["HTML", "CSS", "BootStrap"]
+                        "ProgramacionWeb": [
+                            "HTML",
+                            "CSS",
+                            "BootStrap"
+                        ]
                     },
                     {
-                      "ProgramacionFormal":["C#"]  
+                        "ProgramacionFormal": [
+                            "C#"
+                        ]
                     },
                     {
-                        "BaseDatos":["Mysql", "MongoDb"]
+                        "BaseDatos": [
+                            "Mysql",
+                            "MongoDb"
+                        ]
                     },
                     {
-                        "Backend": ["NetCore"]
+                        "Backend": [
+                            "NetCore"
+                        ]
                     }
-
                 ]
             },
             {
                 "NodeJS": [
                     {
-                        "FundamentosProgramacion":["Pseint","Python", "Introduccion a la algoritmia"]
+                        "FundamentosProgramacion": [
+                            "Pseint",
+                            "Python",
+                            "Introduccion a la algoritmia"
+                        ]
                     },
                     {
-                        "ProgramacionWeb":["HTML", "CSS", "BootStrap"]
+                        "ProgramacionWeb": [
+                            "HTML",
+                            "CSS",
+                            "BootStrap"
+                        ]
                     },
                     {
-                      "ProgramacionFormal":["JavaScript"]  
+                        "ProgramacionFormal": [
+                            "JavaScript"
+                        ]
                     },
                     {
-                        "BaseDatos":["Mysql", "MongoDb"]
+                        "BaseDatos": [
+                            "Mysql",
+                            "MongoDb"
+                        ]
                     },
                     {
-                        "Backend": ["Node"]
+                        "Backend": [
+                            "Node"
+                        ]
                     }
-
                 ]
             }
         ]
     },
     {
-        "Tipo" : "NombresRutas",
-        "NombresRutas" : ["Java","NetCore","NoteJS"]
+        "Tipo": "NombresRutas",
+        "NombresRutas": [
+            "Java",
+            "NetCore",
+            "NoteJS"
+        ]
     },
     {
-        "Tipo" : "EstudiantesAprobaronPruebaInicial",
-        "EstudiantesAprobaronPruebaInicial" : []
+        "Tipo": "EstudiantesAprobaronPruebaInicial",
+        "EstudiantesAprobaronPruebaInicial": []
     },
     {
-        "Tipo" : "RiesgoAlto",
-        "RendimientoBajo" : []
+        "Tipo": "RiesgoAlto",
+        "RendimientoBajo": []
     },
     {
         "Tipo": "Notas",
         "Notas": []
+    },
+    {
+        "Tipo": "RegitroEntrada",
+        "RegistroEntrada": [
+        ]
     }
 ]
