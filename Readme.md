@@ -22,8 +22,8 @@ En la opción 3 el Coordinador solo tendrá acceso a:
 * Añadir Notas del Modulo a los Campers.
 
 # Tecnologías utilizadas.
-- Python
-- Json
+![Python](https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue)
+![json](https://img.shields.io/badge/json-5E5C5C?style=for-the-badge&logo=json&logoColor=white)
 
 # Estructura del proyecto.
 ![EstructuraDelProyecto](image.png)
@@ -40,6 +40,9 @@ La [image.png]: contiene la estructura del proyecto.
 
 # Instrucciones.
 1. Clonar el repositorio cargado en Git.
+```bash
+git clone https://github.com/BrayanStivenMaldonado/Proyecto_Python_MaldonadoBrayanLizarazoMaria.git
+```
 2. Abrir el código con ayuda de Visual Studio Code.
 3. Poner en marcha el código.
 
