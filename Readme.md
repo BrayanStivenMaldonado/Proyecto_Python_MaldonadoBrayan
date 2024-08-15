@@ -25,3 +25,7 @@ En la opción 3 el Coordinador solo tendrá acceso a:
 - Python
 - Json
 
+# Estructura del proyecto.
+![EstructuraDelProyecto](image.png)
+
+Allí aparece todo el código y lo demás utilizado para realizar la plataforma estudiantil. Iniciando, encontraras el archivo Json [mainIndex.json], luego encontraras dos Python uno en el que hayaras todo el código terminado y listo para ejecutar [Proyecto_Python_MaldonadoBrayan_LizarazoMaria.py] y como final, encontrarás éste documento explicativo del repositorio [Readme.md].
