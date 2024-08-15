@@ -415,7 +415,8 @@ while boolGeneral == True:
     3. Crear Ruta.
     4. Añadir Ruta de Estudio a los Campers, asignacion de trainer, salon y definicion de horario.
     5. Añadir Notas del Modulo a los Campers.
-    6. Salir del modulo de coordinador.
+    6. Revisar ingresos a la plataforma
+    7. Salir del modulo de coordinador.
                 """)
                     eleccionCoordinador = int(input("¿Qué desea hacer?: "))
                     break
@@ -1764,8 +1765,20 @@ while boolGeneral == True:
                     else:
                         input("Esta no es una opcion valida, presione ENTER para continuar")
                         system("cls")
-            #====SALIR DEL MODULO DEL COORDINADOR====
+
             elif eleccionCoordinador == 6:
+                print("Reporte de ingresos al programa")
+
+                GeneralData = abrirArchivo()
+                print("Camper ID            Fecha                Actividad Realizada      Estado\n")
+                for i in GeneralData[12]["RegistroEntrada"]:
+                    print(i["CamperId"],"|",i["Fecha"],"|",i["ActividadRealizada"],"|",i["Estado"])
+                    print("")
+                input("Presione ENTER para continuar")
+                system("cls")
+
+            #====SALIR DEL MODULO DEL COORDINADOR====
+            elif eleccionCoordinador == 7:
                 print("Saliendo del modulo del coordinador")
                 input("Presione ENTER para continuar")
                 system("cls")
