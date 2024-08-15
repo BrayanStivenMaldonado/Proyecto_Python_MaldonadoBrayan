@@ -305,6 +305,12 @@
     {
         "Tipo": "RegitroEntrada",
         "RegistroEntrada": [
+            {
+                "CamperId": "Brayan123",
+                "Fecha": "2024-08-15T12:25:42.468958",
+                "ActividadRealizada": "Visualizacion de datos",
+                "Estado": "Inactivo"
+            }
         ]
     }
 ]
